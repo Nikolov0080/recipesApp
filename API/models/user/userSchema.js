@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const Model = mongoose.model;
+const bcrypt = require('bcrypt');
 
 const saltRounds = 6;
 
 const userSchema = new Schema({
     username: {
         type: String,
-        unique: true,
         required: true
     },
     email: {
@@ -18,6 +18,15 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    skillLevel: {
+        type: String,
+        required: true
+    },
+    profilePictureURL: {
+        type: String,
+        required: true
+    },
+
     favorites: [{ // type: mongoose.Schema.Types.ObjectId
         type: "ObjectId",
         ref: "Recipes"
