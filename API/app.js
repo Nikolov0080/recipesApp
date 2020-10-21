@@ -36,10 +36,10 @@ cloudinary.config({
 });
 
 
-app.use(bodyParser.json({ limit: "16mb", extended: true }));
+app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ limit: "16mb", extended: false }));
+app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/recipes', recipesRouter)
