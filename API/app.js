@@ -10,6 +10,8 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const cloudinary = require('cloudinary');
+const cors = require('cors');
+
 var app = express();
 
 require('mongoose').model;
@@ -26,16 +28,13 @@ app.engine('hbs', hbs({
   partialsDir: __dirname + '/views'
 }));
 
-
-
-
 cloudinary.config({
   cloud_name: process.env.API_CLOUD_NAME,
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
 
-
+app.use(cors());
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
