@@ -2,7 +2,6 @@ import React from 'react'
 import HomePage from '../pages/home';
 import LoginPage from '../pages/user/login';
 import RegisterPage from '../pages/user/register';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from '../components/common/header';
 import Footer from '../components/common/footer';
