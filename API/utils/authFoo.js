@@ -1,6 +1,5 @@
 const jwt = require('./jwt');
 
-
 module.exports.authFooLogged = (req, res, next) => {
 
     const cookie = req.cookies['auth'];
@@ -25,7 +24,6 @@ module.exports.authFooGuest = (req, res, next) => {
 
     if (cookie) {
         return res.send('UNAUTHORIZED');
-
     }
 
     const decodedCookie = jwt.decodeToken(cookie);
@@ -37,5 +35,6 @@ module.exports.authFooGuest = (req, res, next) => {
         }
 
     }
-    next()
+
+    next();
 }
