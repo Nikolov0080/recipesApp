@@ -13,10 +13,10 @@ module.exports.loginGet = (req, res) => { // renders the login page for tests
 
 module.exports.loginPost = (req, res) => {
 
-   const isValid = loginValidation(req.body)
+    const isValid = loginValidation(req.body)
 
     if (isValid) {
-      return  res.send(isValid)
+        return res.send(isValid)
     }
 
     const {
@@ -35,11 +35,13 @@ module.exports.loginPost = (req, res) => {
 
             if (resp) {
                 const token = jwt.createToken({ ...user._doc, secret: process.env.JWT_SECRET });
-                res.cookie("auth", token)
+                res.cookie("auth", token, { expires: new Date(Date.now() + 9999999), httpOnly: false })
+                res.header('auth', token)
                 res.send("logged in !")
             } else {
                 res.send("wrong password");
             }
         })
+
     }).catch(e => console.log(e))
 }

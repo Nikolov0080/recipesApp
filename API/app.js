@@ -33,7 +33,10 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
-app.use(cors());
+app.use(cors({
+  exposedHeaders:"auth"
+}));
+ 
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
@@ -41,7 +44,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/recipes', recipesRouter)
-app.use('/api/', indexRouter);
+app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 ///
 app.use(fileUpload({
