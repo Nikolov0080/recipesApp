@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Input from '../../common/input/input';
 import { Button } from 'react-bootstrap';
 import registerFunc from '../../../controllers/user/POST/register';
+import InputFile from '../../common/input/inputFile';
 
 const RegisterForm = () => {
 
@@ -10,10 +11,14 @@ const RegisterForm = () => {
     const [rePassword, setRePassword] = useState('');
     const [email, setEmail] = useState('');
     const [skillLevel, setSkillLevel] = useState('');
-    const [profilePicture, setProfilePicture] = useState('');
+    const [profilePicture, setProfilePicture] = useState(undefined);
+
+    const handleFile = (pic) => {
+        setProfilePicture(pic)
+    }
 
     const handleSubmit = () => {
-        registerFunc(username, password, email, skillLevel, profilePicture).then((resp)=>[
+        registerFunc(username, password, email, skillLevel, profilePicture).then((resp) => [
             console.log(resp)
         ])
     }
@@ -25,7 +30,9 @@ const RegisterForm = () => {
             <Input name="rePassword" func={setRePassword} label="rePassword" type="password" />
             <Input name="email" func={setEmail} label="email" type="email" />
             <Input name="skillLevel" func={setSkillLevel} label="skillLevel" type="number" />
-            <Input name="profilePicture" func={setProfilePicture} label="profilePicture" type="file" />
+            <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" />
+
+
             <Button onClick={handleSubmit} >Register</Button>
         </div>
     )
