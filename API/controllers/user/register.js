@@ -32,7 +32,7 @@ module.exports.registerPost = (req, res) => {
             const profilePic = req.file;
 
             if (!profilePic) {
-                return res.send("Profile pic is required");
+                return res.status(417).send("Profile pic is required");
             } else {
                 saveProfilePicture(profilePic.filename).then((resp) => {
                     return resp;
@@ -52,12 +52,14 @@ module.exports.registerPost = (req, res) => {
                         if (response) {
 
                             const token = jwt.createToken({ ...response._doc, secret: process.env.JWT_SECRET });
-                            res.cookie("auth", token);
+                            res.cookie("auth", token, { expires: new Date(Date.now() + 9999999), httpOnly: false })
+                            res.header('auth', token);
+
                         } else {
                             console.log("SOMETHING WENT WRONG");
                         }
                     }).then(() => {
-
+                        console.log('djsfh')
                         res.redirect('/?registered!!!');
                     }).catch(e => {
 
