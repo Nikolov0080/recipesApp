@@ -5,11 +5,12 @@ import loginFunc from '../../../controllers/user/POST/login';
 
 const LoginForm = () => {
 
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const loginUser = () => {
         loginFunc(username, password).then((resp) => {
+            console.log(resp)
             if (resp.status === "Error") {
                 console.log(`Error: ${resp.data}`);
                 // TODO handle the error with notification or something...

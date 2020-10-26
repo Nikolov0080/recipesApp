@@ -4,12 +4,14 @@ const validator = require('validator').default;
 
 exports.loginValidation = ({ username, password }) => {
     // validations just for the length TODO - more validations
+console.log(`un ${username}`)
+console.log(`ps ${password}`)
 
-    if (validator.isEmpty(username)) {
+    if (validator.isEmpty(username) || username === undefined) {
         return 'username - Empty???';
     }
 
-    if (validator.isEmpty(password, )) {
+    if (validator.isEmpty(password) || password === undefined) {
         return 'password - Empty???';
     }
 

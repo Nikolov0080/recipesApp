@@ -12,11 +12,13 @@ module.exports.loginGet = (req, res) => { // renders the login page for tests
 }
 
 module.exports.loginPost = (req, res) => {
- if (Object.keys(req.body).length === 0) {
 
-       return res.send("Enter username and password");
+    
 
+    if (Object.keys(req.body).length === 0) {
+        return res.send("Enter username and password");
     }
+
     const isValid = loginValidation(req.body)
 
     if (isValid) {
@@ -27,9 +29,6 @@ module.exports.loginPost = (req, res) => {
         username,
         password
     } = req.body;
-
-   
-
     userSchema.findOne({ username }).then((user) => {
 
         if (user === null) {

@@ -24,5 +24,9 @@ export default (username, password) => {
 
     }).catch((err) => {
         console.log(err);
+        return {
+            status:"Error",
+            data:"Error"
+        }
     });
 }
