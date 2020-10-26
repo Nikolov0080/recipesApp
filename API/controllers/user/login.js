@@ -13,8 +13,6 @@ module.exports.loginGet = (req, res) => { // renders the login page for tests
 
 module.exports.loginPost = (req, res) => {
 
-    
-
     if (Object.keys(req.body).length === 0) {
         return res.send("Enter username and password");
     }
@@ -32,7 +30,7 @@ module.exports.loginPost = (req, res) => {
     userSchema.findOne({ username }).then((user) => {
 
         if (user === null) {
-            res.send("wrong password");
+            res.send("wrong password or username");
             return;
         }
 
