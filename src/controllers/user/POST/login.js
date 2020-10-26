@@ -1,32 +1,20 @@
-const axios = require('axios').default;
-
+import setCookie from '../../utils/setCookie';
+// const axios = require('axios').default;
 // axios.defaults.withCredentials = true
+import axios from 'axios'
 export default (username, password) => {
-    return axios.post('http://localhost:5000/api/users/login', {
+    return axios.default.post('http://localhost:5000/api/users/login', {
         username: username,
         password: password
     }).then((resp) => {
 
-        const isLogged = resp.headers.hasOwnProperty('auth');
-
-        if (isLogged) {
-            document.cookie = "auth=" + resp.headers.auth;
-            return {
-                status: "Status: OK",
-                data: resp.data
-            }
-        }
-
-        return {
-            status: "Error",
-            data: resp.data
-        }
+        return setCookie(resp);
 
     }).catch((err) => {
         console.log(err);
         return {
-            status:"Error",
-            data:"Error"
+            status: "Error",
+            data: "Error"
         }
     });
 }
