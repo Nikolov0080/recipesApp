@@ -9,7 +9,16 @@ const LoginForm = () => {
     const [password, setPassword] = useState();
 
     const loginUser = () => {
-        loginFunc(username,password)
+        loginFunc(username, password).then((resp) => {
+            if (resp.status === "Error") {
+                console.log(`Error: ${resp.data}`);
+                // TODO handle the error with notification or something...
+            } else {
+                console.log(resp.status)
+                console.log(resp.data)
+                // TODO on successful login stuff...
+            }
+        })
     }
 
     return (
