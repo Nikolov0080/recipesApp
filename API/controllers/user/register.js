@@ -60,12 +60,10 @@ console.log(req.file)
                             console.log("SOMETHING WENT WRONG");
                         }
                     }).then(() => {
-                        
                         res.send('registered!');
                     }).catch(e => {
 
                         console.log(e)
-
                         return res.send(e._message)
                     })
 
