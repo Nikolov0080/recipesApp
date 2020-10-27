@@ -11,8 +11,9 @@ module.exports.registerGet = (req, res) => {
 module.exports.registerPost = (req, res) => {
 
     upload.single('profilePicture')(req, res, async (err) => {
-
-        const isValid = registerValidator(req.body)
+console.log(req.body)
+console.log(req.file)
+        const isValid = registerValidator(req.body);
 
         if (isValid) {
             return res.send(isValid);
@@ -32,7 +33,7 @@ module.exports.registerPost = (req, res) => {
             const profilePic = req.file;
 
             if (!profilePic) {
-                return res.status(417).send("Profile pic is required");
+                return res.status(201).send("Profile pic is required");
             } else {
                 saveProfilePicture(profilePic.filename).then((resp) => {
                     return resp;
@@ -59,8 +60,8 @@ module.exports.registerPost = (req, res) => {
                             console.log("SOMETHING WENT WRONG");
                         }
                     }).then(() => {
-                        console.log('djsfh')
-                        res.redirect('/?registered!!!');
+                        
+                        res.send('registered!');
                     }).catch(e => {
 
                         console.log(e)

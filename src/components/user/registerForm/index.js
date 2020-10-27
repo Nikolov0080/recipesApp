@@ -11,14 +11,14 @@ const RegisterForm = () => {
     const [rePassword, setRePassword] = useState('');
     const [email, setEmail] = useState('');
     const [skillLevel, setSkillLevel] = useState('');
-    const [profilePicture, setProfilePicture] = useState(undefined);
+    const [profilePicture, setProfilePicture] = useState('');
 
     const handleFile = (pic) => {
         setProfilePicture(pic)
     }
 
     const handleSubmit = () => {
-        registerFunc(username, password, email, skillLevel, profilePicture).then((resp) => [
+        registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => [
             console.log(resp)
         ])
     }
@@ -31,7 +31,6 @@ const RegisterForm = () => {
             <Input name="email" func={setEmail} label="email" type="email" />
             <Input name="skillLevel" func={setSkillLevel} label="skillLevel" type="number" />
             <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" />
-
 
             <Button onClick={handleSubmit} >Register</Button>
         </div>
