@@ -16,23 +16,17 @@ export default (username, password, rePassword, email, skillLevel, profilePictur
     (if possible front-to-back sending progress)
    */
 
-    var config = {
-        onUploadProgress: function (progressEvent) {
-            var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            console.log(percentCompleted)
-        }
-    };
-
     return axios.default.post('http://localhost:5000/api/users/register',
 
         formData
 
-        , config
-
     ).then((resp) => {
+        // TOTO set response of this function with status etc...
 
-        return setCookie(resp);
-
+        return {
+            status: resp.status,
+            data: setCookie(resp)
+        }
     }).catch((err) => {
         console.log(err);
         return {

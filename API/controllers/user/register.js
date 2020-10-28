@@ -11,8 +11,8 @@ module.exports.registerGet = (req, res) => {
 module.exports.registerPost = (req, res) => {
 
     upload.single('profilePicture')(req, res, async (err) => {
-console.log(req.body)
-console.log(req.file)
+        console.log(req.body)
+        console.log(req.file)
         const isValid = registerValidator(req.body);
 
         if (isValid) {
@@ -33,7 +33,7 @@ console.log(req.file)
             const profilePic = req.file;
 
             if (!profilePic) {
-                return res.status(201).send("Profile pic is required");
+                return res.status(200).send("Profile pic is required");
             } else {
                 saveProfilePicture(profilePic.filename).then((resp) => {
                     return resp;
@@ -60,7 +60,7 @@ console.log(req.file)
                             console.log("SOMETHING WENT WRONG");
                         }
                     }).then(() => {
-                        res.send('registered!');
+                        res.status(201).send('registered!');
                     }).catch(e => {
 
                         console.log(e)
