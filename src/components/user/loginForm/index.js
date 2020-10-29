@@ -12,6 +12,9 @@ const LoginForm = () => {
     const history = useHistory();
 
     const loginUser = () => {
+
+        
+
         loginFunc(username, password).then((resp) => {
             console.log(resp)
             if (resp.status === "Error") {

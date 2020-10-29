@@ -12,7 +12,7 @@ module.exports.registerPost = (req, res) => {
 
     upload.single('profilePicture')(req, res, async (err) => {
         console.log(req.body)
-        console.log(req.file)
+        // console.log(req.file)
         const isValid = registerValidator(req.body);
 
         if (isValid) {

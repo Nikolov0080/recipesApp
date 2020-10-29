@@ -18,6 +18,7 @@ const RegisterForm = () => {
     }
 
     const handleSubmit = () => {
+
         registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => [
             console.log(resp)
         ])

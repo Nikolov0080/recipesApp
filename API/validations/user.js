@@ -25,6 +25,10 @@ exports.loginValidation = ({ username, password }) => {
 
 exports.registerValidator = ({ username, password, rePassword, email, skillLevel }) => {
 
+    // if (password !== rePassword) {
+    //     return "password and re-Password do not match"
+    // }
+
     if (validator.isEmpty(username)) {
         return 'username - Empty???';
     }
@@ -49,7 +53,7 @@ exports.registerValidator = ({ username, password, rePassword, email, skillLevel
         return 'password - invalid length';
     }
 
-    if (!validator.matches(password, rePassword)) {
+    if (!validator.equals(password, rePassword)) {
         return 'password and Repeat password must match';
     }
 
