@@ -56,7 +56,7 @@ exports.registerValidator = ({ username, password, rePassword, email, skillLevel
     if (!validator.equals(password, rePassword)) {
         return 'password and Repeat password must match';
     }
-
+ 
     if (!validator.isEmail(email)) {
         return "email must be an Email => example@prov.com";
     }
