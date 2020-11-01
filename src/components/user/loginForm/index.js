@@ -10,44 +10,51 @@ const LoginForm = () => {
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(false);
     const [isValid, setIsValid] = useState(false);
+    const [error, setError] = useState(false);
+    const [displayError, setDisplayError] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        if (KeyboardEvent) {
-    
-           loginValidator(username, password) === false 
-           ? setIsValid(true)
-           : setIsValid(false)
-    
-           console.log(isValid)
+        if (KeyboardEvent || MouseEvent) { // setting validation error
+            setError(loginValidator(username, password))
+            loginValidator(username, password) === false
+                ? setIsValid(true)
+                : setIsValid(false)
+            console.log(isValid)
         }
-    },[password,username,isValid]);
+
+    }, [password, username, isValid]);
 
 
     const loginUser = () => {
 
-
-        loginFunc(username, password).then((resp) => {
-            console.log(resp)
-            if (resp.status === "Error") {
-                console.log(`Error: ${resp.data}`);
-                // TODO handle the error with notification or something...
-                setError(resp.data)
-            } else {
-                console.log(resp.status)
-                console.log(resp.data)
-                setError(false);
-                history.push('/');
-                // TODO on successful login stuff...
-            }
-        })
+        if (isValid) {
+            loginFunc(username, password).then((resp) => {
+                console.log(resp)
+                if (resp.status === "Error") {
+                    console.log(`Error: ${resp.data}`);
+                    // TODO handle the error with notification or something...
+                    setError(resp.data)
+                } else {
+                    console.log(resp.status)
+                    console.log(resp.data)
+                    setError(false);
+                    history.push('/');
+                    // TODO on successful login stuff...
+                }
+            })
+            setError(false);
+            setDisplayError(false);
+        } else {
+            console.log(error);
+            setDisplayError(true)
+        }
     }
 
     return (
         <div>
-            {error !== false ? <p>{error}</p> : ''}
+            {displayError !== false ? <p>{error}</p> : ''}
             <Input func={setUsername} name="username" label="Username" type="text" />
             <Input func={setPassword} name="password" label="Password" type="password" />
             <Button onClick={loginUser}>Login</Button>
