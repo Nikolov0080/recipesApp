@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator').default;
 
 exports.loginValidation = ({ username, password }) => {
-    // validations just for the length TODO - more validations
-
+   
     if (validator.isEmpty(username) || username === undefined) {
         return 'username - Empty???';
     }
@@ -24,10 +23,6 @@ exports.loginValidation = ({ username, password }) => {
 }
 
 exports.registerValidator = ({ username, password, rePassword, email, skillLevel }) => {
-
-    // if (password !== rePassword) {
-    //     return "password and re-Password do not match"
-    // }
 
     if (validator.isEmpty(username)) {
         return 'username - Empty???';

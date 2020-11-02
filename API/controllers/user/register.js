@@ -9,10 +9,9 @@ module.exports.registerGet = (req, res) => {
 }
 
 module.exports.registerPost = (req, res) => {
-
+    
     upload.single('profilePicture')(req, res, async (err) => {
         console.log(req.body)
-        // console.log(req.file)
         const isValid = registerValidator(req.body);
 
         if (isValid) {
@@ -33,7 +32,31 @@ module.exports.registerPost = (req, res) => {
             const profilePic = req.file;
 
             if (!profilePic) {
-                return res.status(200).send("Profile pic is required");
+                async function saveUser() {
+                    return await userSchema.create({ username, email, password, skillLevel, profilePictureURL: 'no image' }).catch((err) => {
+                        console.log(err.code);
+                        console.log("something went wrong with registration...");
+                    })
+                }
+
+                saveUser().then((response) => {
+
+                    if (response) {
+
+                        const token = jwt.createToken({ ...response._doc, secret: process.env.JWT_SECRET });
+                        res.cookie("auth", token, { httpOnly: false })
+                        res.header('auth', token);
+
+                    } else {
+                        console.log("SOMETHING WENT WRONG");
+                    }
+                }).then(() => {
+                    res.status(201).send('registered!');
+                }).catch(e => {
+
+                    console.log(e)
+                    return res.send(e._message)
+                })
             } else {
                 saveProfilePicture(profilePic.filename).then((resp) => {
                     return resp;
@@ -48,12 +71,12 @@ module.exports.registerPost = (req, res) => {
                         })
                     }
 
-                    saveUser().then(async (response) => {
+                    saveUser().then((response) => {
 
                         if (response) {
 
                             const token = jwt.createToken({ ...response._doc, secret: process.env.JWT_SECRET });
-                            res.cookie("auth", token, { expires: new Date(Date.now() + 9999999), httpOnly: false })
+                            res.cookie("auth", token, { httpOnly: false })
                             res.header('auth', token);
 
                         } else {

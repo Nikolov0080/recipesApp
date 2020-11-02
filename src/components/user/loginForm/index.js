@@ -16,8 +16,9 @@ const LoginForm = () => {
 
     useEffect(() => {
 
-        if (KeyboardEvent || MouseEvent) { // setting validation error
+        if (KeyboardEvent || MouseEvent) { // setting validation error ot key ot mouse press
             setError(loginValidator(username, password))
+
             loginValidator(username, password) === false
                 ? setIsValid(true)
                 : setIsValid(false)
@@ -29,7 +30,7 @@ const LoginForm = () => {
 
     const loginUser = () => {
 
-        if (isValid) {
+        if (isValid) {// if valid to login
             loginFunc(username, password).then((resp) => {
                 console.log(resp)
                 if (resp.status === "Error") {
@@ -44,8 +45,8 @@ const LoginForm = () => {
                     // TODO on successful login stuff...
                 }
             })
-            setError(false);
-            setDisplayError(false);
+            setError(false); // clean the error
+            setDisplayError(false); // hide the error
         } else {
             console.log(error);
             setDisplayError(true)
