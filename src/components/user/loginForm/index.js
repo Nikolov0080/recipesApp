@@ -1,12 +1,15 @@
 import { Button } from 'react-bootstrap';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Input from '../../common/input/input';
 import loginFunc from '../../../controllers/user/POST/login';
 import { useHistory } from 'react-router-dom';
 import loginValidator from '../../../validations/user/login';
+import UserContext from '../../../context/userContext';
+import readCookie from '../../../utils/readCookie';
 
 const LoginForm = () => {
 
+    const context = useContext(UserContext)
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -14,6 +17,10 @@ const LoginForm = () => {
     const [error, setError] = useState(false);
     const [displayError, setDisplayError] = useState(false);
 
+
+    
+    
+    readCookie(document.cookie)
     useEffect(() => {
 
         if (KeyboardEvent || MouseEvent) { // setting validation error ot key ot mouse press
