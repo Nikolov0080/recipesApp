@@ -2,18 +2,21 @@ import React, { useState } from 'react'
 import UserContext from './userContext'
 import axios from "axios";
 import deleteCookie from '../utils/deleteCookie';
-
+import Cookies from 'js-cookies';
 
 const SessionContext = (props) => {
 
-    const [user, setUser] = useState('guest')
+    const [user, setUser] = useState('guest');
 
     const signIn = (userData) => {
         setUser(userData);
     }
 
+    const checkAuth = () => {
+    }
+
     const signOut = () => {
-        
+
         return axios('http://localhost:5000/api/users/logout', {
             method: 'GET',
         }).then((resp) => {

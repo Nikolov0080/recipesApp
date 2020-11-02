@@ -17,10 +17,13 @@ const LoginForm = () => {
     const [error, setError] = useState(false);
     const [displayError, setDisplayError] = useState(false);
 
+    const authUser = () => {
+        const userData = readCookie(document.cookie);
+        context.signIn(userData);
+    }
 
-    
-    
-    readCookie(document.cookie)
+
+
     useEffect(() => {
 
         if (KeyboardEvent || MouseEvent) { // setting validation error ot key ot mouse press
@@ -34,7 +37,6 @@ const LoginForm = () => {
 
     }, [password, username, isValid]);
 
-
     const loginUser = () => {
 
         if (isValid) {// if valid to login
@@ -47,6 +49,7 @@ const LoginForm = () => {
                 } else {
                     console.log(resp.status)
                     console.log(resp.data)
+                    authUser();
                     setError(false);
                     history.push('/');
                     // TODO on successful login stuff...
