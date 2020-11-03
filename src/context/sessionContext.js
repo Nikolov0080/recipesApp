@@ -8,23 +8,21 @@ import readCookie from '../utils/readCookie';
 const SessionContext = (props) => {
 
     const [user, setUser] = useState('guest');
-
+// FIX IT IN A FUNCTION 15 LINES BELOW
     // decoding th cookie
     const decodedCookie = readCookie(Cookies.getItem('auth'));
     // checking the if JWT data contains secret value 
     const isLogged = JSON.stringify(decodedCookie).includes('"secret":"meow"');
 
     useEffect(() => {
-        if (isLogged) {
-            setUser(decodedCookie);
-        }
+        setUser(decodedCookie);
         // eslint-disable-next-line
-    }, [])
+    }, [isLogged]);
 
     const signIn = (userData) => {
         setUser(userData);
     }
-
+    console.log(565656)
     const signOut = () => {
 
         return axios('http://localhost:5000/api/users/logout', {
