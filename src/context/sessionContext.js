@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import UserContext from './userContext'
 import axios from "axios";
 import deleteCookie from '../utils/deleteCookie';
 import Cookies from 'js-cookies';
+import readCookie from '../utils/readCookie';
 
 const SessionContext = (props) => {
 
     const [user, setUser] = useState('guest');
 
+    // decoding th cookie
+    const decodedCookie = readCookie(Cookies.getItem('auth'));
+    // checking the if JWT data contains secret value 
+    const isLogged = JSON.stringify(decodedCookie).includes('"secret":"meow"');
+
+    useEffect(() => {
+        if (isLogged) {
+            setUser(decodedCookie);
+        }
+        // eslint-disable-next-line
+    }, [])
+
     const signIn = (userData) => {
         setUser(userData);
-    }
-
-    const checkAuth = () => {
     }
 
     const signOut = () => {
@@ -26,7 +36,6 @@ const SessionContext = (props) => {
             console.log(err)
         })
     }
-
 
     return (
         <UserContext.Provider
@@ -44,4 +53,4 @@ const SessionContext = (props) => {
     )
 }
 
-export default SessionContext
+export default SessionContext;
