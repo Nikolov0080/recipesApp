@@ -10,7 +10,7 @@ const SessionContext = (props) => {
     const [user, setUser] = useState('guest');
     const authUser = () => {
         if (Cookies.getItem('auth')) { //checking for cookie existence
-            console.log("###########")
+            console.log("########### === check 4 cookie on page reload (-;")
             // decoding th cookie
             const decodedCookie = readCookie(Cookies.getItem('auth'));
             // checking the if JWT data contains secret value 
@@ -54,7 +54,6 @@ const SessionContext = (props) => {
                 {props.children}
             </div>
         </UserContext.Provider>
-
     )
 }
 
