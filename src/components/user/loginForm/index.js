@@ -32,7 +32,6 @@ const LoginForm = () => {
             loginValidator(username, password) === false
                 ? setIsValid(true)
                 : setIsValid(false)
-            console.log(isValid)
         }
 
     }, [password, username, isValid]);

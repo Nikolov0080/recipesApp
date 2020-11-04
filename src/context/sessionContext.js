@@ -8,10 +8,9 @@ import readCookie from '../utils/readCookie';
 const SessionContext = (props) => {
 
     const [user, setUser] = useState('guest');
-    // FIX AUTH ERR BELOW
     const authUser = () => {
         if (Cookies.getItem('auth')) { //checking for cookie existence
-            console.log(user)
+            console.log("###########")
             // decoding th cookie
             const decodedCookie = readCookie(Cookies.getItem('auth'));
             // checking the if JWT data contains secret value 
@@ -22,15 +21,15 @@ const SessionContext = (props) => {
             return "guest"
         }
     }
+
     useEffect(() => {
         setUser(authUser());
-        // eslint-disable-next-line
     }, []);
 
     const signIn = (userData) => {
         setUser(userData);
     }
-    console.log('session check for infinity-loop')
+
     const signOut = () => {
 
         return axios('http://localhost:5000/api/users/logout', {
