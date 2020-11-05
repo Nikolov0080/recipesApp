@@ -11,7 +11,7 @@ class ErrorBoundary extends Component {
         // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }
-// TODO COMPLETE THE DIFFERENT ERRORS WITH THE BOUNDARY
+    // TODO COMPLETE THE DIFFERENT ERRORS WITH THE BOUNDARY
     componentDidCatch(error, errorInfo) {
         // You can also log the error to an error reporting service
         logErrorToMyService(error, errorInfo);

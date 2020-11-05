@@ -36,8 +36,8 @@ const LoginForm = () => {
 
     }, [password, username, isValid]);
 
-    const loginUser = () => {
-
+    const loginUser = (e) => {
+        e.preventDefault();
         if (isValid) {// if valid to login
             loginFunc(username, password).then((resp) => {
                 console.log(resp)
@@ -65,9 +65,12 @@ const LoginForm = () => {
     return (
         <div>
             {displayError !== false ? <p>{error}</p> : ''}
-            <Input func={setUsername} name="username" label="Username" type="text" />
-            <Input func={setPassword} name="password" label="Password" type="password" />
-            <Button onClick={loginUser}>Login</Button>
+            <form onSubmit={(e) => loginUser(e)}>
+                <Input func={setUsername} name="username" label="Username" type="text" />
+                <Input func={setPassword} name="password" label="Password" type="password" />
+                <Button type="submit" >Login</Button>
+            </form>
+
         </div>
     )
 }

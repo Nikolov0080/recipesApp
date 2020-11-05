@@ -19,8 +19,8 @@ const RegisterForm = () => {
         setProfilePicture(pic)
     }
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+e.preventDefault();
         const isValid = registerValidator(username, password, rePassword,email,skillLevel)
         console.log(isValid);
         registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => [
@@ -30,14 +30,17 @@ const RegisterForm = () => {
 
     return (
         <div>
-            <Input name="username" func={setUsername} label="username" type="text" />
+            <form onSubmit={(e)=>handleSubmit(e)}>
+                 <Input name="username" func={setUsername} label="username" type="text" />
             <Input name="password" func={setPassword} label="password" type="password" />
             <Input name="rePassword" func={setRePassword} label="rePassword" type="password" />
             <Input name="email" func={setEmail} label="email" type="email" />
             <Input name="skillLevel" func={setSkillLevel} label="skillLevel" type="number" />
             <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" />
 
-            <Button onClick={handleSubmit} >Register</Button>
+            <Button type="submit" >Register</Button>
+            </form>
+           
         </div>
     )
 }
