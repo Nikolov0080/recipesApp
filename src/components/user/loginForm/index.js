@@ -22,8 +22,6 @@ const LoginForm = () => {
         context.signIn(userData);
     }
 
-
-
     useEffect(() => {
 
         if (KeyboardEvent || MouseEvent) { // setting validation error ot key ot mouse press
@@ -43,6 +41,7 @@ const LoginForm = () => {
                 console.log(resp)
                 if (resp.status === "Error") {
                     console.log(`Error: ${resp.data}`);
+                    setDisplayError(true)
                     // TODO handle the error with notification or something...
                     setError(resp.data)
                 } else {
@@ -66,11 +65,11 @@ const LoginForm = () => {
         <div>
             {displayError !== false ? <p>{error}</p> : ''}
             <form onSubmit={(e) => loginUser(e)}>
+                {/* {new ErrorEvent('Error')} TEST */}
                 <Input func={setUsername} name="username" label="Username" type="text" />
                 <Input func={setPassword} name="password" label="Password" type="password" />
                 <Button type="submit" >Login</Button>
             </form>
-
         </div>
     )
 }

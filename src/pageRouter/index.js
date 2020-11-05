@@ -3,15 +3,14 @@ import HomePage from '../pages/home';
 import LoginPage from '../pages/user/login';
 import RegisterPage from '../pages/user/register';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from '../components/common/header';
-import Footer from '../components/common/footer';
 import SessionContext from '../context/sessionContext';
+import Layout from '../components/common/layout/index';
 
 const PageRouter = () => {
     return (
         <div>
             <Router>
-                <Header>
+                <Layout>
                     <Switch>
                         <SessionContext>
                             <Route exact path="/" component={HomePage} />
@@ -19,8 +18,7 @@ const PageRouter = () => {
                             <Route exact path="/register" component={RegisterPage} />
                         </SessionContext>
                     </Switch>
-                </Header>
-                <Footer />
+                </Layout>
             </Router>
         </div>
     )
