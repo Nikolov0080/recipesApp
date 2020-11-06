@@ -7,8 +7,8 @@ exports.recipesValidations = (recipe) => {
         return 'fill recipe name'
     }
 
-    if (validator.isEmpty(recipe.products, { ignore_whitespace: false })) {
-        return 'fill products'
+    if (validator.isEmpty(recipe.ingredients, { ignore_whitespace: false })) {
+        return 'fill ingredients'
     }
 
     if (validator.isEmpty(recipe.prepTime, { ignore_whitespace: false })) {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PageRouter from "./pageRouter/index";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/united/bootstrap.min.css";
 ReactDOM.render(
   <React.StrictMode>
     <PageRouter />

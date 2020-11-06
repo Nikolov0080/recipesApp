@@ -8,9 +8,9 @@ const recipeSchema = new Schema({
         type: String,
         require: true
     },
-
-    products: {
-        type: String,
+//TODO
+    ingredients: { // make it array [  ingredients  ]
+        type: Array, /// walk on the three and make it array from the input
         require: true
     },
     prepTime: {
@@ -21,7 +21,7 @@ const recipeSchema = new Schema({
         require: true,
         type: String,
     },
-    directions: {
+    directions: { // make it array with "steps"
         type: String,
         require: true
     },

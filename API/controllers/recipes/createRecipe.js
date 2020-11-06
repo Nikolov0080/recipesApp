@@ -28,7 +28,7 @@ module.exports.createRecipe = (req, res, next) => {
 
             const {
                 recipeName,
-                products,
+                ingredients,
                 prepTime,
                 cookTime,
                 directions,
@@ -39,7 +39,7 @@ module.exports.createRecipe = (req, res, next) => {
             async function saveRecipe(imageURL) {
                 return await recipeSchema.create({
                     recipeName,
-                    products,
+                    ingredients,
                     prepTime,
                     cookTime,
                     directions,
