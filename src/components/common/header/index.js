@@ -1,13 +1,10 @@
 import React from 'react'
-import HeaderLinks from './links'
+import GuestLinks from './guestLinks'
 
-const Header = (props) => {
+const Header = () => {
     return (
         <div>
-         
-                <HeaderLinks />
-          
-            {props.children}
+                <GuestLinks />
         </div>
     )
 }

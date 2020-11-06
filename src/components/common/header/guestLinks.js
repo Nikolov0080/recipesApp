@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const HeaderLinks = () => {
+const GuestLinks = () => {
     return (
         <div>
             <ul>
@@ -22,4 +22,4 @@ const HeaderLinks = () => {
     )
 }
 
-export default HeaderLinks;
+export default GuestLinks;

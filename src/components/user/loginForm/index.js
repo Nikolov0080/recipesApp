@@ -39,6 +39,7 @@ const LoginForm = () => {
         if (isValid) {// if valid to login
             loginFunc(username, password).then((resp) => {
                 console.log(resp)
+                setError(resp.data)
                 if (resp.status === "Error") {
                     console.log(`Error: ${resp.data}`);
                     setDisplayError(true)
