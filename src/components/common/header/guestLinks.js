@@ -1,23 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+// LinkContainer makes SPA functionality in the Navigation
 
 const GuestLinks = () => {
     return (
         <div>
-            <ul>
-                <li>
-                    <Link as="button" to="/" >home</Link>
-                </li>
+            <Nav >
+                <LinkContainer to="/login">
+                    <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
 
-                <li>
-                    <Link to="/login" >login</Link>
-                </li>
-
-                <li>
-                    <Link to="/register" >register</Link>
-                </li>
-            </ul>
-
+                <LinkContainer to="/register">
+                    <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
+            </Nav>
         </div>
     )
 }
