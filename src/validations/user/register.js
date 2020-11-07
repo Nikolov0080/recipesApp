@@ -44,7 +44,7 @@ export default (username, password, rePassword, email, skillLevel,profilePicture
         return 'Skill Level empty'
     }
 
-    if (!(+skillLevel > 1 && +skillLevel < 10)) {
+    if (!(+skillLevel >= 1 && +skillLevel <= 10)) {
         return 'Skill Level must be from 1 to 10'
     }
     // SKILL LEVEL
