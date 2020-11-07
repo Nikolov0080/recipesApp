@@ -18,8 +18,7 @@ const RegisterForm = () => {
     const [file, setFile] = useState('null');
 
     const handleFile = (pic) => {
-        // console.log(pic + "@@@@@@@@")
-        console.log()
+        // TODO image preview functionality in new file to be reused in other pages !
         setFile(URL.createObjectURL(pic))
         setProfilePicture(pic)
     }
