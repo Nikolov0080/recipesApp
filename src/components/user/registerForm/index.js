@@ -15,9 +15,12 @@ const RegisterForm = () => {
     const [profilePicture, setProfilePicture] = useState('no image');
     const [displayErr, setDisplayErr] = useState(false);
     const [error, setError] = useState('');
+    const [file, setFile] = useState('null');
 
     const handleFile = (pic) => {
         // console.log(pic + "@@@@@@@@")
+        console.log()
+        setFile(URL.createObjectURL(pic))
         setProfilePicture(pic)
     }
 
@@ -50,6 +53,7 @@ const RegisterForm = () => {
                 {/* {new Error()} test */}
                 <br />
                 <Button type="submit" >Register</Button>
+                <img alt="fuck" src={file} />
             </form>
 
         </div>
