@@ -6,12 +6,11 @@ class RegisterPage extends Component {
 
     render() {
         return (
-            <div>
+            <div className="text-center">
                 <ErrorBoundary message="while loading or trying to register , please reload the page and try again">
                     <h1>Register page</h1>
                     <RegisterForm />
                 </ErrorBoundary>
-
             </div>
         )
     }

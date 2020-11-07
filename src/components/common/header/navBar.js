@@ -8,11 +8,11 @@ import style from './header.module.css';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from './logo.ico';
 
-const authBypass = false;
+const authBypass = true;
 
 const Navigation = () => {
     return (
-        <div className="text-center">
+        <div className="text-center" style={{boxShadow:"1px 1px 6px gray"}}>
 
             <Navbar collapseOnSelect expand="lg" bg="light" >
                 <LinkContainer to='/'>

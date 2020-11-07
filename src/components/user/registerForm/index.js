@@ -48,6 +48,7 @@ const RegisterForm = () => {
                 <Input name="skillLevel" func={setSkillLevel} label="skillLevel" type="number" />
                 <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" />
                 {/* {new Error()} test */}
+                <br />
                 <Button type="submit" >Register</Button>
             </form>
 
