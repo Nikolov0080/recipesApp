@@ -20,6 +20,8 @@ const RegisterForm = () => {
 
     const handleFile = (image) => {
         // TODO image preview functionality in new file to be reused in other pages !
+        console.log(image)
+
 
         setFile(image)
         setProfilePicture(image)
