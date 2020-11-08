@@ -1,9 +1,15 @@
-.input_style {
-    width: 27%;
+.input_text, .input_number {
+  text-align: center;
+}
+.input_number {
+ width:50px;
+}
+.input_text {
+  width: 27%;
 }
 
 @media only screen and (max-width: 600px) {
-    .input_style {
-      background-color: lightblue;
-    }
+  .input_text {
+    background-color: lightblue;
   }
+}

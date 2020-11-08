@@ -1,6 +1,6 @@
 import validator from 'validator';
 
-export default (username, password, rePassword, email, skillLevel,profilePicture) => {
+export default (username, password, rePassword, email, skillLevel, profilePicture) => {
 
     // USERNAME
     if (validator.isEmpty(username)) {
@@ -43,14 +43,10 @@ export default (username, password, rePassword, email, skillLevel,profilePicture
     if (validator.isEmpty(skillLevel)) {
         return 'Skill Level empty'
     }
-
-    if (!(+skillLevel >= 1 && +skillLevel <= 10)) {
-        return 'Skill Level must be from 1 to 10'
-    }
     // SKILL LEVEL
 
     // PROFILE PICTURE
-  // not required
+    // not required
     // PROFILE PICTURE
 
     return false;
