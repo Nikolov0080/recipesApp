@@ -1,11 +1,14 @@
 import React from 'react'
+import style from "./input.module.css";
 
-
-const InputFile = ({ label, func, name, type }) => {
+const InputFile = (props) => {
     return (
         <div>
-            <label>{label}</label>
-            <input onChange={func} name={name} type={type} />
+            <label>
+            {props.children}
+               <input className={style.input_file} onChange={props.func} name={props.name} type={props.type} />
+            </label>
+
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import registerFunc from '../../../controllers/user/POST/register';
 import InputFile from '../../common/input/inputFile';
 import registerValidator from '../../../validations/user/register';
+import ImagePreview from '../../common/imagePreview';
 
 const RegisterForm = () => {
 
@@ -15,12 +16,13 @@ const RegisterForm = () => {
     const [profilePicture, setProfilePicture] = useState('no image');
     const [displayErr, setDisplayErr] = useState(false);
     const [error, setError] = useState('');
-    const [file, setFile] = useState('null');
+    const [file, setFile] = useState(false);
 
-    const handleFile = (pic) => {
+    const handleFile = (image) => {
         // TODO image preview functionality in new file to be reused in other pages !
-        setFile(URL.createObjectURL(pic))
-        setProfilePicture(pic)
+
+        setFile(image)
+        setProfilePicture(image)
     }
 
     const handleSubmit = (e) => {
@@ -48,11 +50,15 @@ const RegisterForm = () => {
                 <Input name="rePassword" func={setRePassword} label="rePassword" type="password" />
                 <Input name="email" func={setEmail} label="email" type="email" />
                 <Input name="skillLevel" func={setSkillLevel} label="skillLevel" type="number" />
-                <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" />
+
+                <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" >
+                    <ImagePreview image={file} />
+                </InputFile>
+
                 {/* {new Error()} test */}
+
                 <br />
                 <Button type="submit" >Register</Button>
-                <img alt="fuck" src={file} />
             </form>
 
         </div>

@@ -3,7 +3,7 @@ import style from "./input.module.css";
 
 const InputField = ({ label, func, name, type }) => {
 
-    if (type === 'number') {
+    if (name === 'skillLevel') {
         return (
             <div>
                 <label>{label}</label>

@@ -1,15 +1,27 @@
-.input_text, .input_number {
+.input_text, .input_number, .input_file {
   text-align: center;
 }
-.input_number {
- width:50px;
+.input_file{
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
 }
+
+label{
+  cursor: pointer;
+
+}
+
+.input_number {
+  width: 50px;
+}
+
 .input_text {
   width: 27%;
 }
 
 @media only screen and (max-width: 600px) {
   .input_text {
-    background-color: lightblue;
+    width: 80%;
   }
 }
