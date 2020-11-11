@@ -63,7 +63,8 @@ const LoginForm = () => {
     }
 
     return (
-        <div>
+        <div className="h-auto "> 
+        {/* TODO fix height */}
             {displayError !== false ? <p>{error}</p> : ''}
             <form onSubmit={(e) => loginUser(e)}>
                 {/* {new ErrorEvent('Error')} TEST */}

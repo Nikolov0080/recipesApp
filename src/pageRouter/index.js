@@ -20,7 +20,6 @@ const PageRouter = () => {
                             <Route exact path="/register" component={RegisterPage} />
                             <Route exact path="/profile" component={UserProfile} />
                             <Route exact path="/my-recipes" component={MyRecipes} />
-
                         </SessionContext>
                     </Switch>
                 </Layout>

@@ -12,7 +12,7 @@ const authBypass = true;
 
 const Navigation = () => {
     return (
-        <div className="text-center" style={{boxShadow:"1px 1px 6px gray"}}>
+        <div className="text-center" style={{boxShadow:" 1px 4px 9px lightgray"}}>
 
             <Navbar collapseOnSelect expand="lg" bg="light" >
                 <LinkContainer to='/'>

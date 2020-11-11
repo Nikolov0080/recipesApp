@@ -9,6 +9,12 @@
 .current_image {
     width: 200px;
     height: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.current_image:hover {
+    opacity: 0.9;
 }
 
 @media only screen and (max-width: 600px) {
@@ -19,6 +25,6 @@
     }
     .current_image {
         width: 90%;
-        margin-top:5% ;
+        margin-bottom: 5%;
     }
 }
