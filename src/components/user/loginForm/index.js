@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import loginValidator from '../../../validations/user/login';
 import UserContext from '../../../context/userContext';
 import readCookie from '../../../utils/readCookie';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const LoginForm = () => {
 
@@ -63,15 +64,23 @@ const LoginForm = () => {
     }
 
     return (
-        <div className="h-auto "> 
-        {/* TODO fix height */}
+        <div className="h-auto ">
+            {/* TODO fix height */}
             {displayError !== false ? <p>{error}</p> : ''}
             <form onSubmit={(e) => loginUser(e)}>
                 {/* {new ErrorEvent('Error')} TEST */}
                 <Input func={setUsername} name="username" label="Username" type="text" />
                 <Input func={setPassword} name="password" label="Password" type="password" />
-                <Button type="submit" >Login</Button>
+                <br />
+                <Button type="submit" size="lg">Login</Button>
             </form>
+            <hr />
+            <h3>
+                Or click     <LinkContainer to="/register">
+                <Button>Here</Button>
+            </LinkContainer> create an account!
+            </h3>
+            <hr />
         </div>
     )
 }

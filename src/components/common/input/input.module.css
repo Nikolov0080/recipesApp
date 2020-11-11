@@ -1,5 +1,12 @@
 .input_text, .input_number, .input_file {
   text-align: center;
+  border-radius: 10px;
+  font-size: large;
+  color: rgb(32, 32, 32);
+}
+
+.input_text:focus {
+ background-color: rgb(241, 241, 241);
 }
 
 /* opacity very important xax */
@@ -12,7 +19,7 @@
 
 label {
   cursor: pointer;
-  width: 80%;
+  width: 90%;
 }
 
 .input_number {
@@ -20,12 +27,12 @@ label {
 }
 
 .input_text {
-  width: 27%;
+  width: 60%;
 }
 
 @media only screen and (max-width: 600px) {
   .input_text {
-    width: 80%;
+    width: 90%;
   }
   .input_file {
     height: fit-content;
