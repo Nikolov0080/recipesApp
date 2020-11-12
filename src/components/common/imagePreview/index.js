@@ -22,8 +22,8 @@ const ImagePreview = ({ image }) => {
         <div>
             <div className={style.image_container}>
                 {uploadCheck === false
-                    ? <p>{messageAfterUpload} </p>
-                    : <p>{messageBeforeUpload} </p>}
+                    ? <p className={style.message}>{messageAfterUpload} </p>
+                    : <p className={style.message}>{messageBeforeUpload} </p>}
                 <img className={style.current_image} alt="profilePic" src={uploadedImage.toString()} />
             </div>
         </div>

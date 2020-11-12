@@ -21,11 +21,11 @@ const InputField = ({ label, func, name, type }) => {
 
     return (
         <div>
-            <label>{label}</label>
             <br />
             <input className={style.input_text}
                 onChange={(e) => func(e.target.value)}
                 name={name} type={type}
+                placeholder={label}
             />
         </div>
     )

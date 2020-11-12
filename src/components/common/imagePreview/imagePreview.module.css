@@ -6,6 +6,12 @@
     box-shadow: 2px 2px 2px 2px lightgrey;
 }
 
+.message {
+    font-size: larger;
+    background-color:rgb(224, 232, 240);
+}
+
+
 .current_image {
     width: 200px;
     height: auto;
