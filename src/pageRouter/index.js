@@ -12,17 +12,17 @@ const PageRouter = () => {
     return (
         <div>
             <Router>
-                <Layout>
-                    <Switch>
-                        <SessionContext>
+                <SessionContext>
+                    <Layout>
+                        <Switch>
                             <Route exact path="/" component={HomePage} />
                             <Route exact path="/login" component={LoginPage} />
                             <Route exact path="/register" component={RegisterPage} />
                             <Route exact path="/profile" component={UserProfile} />
                             <Route exact path="/my-recipes" component={MyRecipes} />
-                        </SessionContext>
-                    </Switch>
-                </Layout>
+                        </Switch>
+                    </Layout>
+                </SessionContext>
             </Router>
         </div>
     )

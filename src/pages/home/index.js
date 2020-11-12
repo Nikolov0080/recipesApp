@@ -4,6 +4,8 @@ import UserContext from '../../context/userContext';
 const HomePage = () => {
 
     const context = useContext(UserContext);
+  
+
     if (context.user) {
         return (
             <div>

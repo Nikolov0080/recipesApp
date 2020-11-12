@@ -15,6 +15,7 @@ const GuestLinks = () => {
                 <LinkContainer to="/my-recipes">
                     <Nav.Link  className={style.links}>My recipes</Nav.Link>
                 </LinkContainer>
+            
             </Nav>
         </div>
     )
