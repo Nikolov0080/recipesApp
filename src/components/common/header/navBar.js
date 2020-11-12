@@ -9,8 +9,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import logo from './logo.ico';
 import UserContext from '../../../context/userContext';
 
-const authBypass = true;
-
 const Navigation = () => {
 
     const context = useContext(UserContext);
