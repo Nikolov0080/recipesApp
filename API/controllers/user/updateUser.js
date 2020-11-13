@@ -18,5 +18,4 @@ exports.updateUser = (userId, type, recipeId) => {
             console.log(data);
         }
     )
-
 }
