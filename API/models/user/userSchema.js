@@ -38,10 +38,6 @@ const userSchema = new Schema({
     userRecipes: [{
         type: "ObjectId",
         ref: "Recipes"
-    }],
-    favorites: [{
-        type: "ObjectId",
-        ref: "Recipes"
     }]
 
 });
