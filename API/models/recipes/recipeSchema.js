@@ -22,7 +22,7 @@ const recipeSchema = new Schema({
         type: String,
     },
     directions: { // make it array with "steps"
-        type: String,
+        type: Array,
         require: true
     },
     difficulty:{

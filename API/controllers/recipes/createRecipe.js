@@ -3,7 +3,7 @@ const jwt = require('../../utils/jwt');
 const { upload } = require('../../utils/multerConf');
 const { saveRecipeImage } = require('../../utils/cloudinary/saveRecipeImage');
 const { recipesValidations } = require('../../validations/recipes');
-const { updateUser } = require('../user/updateUser');
+const {  updateUserRecipes } = require('../user/updateUser');
 
 module.exports.createRecipe = (req, res, next) => {
 
@@ -57,7 +57,7 @@ module.exports.createRecipe = (req, res, next) => {
                 saveRecipe(resp).then((dbResponse) => {
 
                     if (dbResponse) { // if error return error query ... just to test the API for now
-                        updateUser(creatorId, 'userRecipes', dbResponse._id)// updates ObjectId array!
+                        updateUserRecipes(creatorId, 'userRecipes', dbResponse._id);// updates ObjectId array! (user's recipes)
                         res.redirect('/api/recipes/create-recipe?created');
                     } else {
                         res.redirect('/api/recipes/create-recipe?error');

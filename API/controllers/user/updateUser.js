@@ -1,6 +1,12 @@
 const userSchema = require('../../models/user/userSchema'); // Its a Model tho...
 
-// uses the  ID to add it to 
+/*
+with few words user recipes management
+--- depending on the "type" ---
+[liked favorites his own recipes]
+*/
+
+// uses the ID to add it to 
 
 // user recipes array
 
@@ -8,7 +14,7 @@ const userSchema = require('../../models/user/userSchema'); // Its a Model tho..
 
 // liked recipes
 
-exports.updateUser = (userId, type, recipeId) => {
+exports.updateUserRecipes = (userId, type, recipeId) => {
     // type can be [favorites ||  likedRecipes || userRecipes]
     userSchema.findByIdAndUpdate(userId,
         { $push: { [type]: recipeId } },
@@ -17,5 +23,5 @@ exports.updateUser = (userId, type, recipeId) => {
             if (err) { console.log(err); return }
             console.log(data);
         }
-    )
+    );
 }
