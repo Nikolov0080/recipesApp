@@ -1,6 +1,7 @@
 module.exports.profileGet = (req, res) => {
-    
-    res.render('profile')
+    // TODO  headers auth here too 
+    console.log(req.headers)
+    res.send('profile')
 }
 
 module.exports.profilePost = (req, res) => {

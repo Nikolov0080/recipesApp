@@ -12,7 +12,7 @@ import UserContext from '../../../context/userContext';
 const Navigation = () => {
 
     const context = useContext(UserContext);
-    console.log(context)
+
     const isLogged = context.user === 'guest';
 
     return (

@@ -11,11 +11,6 @@ export default (username, password, rePassword, email, skillLevel, profilePictur
     formData.append("email", email)
     formData.append("skillLevel", skillLevel)
 
-    /*
-     TODO  loading bar implementation 
-    (if possible front-to-back sending progress)
-   */
-
     return axios.default.post('http://localhost:5000/api/users/register',
 
         formData
