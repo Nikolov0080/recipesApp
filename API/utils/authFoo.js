@@ -2,14 +2,17 @@ const jwt = require('./jwt');
 
 module.exports.authFooLogged = (req, res, next) => {
 
-    const cookie = req.cookies['auth']
-    console.log(req.headers)
+    const cookie = (req.headers['cookie_client'] || req.headers['cookie'])
+    /*
+    checking for client side request or API test request
+    */
+    // console.log(req.headers)
     if (!cookie) {
         return res.send('UNAUTHORIZED');
     }
-
-    const decodedCookie = jwt.decodeToken(cookie);
-
+console.log(cookie)
+    const decodedCookie = jwt.decodeToken(cookie.replace('auth=',''));
+console.log(decodedCookie)
     if (decodedCookie.secret !== process.env.JWT_SECRET) {
         return res.send('UNAUTHORIZED');
 
