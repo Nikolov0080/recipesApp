@@ -35,9 +35,14 @@ module.exports.loginPost = (req, res) => {
         }
 
         matchPassword(password, user.password).then((resp) => {
+            const userData = {
+                _id: user._id,
+                email: user.email,
+                profilePictureURL: user.profilePictureURL
+            }
 
             if (resp) {
-                const token = jwt.createToken({ ...user._doc, secret: process.env.JWT_SECRET });
+                const token = jwt.createToken({ ...userData, secret: process.env.JWT_SECRET });
                 res.cookie("auth", token, { expires: new Date(Date.now() + 9999999), httpOnly: false })
                 res.header('auth', token)
                 res.send("logged in !")

@@ -7,7 +7,9 @@ class UserProfile extends Component {
 
     render() {
 
-       profile(4).then(console.log)
+        profile(34).then(profileData => {
+            console.log(profileData);
+        })
 
         return (
             <div>
