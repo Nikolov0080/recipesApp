@@ -3,7 +3,12 @@ const UserSchema = require('../../models/user/userSchema');
 
 async function getUser(id) {
     // finding the user in database
-    return await UserSchema.findById({ _id: id })
+    // and populates all other Object Id's
+    return await UserSchema
+        .findById({ _id: id })
+        .populate("userRecipes")
+        .populate("favorites")
+        .populate("likedRecipes")
 }
 
 module.exports.profileGet = (req, res) => {
@@ -19,7 +24,7 @@ module.exports.profileGet = (req, res) => {
     getUser(userId).then(a => {
         a.password = undefined;
         console.log(a)
-        res.send('profile')
+        res.send(a)
     })
 
 }

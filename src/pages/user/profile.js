@@ -7,8 +7,9 @@ class UserProfile extends Component {
 
     render() {
 
-        profile(34).then(profileData => {
+        profile().then(profileData => {
             console.log(profileData);
+            
         })
 
         return (

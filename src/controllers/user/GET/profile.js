@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-export default (id) => {
+export default () => {
 
     return axios.get('http://localhost:5000/api/users/profile',
         {
@@ -10,6 +10,6 @@ export default (id) => {
             // TODO  finish authentication with headers
         }
     ).then(userData => {
-        return userData;
+        return userData.data;
     })
 }
