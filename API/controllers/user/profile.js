@@ -23,7 +23,7 @@ module.exports.profileGet = (req, res) => {
 
     getUser(userId).then(a => {
         a.password = undefined;
-        console.log(a)
+        // console.log(a) 
         res.send(a)
     })
 

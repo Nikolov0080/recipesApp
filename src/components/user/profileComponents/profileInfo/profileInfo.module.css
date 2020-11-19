@@ -1,0 +1,24 @@
+.profile_pic {
+    width: 200px;
+    float: left;
+}
+
+.pic_container {
+    text-align: center;
+    padding: 0mm;
+}
+
+.info_container{
+    text-align: center;
+}
+
+.cont {
+    width: 96%;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile_pic {
+        width: 180px;
+        float: none;
+    }
+}
