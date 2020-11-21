@@ -7,6 +7,7 @@ import ErrorBoundary from '../../errorBoundaries/errorBoundary';
 
 class UserProfile extends Component {
 
+
     componentDidMount() {
         profile().then(profileData => {
             this.setState({
@@ -20,16 +21,22 @@ class UserProfile extends Component {
 
     render() {
 
+        if(!this.state){
+            return(
+                <h1>sd</h1>
+            )
+        }
+
         return (
-            
+
             <div>
-            <ErrorBoundary message="while loading you profile ,please try again later..." >
-                  <h1>User Profile here</h1>
-                <ProfileInfo userData={this.state} />
-                <LinkContainer to="/create-recipe">
-                    <Button>Create Recipe !</Button>
-                </LinkContainer>
-            </ErrorBoundary>
+                <ErrorBoundary message="while loading you profile ,please try again later..." >
+                    <h1>User Profile here</h1>
+                    <ProfileInfo userData={this.state} />
+                    <LinkContainer to="/create-recipe">
+                        <Button>Create Recipe !</Button>
+                    </LinkContainer>
+                </ErrorBoundary>
             </div>
         )
     }

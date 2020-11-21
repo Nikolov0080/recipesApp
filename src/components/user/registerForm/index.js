@@ -5,9 +5,10 @@ import registerFunc from '../../../controllers/user/POST/register';
 import InputFile from '../../common/input/inputFile';
 import registerValidator from '../../../validations/user/register';
 import ImagePreview from '../../common/imagePreview';
+import { useHistory } from 'react-router-dom';
 
 const RegisterForm = () => {
-
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
@@ -20,9 +21,6 @@ const RegisterForm = () => {
 
     const handleFile = (image) => {
         // TODO image preview functionality in new file to be reused in other pages !
-        console.log(image)
-
-
         setFile(image)
         setProfilePicture(image)
     }
@@ -32,7 +30,7 @@ const RegisterForm = () => {
         const isValid = registerValidator(username, password, rePassword, email, skillLevel)
         if (!isValid) {
             registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => {
-                console.log(resp);
+                console.log(resp)
                 setDisplayErr(false);
             })
         } else {

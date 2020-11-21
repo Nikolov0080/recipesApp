@@ -5,7 +5,6 @@ import style from './profileInfo.module.css';
 
 const ProfileInfo = ({ userData }) => {
 
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -24,20 +23,18 @@ const ProfileInfo = ({ userData }) => {
     return (
         <div className={style.cont}>
 
-
-
             <Row xs={1} md={2}>
                 <Col md={4} className={style.pic_container}>
                     <Container>
                         <br />
                         <br />
-                        <img className={style.profile_pic} src={userData.profilePictureURL} alt="userPhoto" />
+                        <img className={style.profile_pic} src={userData.profilePictureURL || 'd'} alt="userPhoto" />
                     </Container>
                 </Col>
                 <Col className={style.info_container}>
                     <Container>
                         <br />
-                        <ProgressBar animated="true" label="Skill level" variant="danger" now={userData.skillLevel + '0'} />
+                        <ProgressBar animated="true" label="Skill level" variant="danger" now={(userData.skillLevel + 0) * 2} />
                         <br />
 
                         <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
