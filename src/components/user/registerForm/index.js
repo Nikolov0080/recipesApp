@@ -20,7 +20,8 @@ const RegisterForm = () => {
     const [file, setFile] = useState(false);
 
     const handleFile = (image) => {
-        // TODO image preview functionality in new file to be reused in other pages !
+        // TODO image preview functionality in new file to be reused in other pages ! 
+        // done
         setFile(image)
         setProfilePicture(image)
     }
@@ -31,7 +32,13 @@ const RegisterForm = () => {
         if (!isValid) {
             registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => {
                 console.log(resp)
-                setDisplayErr(false);
+                if (resp.status === 200) {
+                    setDisplayErr(true);
+                    setError(resp.data.data)
+                } else {
+                    setDisplayErr(false);
+                    history.push('/profile');
+                }
             })
         } else {
             setDisplayErr(true);

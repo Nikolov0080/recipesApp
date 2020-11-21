@@ -12,7 +12,6 @@ module.exports.registerGet = (req, res) => {
 module.exports.registerPost = (req, res) => {
 
     upload.single('profilePicture')(req, res, async (err) => {
-        console.log(req.body)
         const isValid = registerValidator(req.body);
 
         if (isValid) {
@@ -50,15 +49,14 @@ module.exports.registerPost = (req, res) => {
 
         // Checking if email or username Unique 
         Promise.all([isUniqueUsername, isUniqueEmail]).then(([a, b]) => {
-            console.log(a, b)
+            // console.log(a, b)
 
             if (!a) {
               return  res.status(200).send("Username already in use!")
             }
 
             if (!b) {
-                res.status(200).send("Email already in use!")
-
+              return  res.status(200).send("Email already in use!")
             }
 
             allValid();
@@ -128,11 +126,9 @@ module.exports.registerPost = (req, res) => {
                             console.log(e)
                             return res.send(e._message)
                         })
-
                     })
                 }
             }
         }
-
     })
 }

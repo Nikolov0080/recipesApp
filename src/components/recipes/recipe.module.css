@@ -1,0 +1,14 @@
+.recipe_box {
+    width: 20rem;
+    border: 2px solid lightgrey;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .recipe_box {
+        margin: auto;
+        margin-bottom: 4em;
+    }
+}

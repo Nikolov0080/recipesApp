@@ -31,6 +31,10 @@ exports.recipesValidations = (recipe) => {
         return 'fill category'
     }
 
+    if (validator.isEmpty(recipe.description, { ignore_whitespace: false })) {
+        return 'fill description'
+    }
+
     return false;
 }
 

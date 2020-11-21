@@ -3,7 +3,7 @@ const jwt = require('../../utils/jwt');
 const { upload } = require('../../utils/multerConf');
 const { saveRecipeImage } = require('../../utils/cloudinary/saveRecipeImage');
 const { recipesValidations } = require('../../validations/recipes');
-const {  updateUserRecipes } = require('../user/updateUser');
+const { updateUserRecipes } = require('../user/updateUser');
 
 module.exports.createRecipe = (req, res, next) => {
 
@@ -34,7 +34,8 @@ module.exports.createRecipe = (req, res, next) => {
                 cookTime,
                 directions,
                 difficulty,
-                category
+                category,
+                description
             } = req.body;
 
             function saveRecipe(imageURL) {
@@ -47,6 +48,7 @@ module.exports.createRecipe = (req, res, next) => {
                     difficulty,
                     creatorId,
                     category,
+                    description,
                     image: imageURL
                 });
             }

@@ -7,7 +7,6 @@ import HomePage from '../pages/home';
 import LoginPage from '../pages/user/login';
 import RegisterPage from '../pages/user/register';
 import UserProfile from '../pages/user/profile';
-import MyRecipes from '../pages/user/myRecipes';
 import CreateRecipe from '../pages/recipes/createRecipe/index';
 
 const PageRouter = () => {
@@ -17,11 +16,11 @@ const PageRouter = () => {
                 <SessionContext>
                     <Layout>
                         <Switch>
+
                             <Route exact path="/" component={HomePage} />
                             <Route exact path="/login" component={LoginPage} />
                             <Route exact path="/register" component={RegisterPage} />
                             <Route exact path="/profile" component={UserProfile} />
-                            <Route exact path="/my-recipes" component={MyRecipes} />
                             <Route exact path="/create-recipe" component={CreateRecipe} />
 
                         </Switch>
