@@ -4,7 +4,6 @@ import style from './recipe.module.css';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Recipe = ({ data }) => {
-    console.log(data)
     return (
         <div >
             <LinkContainer to="/my-recipes">
@@ -13,10 +12,8 @@ const Recipe = ({ data }) => {
                     <Card.Body>
                         <Card.Title>{data.recipeName}</Card.Title>
                         <Card.Text>
-                            {data.description}
-                            {data.directions}
-                            <br/>
-[ADD DESCRIPTION FUNCTIONALITY]
+                            {data.description.substr(0,70) + "..."}
+                            <br />
                         </Card.Text>
                     </Card.Body>
                 </Card>
