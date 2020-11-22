@@ -10,7 +10,7 @@ class RegisterPage extends Component {
             <div className="text-center">
                 <ErrorBoundary message="while loading or trying to register , please reload the page and try again">
                     <FormBox>
-                        <h1>Register page</h1>
+                        <h1>Register</h1>
                         <RegisterForm />
                     </FormBox>
                 </ErrorBoundary>

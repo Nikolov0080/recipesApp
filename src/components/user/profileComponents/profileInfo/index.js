@@ -2,17 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, ProgressBar, Container, Alert } from 'react-bootstrap';
 import Loading from '../../../loading/index';
 import style from './profileInfo.module.css';
+import defaultImage from '../defaultImage.jpg';
 
 const ProfileInfo = ({ userData }) => {
 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (userData) { setLoading(false) }
+        if (userData) { 
+            
+            setLoading(false) ;
+        
+            if(userData.profilePictureURL === 'no image'){
+                userData.profilePictureURL = defaultImage;
+            }
+        }
     }, [loading, userData])
 
     if (loading) {
-        console.log(userData)
         return (
             <div>
                 <Loading />
@@ -23,7 +30,7 @@ const ProfileInfo = ({ userData }) => {
     return (
         <div className={style.cont}>
 
-            <Row xs={1} md={2}>
+            <Row xs={2} md={2} >
                 <Col md={4} className={style.pic_container}>
                     <Container>
                         <br />
@@ -48,4 +55,4 @@ const ProfileInfo = ({ userData }) => {
     )
 }
 
-export default ProfileInfo
+export default ProfileInfo;

@@ -1,23 +1,28 @@
 .profile_pic {
     width: 200px;
+   text-align: center;
+
 }
 
 .pic_container {
     text-align: center;
-    padding: 0mm;
 }
 
-.info_container{
+.info_container {
     text-align: center;
 }
 
 .cont {
-    width: 96%;
+   text-align: center;
+
 }
 
 @media only screen and (max-width: 600px) {
     .profile_pic {
-        width: 180px;
         float: none;
+    }
+
+    .cont{
+        width: 96%;
     }
 }

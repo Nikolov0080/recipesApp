@@ -18,9 +18,8 @@ const Recipe = ({ data }) => {
                     </Card.Body>
                 </Card>
             </LinkContainer>
-
         </div>
     )
 }
 
-export default Recipe
+export default Recipe;

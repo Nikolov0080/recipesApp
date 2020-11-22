@@ -10,12 +10,9 @@ class LoginPage extends Component {
             <div className="text-center" >
                 <ErrorBoundary message="while trying to login or load the page please reload the page and try again">
                     <FormBox>
-                        <h1>login page</h1>
-
-
+                        <h1>Login</h1>
                         <LoginForm />
                     </FormBox>
-
                 </ErrorBoundary>
             </div>
         )

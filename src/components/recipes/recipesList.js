@@ -10,7 +10,7 @@ const UserRecipes = ({ recipes }) => {
     return (
         <div>
             <hr />
-            <h1 className="text-center">User recipes</h1>
+            <h1 className="text-center">My recipes</h1>
             <hr />
 
             <Container>

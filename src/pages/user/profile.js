@@ -5,26 +5,25 @@ import profile from '../../controllers/user/GET/profile';
 import ProfileInfo from '../../components/user/profileComponents/profileInfo';
 import ErrorBoundary from '../../errorBoundaries/errorBoundary';
 import UserRecipes from '../../components/recipes/recipesList';
+import Loading from '../../components/loading/index';
 
 class UserProfile extends Component {
 
-
     componentDidMount() {
         profile().then(profileData => {
-            this.setState({
-                ...profileData
-            })
+                this.setState({
+                    ...profileData
+                })
         }).catch(err => {
             console.log(err)
         })
     }
 
-
     render() {
 
         if (!this.state) {
             return (
-                <h1>sd</h1>
+                <Loading />
                 // IMPLEMENT NICE LOADING SCREEN TODO !!!
             )
         }
@@ -33,14 +32,13 @@ class UserProfile extends Component {
 
             <div>
                 <ErrorBoundary message="while loading you profile ,please try again later..." >
-                    <h1>User Profile here</h1>
 
                     <ProfileInfo userData={this.state} />
 
-                    <UserRecipes recipes={this.state.userRecipes}/>
+                    <UserRecipes recipes={this.state.userRecipes} />
 
-                    <LinkContainer to="/create-recipe">
-                        <Button>Create Recipe !</Button>
+                    <LinkContainer  className="d-flex justify-content-center" to="/create-recipe">
+                        <Button size="lg">Create Recipe !</Button>
                     </LinkContainer>
                 </ErrorBoundary>
             </div>

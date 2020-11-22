@@ -8,6 +8,7 @@ import ImagePreview from '../../common/imagePreview';
 import { useHistory } from 'react-router-dom';
 
 const RegisterForm = () => {
+    
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
