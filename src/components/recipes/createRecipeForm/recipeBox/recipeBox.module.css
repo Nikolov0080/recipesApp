@@ -1,0 +1,11 @@
+.recipe_box {
+    width:80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .recipe_box{
+        width: 100%;
+    }
+  }

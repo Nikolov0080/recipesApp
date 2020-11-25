@@ -37,6 +37,9 @@ class UserProfile extends Component {
 
                     <UserRecipes recipes={this.state.userRecipes} />
 
+                    {this.state.userRecipes.length === 0 ? 
+                    <h1 className="text-center">No recipes yet,go add one</h1>:''}
+
                     <LinkContainer  className="d-flex justify-content-center" to="/create-recipe">
                         <Button size="lg">Create Recipe !</Button>
                     </LinkContainer>

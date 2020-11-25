@@ -5,20 +5,7 @@ class CreateRecipe extends Component {
     render() {
         return (
             <div>
-
                 <CreateRecipeForm />
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         )
     }

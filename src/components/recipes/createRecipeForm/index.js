@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Input from '../../common/input/input';
+import Ingredients from './ingedients';
+import RecipeBox from './recipeBox';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
-    const [ingredients, setIngredients] = useState([]);
-    const [prepTime, setPrepTime] = useState(0);
-    const [directions, setDirections] = useState([]);
-    const [difficulty, setDifficulty] = useState(0);
-    const [category, setCategory] = useState('');
-    const [description, setDescription] = useState('');
-    const [file, setFile] = useState('');
+    // const [ingredients, setIngredients] = useState([]);
+    // const [prepTime, setPrepTime] = useState(0);
+    // const [directions, setDirections] = useState([]);
+    // const [difficulty, setDifficulty] = useState(0);
+    // const [category, setCategory] = useState('');
+    // const [description, setDescription] = useState('');
+    // const [file, setFile] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,12 +27,18 @@ const CreateRecipeInputs = () => {
     */
     return (
         <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
-                <Button type="submit">Create !</Button>
-            </form >
+            <RecipeBox>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
+                    <Ingredients /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
+
+
+                    <Button type="submit">Create !</Button>
+                </form >
+            </RecipeBox>
+
         </div>
     )
 }
 
-export default CreateRecipeInputs
+export default CreateRecipeInputs;
