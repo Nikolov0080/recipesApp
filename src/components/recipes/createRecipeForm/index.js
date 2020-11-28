@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Input from '../../common/input/input';
-import Ingredients from './ingedients';
+import Ingredients from './ingredients';
 import RecipeBox from './recipeBox';
 
 const CreateRecipeInputs = () => {
@@ -16,7 +16,7 @@ const CreateRecipeInputs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-console.log(ingredients)
+        console.log(ingredients)
     }
     /*
     TODO
@@ -30,6 +30,7 @@ console.log(ingredients)
             <RecipeBox>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
+
                     <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
 
 

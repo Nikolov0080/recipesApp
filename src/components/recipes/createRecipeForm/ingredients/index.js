@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
 import NameOfIngredient from './name';
-
+import Quantity from './quantity';
+import IngredientType from '../ingredients/typeDropdown/index';
 
 const Ingredients = ({ func }) => {
 
@@ -14,7 +15,7 @@ const Ingredients = ({ func }) => {
 
     const addOne = () => {
         setCurrentIngredients([...currentIngredients, ingredient]);
-        
+
         console.log(currentIngredients)
     }
 
@@ -35,14 +36,16 @@ const Ingredients = ({ func }) => {
                 return (
 
                     <div key={index} >
+                        {/* todo here too lol  */}
                         <NameOfIngredient func={handleChangeInput} index={index} />
-
+                        <Quantity />
+                        <IngredientType />
                     </div>
                 )
 
             })}
 
-            <Button onClick={addOne}>+</Button>
+            <Button size="lg" onClick={addOne}>+</Button>
 
         </div>
     )
