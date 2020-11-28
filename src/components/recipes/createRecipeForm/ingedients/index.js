@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
+import NameOfIngredient from './name';
 
 
-const Ingredients = () => {
+const Ingredients = ({ func }) => {
 
     const ingredient = { ingredientName: "", quantity: "", type: "" }
 
-    const [ingredients, setIngredients] = useState([{
+    const [currentIngredients, setCurrentIngredients] = useState([{
         ingredientName: "", quantity: "", type: ""
     }]);
 
 
     const addOne = () => {
-        setIngredients([...ingredients, ingredient]);
+        setCurrentIngredients([...currentIngredients, ingredient]);
+        
+        console.log(currentIngredients)
     }
 
-    console.log(ingredients)
+    const handleChangeInput = (index, event) => {
+        // make it beautiful !!!
+        console.log(event.target.value)
+        var values = [...currentIngredients];
+        values[index][event.target.name] = event.target.value
+        console.log(index)
+        func(values)
+    }
+
+
     return (
         <div>
 
-            {ingredients.map(({ ingredientName }) => {
+            {currentIngredients.map(({ ingredientName, quantity, type }, index) => {
                 return (
-                    <div>
-{/*  TODO complete the form and the step form */}
-                        <input />
-                        <br />
+
+                    <div key={index} >
+                        <NameOfIngredient func={handleChangeInput} index={index} />
+
                     </div>
                 )
 

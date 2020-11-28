@@ -6,7 +6,7 @@ import RecipeBox from './recipeBox';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
-    // const [ingredients, setIngredients] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
     // const [prepTime, setPrepTime] = useState(0);
     // const [directions, setDirections] = useState([]);
     // const [difficulty, setDifficulty] = useState(0);
@@ -16,12 +16,12 @@ const CreateRecipeInputs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert(recipeName) // test
+console.log(ingredients)
     }
     /*
     TODO
-    create special inputs for the [prep] and [cook] time
-    create special input fields for the [ingredients] ,
+    create special inputs for the [prep] and [cook] time ----
+    create special input fields for the [ingredients] 
     [directions] and [description];
     Handle file upload !
     */
@@ -30,7 +30,7 @@ const CreateRecipeInputs = () => {
             <RecipeBox>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
-                    <Ingredients /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
+                    <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
 
 
                     <Button type="submit">Create !</Button>
