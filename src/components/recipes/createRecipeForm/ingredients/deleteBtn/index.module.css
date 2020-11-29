@@ -1,0 +1,28 @@
+.del_btn {
+    float: right;
+    height: 25px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: #e26756;
+    border: none;
+    color: #ffffff;
+}
+
+.del_btn:hover {
+    color: oldlace;
+    background-color:#e74630 ;  
+}
+
+.del_box {
+    width: 26%;
+}
+
+@media only screen and (max-width: 600px) {
+    .del_btn {
+        border-radius: 0;
+        float: none;
+    }
+    .del_box {
+        width: 100%;
+        text-align: center;
+    }
+}

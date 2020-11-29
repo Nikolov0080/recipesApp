@@ -28,12 +28,12 @@ const CreateRecipeInputs = () => {
     return (
         <div>
             <RecipeBox>
-                <form  onSubmit={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
-
                     <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
 
 
+                    
                     <Button type="submit">Create !</Button>
                 </form >
             </RecipeBox>

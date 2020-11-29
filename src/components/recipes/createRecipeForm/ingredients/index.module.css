@@ -5,6 +5,11 @@
     margin: 1rem;
 }
 
+.delete_btn{
+    width: fit-content;
+    height:  fit-content;
+}
+
 @media only screen and (max-width: 600px) {
     .ingredient_box {
       

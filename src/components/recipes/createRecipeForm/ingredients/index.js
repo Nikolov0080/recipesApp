@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Button} from "react-bootstrap";
+import React, {  useState } from 'react';
+import { Button } from "react-bootstrap";
 import NameOfIngredient from './name';
 import Quantity from './quantity';
 import IngredientType from '../ingredients/typeDropdown/index';
 import style from './index.module.css';
+import DeleteButton from './deleteBtn';
 
 const Ingredients = ({ func }) => {
 
@@ -13,11 +14,18 @@ const Ingredients = ({ func }) => {
         ingredientName: "", quantity: "", type: ""
     }]);
 
-
     const addOne = () => {
         setCurrentIngredients([...currentIngredients, ingredient]);
+        func(currentIngredients)
+    }
 
-        console.log(currentIngredients)
+    const removeIngredient = (index, e) => {
+        e.preventDefault()
+        console.log(index)
+        const values = [...currentIngredients]
+        values.splice(index, 1);
+        setCurrentIngredients(values);
+        func(values)
     }
 
     const handleChangeInput = (index, event) => {
@@ -29,30 +37,30 @@ const Ingredients = ({ func }) => {
         func(values)
     }
 
-
     return (
         <div>
-
             {currentIngredients.map(({ ingredientName, quantity, type }, index) => {
                 return (
                     <div key={index} className={style.ingredient_box}>
                         <div className="form-inline" >
-                            {/* todo here too lol  */}
-                            <NameOfIngredient func={handleChangeInput} index={index} />
-                            <Quantity func={handleChangeInput} index={index} />
-                            <IngredientType func={handleChangeInput} index={index} />
-                            <Button size="sm" variant="danger">Remove</Button>
+                            <NameOfIngredient func={handleChangeInput} index={index} val={ingredientName}/>
+                            <Quantity func={handleChangeInput} index={index} val={quantity}/>
+                            <IngredientType func={handleChangeInput} index={index} val={type}/>
+                            {/* create custom delete button  */}
+                            {currentIngredients.length > 1 ?
+                                <DeleteButton func={removeIngredient} index={index} />
+                                : ''
+                            }
                         </div>
                     </div>
-
                 )
-
             })}
 
-            <Button size="lg" onClick={addOne}>+</Button>
-
+            <Button variant="outline" size="lg" onClick={addOne}>+ New ingredient</Button>
+            <br />
+            <br />
         </div>
     )
 }
 
-export default Ingredients
+export default Ingredients;
