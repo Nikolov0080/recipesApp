@@ -1,12 +1,19 @@
 import React from 'react'
+import style from './index.module.css';
 
-const IngredientType = () => {
+const IngredientType = ({ func, index }) => {
 
     return (
-        <div>
-            <select >
-                <option value="kilograms" > KG</option>
+        <div className={style.type_box}>
+
+            <select onChange={(e) => func(index, e)}
+            className={style.select_menu}
+            name="type"
+            >
+                <option value="" > Select type</option>
+                <option value="kilograms" > Kilograms</option>
                 <option value="grams" > Grams</option>
+                <option value="teaCups" >Tea cups</option>
                 <option value="teaSpoons" >Tea spoon</option>
                 <option value="tableSpoon" > Table spoon</option>
             </select>
@@ -14,4 +21,4 @@ const IngredientType = () => {
     )
 }
 
-export default IngredientType
+export default IngredientType;

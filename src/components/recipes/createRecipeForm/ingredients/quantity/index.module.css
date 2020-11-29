@@ -1,0 +1,35 @@
+.quantity {
+    text-align: center;
+    box-shadow: 2px 1px 2px 1px lightgray;
+    border-radius: 20px;
+    border: none;
+    width: 90%;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* removes number input arrows */
+
+input:focus {
+    outline: none;
+}
+
+.box {
+    margin-left: 1%;
+    width: 12%;
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+        width: 30%;
+        margin: 2%;
+        margin-left: 5%;
+    }
+    .input_box {
+        width: 100%;
+    }
+}

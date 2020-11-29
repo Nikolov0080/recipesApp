@@ -1,0 +1,28 @@
+.type_box {
+    box-shadow: 2px 1px 2px 1px lightgray;
+    border-radius: 20px;
+    width: 20%;
+    margin-left: 1%;
+}
+
+.select_menu {
+    width: 100%;
+    border: none;
+    text-align: center;
+    width: auto;
+}
+
+select:focus{
+    outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .type_box {
+        width: 50%;
+        margin: 2%;
+        margin-left: 5%;
+    }
+    .select_menu {
+        width: 80%;
+    }
+}

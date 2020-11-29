@@ -1,11 +1,12 @@
 import React from 'react'
 import data from './dataList';
+import style from './name.module.css';
 
 const NameOfIngredient = ({ func, index }) => {
     return (
-        <div>
+        <div className={style.input_box}>
             <input onChange={(e) => func(index, e)}
-                className="shadow-lg p-3 mb-5 bg-white rounded"
+                className={style.name}
                 placeholder="Add ingredient"
                 autoComplete="off"
                 type="text" name="ingredientName" list="ingredientName"

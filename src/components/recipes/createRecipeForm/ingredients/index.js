@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 import NameOfIngredient from './name';
 import Quantity from './quantity';
 import IngredientType from '../ingredients/typeDropdown/index';
+import style from './index.module.css';
 
 const Ingredients = ({ func }) => {
 
@@ -34,13 +35,16 @@ const Ingredients = ({ func }) => {
 
             {currentIngredients.map(({ ingredientName, quantity, type }, index) => {
                 return (
-
-                    <div key={index} >
-                        {/* todo here too lol  */}
-                        <NameOfIngredient func={handleChangeInput} index={index} />
-                        <Quantity />
-                        <IngredientType />
+                    <div key={index} className={style.ingredient_box}>
+                        <div className="form-inline" >
+                            {/* todo here too lol  */}
+                            <NameOfIngredient func={handleChangeInput} index={index} />
+                            <Quantity func={handleChangeInput} index={index} />
+                            <IngredientType func={handleChangeInput} index={index} />
+                            <Button size="sm" variant="danger">Remove</Button>
+                        </div>
                     </div>
+
                 )
 
             })}
