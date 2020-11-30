@@ -8,6 +8,7 @@ import Steps from '../../recipes/createRecipeForm/steps/index';
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
+    const [steps, setSteps] = useState([]);
     // const [prepTime, setPrepTime] = useState(0);
     // const [directions, setDirections] = useState([]);
     // const [difficulty, setDifficulty] = useState(0);
@@ -32,7 +33,7 @@ const CreateRecipeInputs = () => {
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
-                    {/* <Steps func={}/> */}
+                    <Steps func={setSteps} />
 
 
                     <Button type="submit">Create !</Button>

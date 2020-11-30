@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import NameOfIngredient from './name';
 import Quantity from './quantity';
 import IngredientType from '../ingredients/typeDropdown/index';
