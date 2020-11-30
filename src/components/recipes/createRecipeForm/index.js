@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Input from '../../common/input/input';
 import Ingredients from './ingredients';
 import RecipeBox from './recipeBox';
+import Steps from '../../recipes/createRecipeForm/steps/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
@@ -31,9 +32,9 @@ const CreateRecipeInputs = () => {
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
+                    {/* <Steps func={}/> */}
 
 
-                    
                     <Button type="submit">Create !</Button>
                 </form >
             </RecipeBox>

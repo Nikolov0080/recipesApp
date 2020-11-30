@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Steps = () => {
+const Steps = ({func}) => {
     return (
         <div>
-            Steps
+            <h3>STEPS</h3>
         </div>
     )
 }

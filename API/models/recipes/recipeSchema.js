@@ -13,6 +13,10 @@ const recipeSchema = new Schema({
         type: Array, /// walk on the three and make it array from the input
         require: true
     },
+    steps:{
+        type: Array, 
+        require: true  
+    },
     prepTime: {
         type: String,
         require: true

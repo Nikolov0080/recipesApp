@@ -1,5 +1,5 @@
-import React, {  useState } from 'react';
-import { Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Alert, Button } from "react-bootstrap";
 import NameOfIngredient from './name';
 import Quantity from './quantity';
 import IngredientType from '../ingredients/typeDropdown/index';
@@ -13,6 +13,15 @@ const Ingredients = ({ func }) => {
     const [currentIngredients, setCurrentIngredients] = useState([{
         ingredientName: "", quantity: "", type: ""
     }]);
+
+    const handleChangeInput = (index, event) => {
+        // make it beautiful !!!
+        console.log(event.target.value)
+        var values = [...currentIngredients];
+        values[index][event.target.name] = event.target.value
+        console.log(index)
+        func(values)
+    }
 
     const addOne = () => {
         setCurrentIngredients([...currentIngredients, ingredient]);
@@ -28,24 +37,19 @@ const Ingredients = ({ func }) => {
         func(values)
     }
 
-    const handleChangeInput = (index, event) => {
-        // make it beautiful !!!
-        console.log(event.target.value)
-        var values = [...currentIngredients];
-        values[index][event.target.name] = event.target.value
-        console.log(index)
-        func(values)
-    }
 
     return (
         <div>
+            <hr />
+            <h3>INGREDIENTS</h3>
+            <p>Add or remove ingredients from the list</p>
             {currentIngredients.map(({ ingredientName, quantity, type }, index) => {
                 return (
                     <div key={index} className={style.ingredient_box}>
                         <div className="form-inline" >
-                            <NameOfIngredient func={handleChangeInput} index={index} val={ingredientName}/>
-                            <Quantity func={handleChangeInput} index={index} val={quantity}/>
-                            <IngredientType func={handleChangeInput} index={index} val={type}/>
+                            <NameOfIngredient func={handleChangeInput} index={index} val={ingredientName} />
+                            <Quantity func={handleChangeInput} index={index} val={quantity} />
+                            <IngredientType func={handleChangeInput} index={index} val={type} />
                             {/* create custom delete button  */}
                             {currentIngredients.length > 1 ?
                                 <DeleteButton func={removeIngredient} index={index} />
@@ -55,10 +59,10 @@ const Ingredients = ({ func }) => {
                     </div>
                 )
             })}
-
             <Button variant="outline" size="lg" onClick={addOne}>+ New ingredient</Button>
             <br />
             <br />
+            <hr />
         </div>
     )
 }
