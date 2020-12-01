@@ -19,6 +19,7 @@ const CreateRecipeInputs = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(ingredients)
+        console.log(steps)
     }
     /*
     TODO
