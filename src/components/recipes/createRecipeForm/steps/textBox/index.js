@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.module.css';
 import { Button } from 'react-bootstrap';
 
-const StepTextBox = ({ func,delFunc, index, val }) => {
+const StepTextBox = ({ func, delFunc, index, val }) => {
     return (
         <div className={style.step_box}>
             <div className="row justify-content-center">
@@ -13,7 +13,7 @@ const StepTextBox = ({ func,delFunc, index, val }) => {
                     onChange={(e) => func(index, e)}
                     className={style.text_step}
                     value={val} />
-                <Button onClick={(e)=>delFunc(index,e)} variant="outline-primary" className={style.remove_btn}>Remove</Button>
+                <Button onClick={(e) => delFunc(index, e)} variant="outline-primary" className={style.remove_btn}>Remove</Button>
             </div>
         </div>
     )

@@ -4,12 +4,15 @@ import Input from '../../common/input/input';
 import Ingredients from './ingredients';
 import RecipeBox from './recipeBox';
 import Steps from '../../recipes/createRecipeForm/steps/index';
+import TimeInput from './timeInput/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
     // const [prepTime, setPrepTime] = useState(0);
+    // const [cookTime, setCookTime] = useState(0);
+
     // const [directions, setDirections] = useState([]);
     // const [difficulty, setDifficulty] = useState(0);
     // const [category, setCategory] = useState('');
@@ -18,13 +21,14 @@ const CreateRecipeInputs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(recipeName)
         console.log(ingredients)
         console.log(steps)
     }
     /*
     TODO
     create special inputs for the [prep] and [cook] time ----
-    create special input fields for the [ingredients] 
+
     [directions] and [description];
     Handle file upload !
     */
@@ -33,8 +37,12 @@ const CreateRecipeInputs = () => {
             <RecipeBox>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
-                    <Ingredients func={setIngredients} /> {/* <--- ADD FUNC TO IT WHEN READY !!! */}
+                    <Ingredients func={setIngredients} />
                     <Steps func={setSteps} />
+                    <div className="form-inline">
+                        <TimeInput label="Prep time:" id="Prep time" />
+                        <TimeInput label="Cook time:" id="Prep time" />
+                    </div>
 
 
                     <Button type="submit">Create !</Button>
