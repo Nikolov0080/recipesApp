@@ -6,6 +6,7 @@ import RecipeBox from './recipeBox';
 import Steps from '../../recipes/createRecipeForm/steps/index';
 import TimeInput from './timeInput/index';
 import Category from './category/index';
+import Difficulty from './difficulty/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
@@ -13,12 +14,12 @@ const CreateRecipeInputs = () => {
     const [directions, setDirections] = useState([]);
     const [prepTime, setPrepTime] = useState(0);
     const [cookTime, setCookTime] = useState(0);
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('special');
 
-    // const [difficulty, setDifficulty] = useState(0);
+    const [difficulty, setDifficulty] = useState(1);
 
-    // const [description, setDescription] = useState('');
-    
+    const [description, setDescription] = useState('');
+
     // const [file, setFile] = useState('');
 
     const handleSubmit = (e) => {
@@ -29,6 +30,7 @@ const CreateRecipeInputs = () => {
         console.log(prepTime)
         console.log(cookTime)
         console.log(category)
+        console.log(difficulty)
     }
     /*
     TODO
@@ -44,13 +46,12 @@ const CreateRecipeInputs = () => {
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} />
                     <Steps func={setDirections} />
-
                     <div className="form-inline">
                         <TimeInput func={setPrepTime} label="Prep time:" id="Prep_time" /> {/* PREP TIME INPUT */}
                         <TimeInput func={setCookTime} label="Cook time:" id="Cook_time" /> {/* COOK TIME INPUT */}
                     </div>
-
                     <Category func={setCategory} />
+                    <Difficulty func={setDifficulty} />
 
                     <Button type="submit">Create !</Button>
                 </form >
