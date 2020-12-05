@@ -45,7 +45,7 @@ const Directions = ({ func }) => {
                 )
             })}
 
-            <Button variant="outline" size="lg" onClick={addOne}>+ New step</Button>
+            <Button className={style.add_btn} variant="primary" size="lg" onClick={addOne}>+ New step</Button>
             <hr />
         </div>
     )

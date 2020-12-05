@@ -13,7 +13,7 @@ const StepTextBox = ({ func, delFunc, index, val }) => {
                     onChange={(e) => func(index, e)}
                     className={style.text_step}
                     value={val} />
-                <Button onClick={(e) => delFunc(index, e)} variant="outline-primary" className={style.remove_btn}>Remove</Button>
+                    <Button onClick={(e) => delFunc(index, e)} variant="outline-primary" className={style.remove_btn}>Remove</Button>
             </div>
         </div>
     )

@@ -58,7 +58,7 @@ const Ingredients = ({ func }) => {
                     </div>
                 )
             })}
-            <Button variant="outline" size="lg" onClick={addOne}>+ New ingredient</Button>
+            <Button variant="primary" className={style.add_btn} size="lg" onClick={addOne}>+ New ingredient</Button>
             <br />
             <br />
             <hr />

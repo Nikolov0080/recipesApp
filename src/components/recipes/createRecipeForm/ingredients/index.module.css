@@ -9,7 +9,9 @@
     width: fit-content;
     height:  fit-content;
 }
-
+.add_btn{
+    opacity: 75%;
+}
 @media only screen and (max-width: 600px) {
     .ingredient_box {
       

@@ -8,8 +8,8 @@ const InputFile = (props) => {
                 <input className={style.input_file}
                     onChange={props.func}
                     name={props.name}
-                    type={props.type} />
-                    {props.children}
+                    type="file" />
+                {props.children}
             </label>
         </div>
     )

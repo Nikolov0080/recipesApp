@@ -13,9 +13,11 @@ const Difficulty = ({ func }) => {
         <div>
             <h3>Select difficulty</h3>
             <input
+            defaultValue="10"
             className={style.range_input}
             onChange={(e) => handleChange(e)} type="range" />
             <h3>{level}</h3>
+            <hr />
         </div>
     )
 }

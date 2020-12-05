@@ -7,6 +7,8 @@ import Steps from '../../recipes/createRecipeForm/steps/index';
 import TimeInput from './timeInput/index';
 import Category from './category/index';
 import Difficulty from './difficulty/index';
+import Description from './description/index';
+import ImageInput from './imageInput/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
@@ -31,6 +33,7 @@ const CreateRecipeInputs = () => {
         console.log(cookTime)
         console.log(category)
         console.log(difficulty)
+        console.log(description)
     }
     /*
     TODO
@@ -52,7 +55,9 @@ const CreateRecipeInputs = () => {
                     </div>
                     <Category func={setCategory} />
                     <Difficulty func={setDifficulty} />
+                    <Description func={setDescription} />
 
+<ImageInput />
                     <Button type="submit">Create !</Button>
                 </form >
             </RecipeBox>
