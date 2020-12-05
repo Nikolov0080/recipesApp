@@ -6,11 +6,11 @@ const { recipesValidations } = require('../../validations/recipes');
 const { updateUserRecipes } = require('../user/updateUser');
 
 module.exports.createRecipe = (req, res, next) => {
-
-    const creatorId = jwt.decodeToken(req.cookies['auth'])._id;
-
+console.log(req.headers)
+    const creatorId = jwt.decodeToken(req.headers['auth'])._id;
+    console.log(creatorId)
     upload.single('image')(req, res, (err) => {
-
+        
         const isValid = recipesValidations(req.body);
 
         if (isValid) {

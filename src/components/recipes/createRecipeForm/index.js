@@ -9,6 +9,7 @@ import Category from './category/index';
 import Difficulty from './difficulty/index';
 import Description from './description/index';
 import ImageInput from './imageInput/index';
+import createRecipeFunc from '../../../controllers/recipes/POST/createRecipe/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
@@ -22,18 +23,23 @@ const CreateRecipeInputs = () => {
 
     const [description, setDescription] = useState('');
 
-    // const [file, setFile] = useState('');
+    const [file, setFile] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(recipeName)
-        console.log(ingredients)
-        console.log(directions)
-        console.log(prepTime)
-        console.log(cookTime)
-        console.log(category)
-        console.log(difficulty)
-        console.log(description)
+
+        createRecipeFunc(
+            recipeName,
+            ingredients,
+            prepTime,
+            cookTime,
+            directions,
+            difficulty,
+            category,
+            description,
+            file
+        )
+
     }
     /*
     TODO
@@ -57,7 +63,7 @@ const CreateRecipeInputs = () => {
                     <Difficulty func={setDifficulty} />
                     <Description func={setDescription} />
 
-<ImageInput />
+                    <ImageInput file={file} func={setFile} />
                     <Button type="submit">Create !</Button>
                 </form >
             </RecipeBox>
