@@ -8,7 +8,7 @@ const Recipe = ({ data }) => {
         <div >
             <LinkContainer to="/my-recipes">
                 <Card className={style.recipe_box} >
-                    <Card.Img variant="top" src={data.image} />
+                    <Card.Img className={style.image_box} variant="top" src={data.image} />
                     <Card.Body>
                         <Card.Title>{data.recipeName}</Card.Title>
                         <Card.Text>

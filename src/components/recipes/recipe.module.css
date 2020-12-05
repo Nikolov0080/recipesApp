@@ -5,6 +5,9 @@
     margin-bottom: 2em;
     cursor: pointer;
 }
+.image_box{
+    height: 15rem;
+}
 
 @media only screen and (max-width: 600px) {
     .recipe_box {

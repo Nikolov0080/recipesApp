@@ -3,37 +3,37 @@ import StepTextBox from './textBox/index';
 import style from './steps.module.css';
 import { Button } from 'react-bootstrap';
 
-const Steps = ({ func }) => {
+const Directions = ({ func }) => {
 
     const step = { stepData: '' }
 
-    const [currentSteps, setCurrentSteps] = useState([{
+    const [currentDirections, setCurrentDirections] = useState([{
         stepData: ''
     }]);
 
     const addOne = () => {
-        setCurrentSteps([...currentSteps, step]);
-        func(currentSteps)
+        setCurrentDirections([...currentDirections, step]);
+        func(currentDirections)
     }
 
     const handleChangeInput = (index, event) => {
-        const values = [...currentSteps];
+        const values = [...currentDirections];
         values[index]['stepData'] = event.target.value;
-        setCurrentSteps(values);
+        setCurrentDirections(values);
         func(values);
     }
 
     const removeStep = (index, event) => {
-        const values = [...currentSteps];
+        const values = [...currentDirections];
         values.splice(index, 1);
-        setCurrentSteps(values);
+        setCurrentDirections(values);
         func(values);
     }
 
     return (
         <div>
-            <h3>STEPS</h3>
-            {currentSteps.map(({ stepData }, index) => {
+            <h3>DIRECTIONS</h3>
+            {currentDirections.map(({ stepData }, index) => {
                 return (
                     <div key={index} className={style.step_box}>
                         <StepTextBox
@@ -51,4 +51,4 @@ const Steps = ({ func }) => {
     )
 }
 
-export default Steps;
+export default Directions;

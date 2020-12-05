@@ -5,25 +5,30 @@ import Ingredients from './ingredients';
 import RecipeBox from './recipeBox';
 import Steps from '../../recipes/createRecipeForm/steps/index';
 import TimeInput from './timeInput/index';
+import Category from './category/index';
 
 const CreateRecipeInputs = () => {
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
-    const [steps, setSteps] = useState([]);
-    // const [prepTime, setPrepTime] = useState(0);
-    // const [cookTime, setCookTime] = useState(0);
+    const [directions, setDirections] = useState([]);
+    const [prepTime, setPrepTime] = useState(0);
+    const [cookTime, setCookTime] = useState(0);
+    const [category, setCategory] = useState('');
 
-    // const [directions, setDirections] = useState([]);
     // const [difficulty, setDifficulty] = useState(0);
-    // const [category, setCategory] = useState('');
+
     // const [description, setDescription] = useState('');
+    
     // const [file, setFile] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(recipeName)
         console.log(ingredients)
-        console.log(steps)
+        console.log(directions)
+        console.log(prepTime)
+        console.log(cookTime)
+        console.log(category)
     }
     /*
     TODO
@@ -38,12 +43,14 @@ const CreateRecipeInputs = () => {
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} />
-                    <Steps func={setSteps} />
+                    <Steps func={setDirections} />
+
                     <div className="form-inline">
-                        <TimeInput label="Prep time:" id="Prep time" />
-                        <TimeInput label="Cook time:" id="Prep time" />
+                        <TimeInput func={setPrepTime} label="Prep time:" id="Prep_time" /> {/* PREP TIME INPUT */}
+                        <TimeInput func={setCookTime} label="Cook time:" id="Cook_time" /> {/* COOK TIME INPUT */}
                     </div>
 
+                    <Category func={setCategory} />
 
                     <Button type="submit">Create !</Button>
                 </form >
