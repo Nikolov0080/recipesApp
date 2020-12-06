@@ -1,7 +1,6 @@
 .profile_pic {
     width: 200px;
-   text-align: center;
-
+    text-align: center;
 }
 
 .pic_container {
@@ -13,16 +12,16 @@
 }
 
 .cont {
-   text-align: center;
-
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
     .profile_pic {
         float: none;
+        width: 150px;
+        margin-top: 1.7rem;
     }
-
-    .cont{
+    .cont {
         width: 96%;
     }
 }

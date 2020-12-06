@@ -8,6 +8,35 @@
 
 /* logo image */
 
+/* search icon */
+
+.search_icon_style {
+    width: 21px;
+}
+
+.search_container {
+    box-shadow: 1px 1px 3px 3px lightgrey;
+    width: 100%;
+    margin: 0 auto;
+    margin-top:5px ;
+    border-radius: 20px;
+}
+
+.input_search {
+    font-size: 18px;
+    width: 50%;
+    margin-left: 20%;
+    border: none;
+    text-align: center;
+}
+
+.search_btn {
+    background-color: white;
+    border: none;
+    float: right;
+    margin-right: 20px;
+}
+
 /* nav links style */
 
 .links {
@@ -23,7 +52,7 @@
 .drop {
     font-size: medium;
     float: left;
-    margin-right: 70px;
+    margin-right: 30px;
 }
 
 /* dropdown style */
@@ -37,5 +66,28 @@
     }
     .drop {
         display: block;
+    }
+
+    .search_btn {
+        background-color: white;
+        border: none;
+        float: right;
+        margin-right: 20px;
+    }
+
+    .input_search {
+        font-size: 18px;
+        width: 60%;
+        margin-left: 20%;
+        border: none;
+        text-align: center;
+    }
+
+    .search_container {
+        box-shadow: 1px 1px 3px 3px lightgrey;
+        width: 80%;
+        margin: 0 auto;
+        margin-top:5px ;
+        border-radius: 20px;
     }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import defaultImage from './defaultImage.jpg';
 import style from './imagePreview.module.css';
 
-const messageAfterUpload = "Make sure the your face is visible!"
+const messageAfterUpload = "Well done looks awesome !"
 const messageBeforeUpload = "Click here to add photo of the final result"
 const ImagePreview = ({ image }) => {
 

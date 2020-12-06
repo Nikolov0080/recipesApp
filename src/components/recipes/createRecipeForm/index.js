@@ -48,13 +48,7 @@ const CreateRecipeInputs = () => {
         ).then(console.log)
 
     }
-    /*
-    TODO
-    create special inputs for the [prep] and [cook] time ----
 
-    [directions] and [description];
-    Handle file upload !
-    */
     return (
         <div>
             <RecipeBox>
@@ -71,7 +65,8 @@ const CreateRecipeInputs = () => {
                     <Description func={setDescription} />
 
                     <ImageInput file={file} func={setFile} />
-                    <Button type="submit">Create !</Button>
+                    <br />
+                    <Button size="lg" type="submit">Create !</Button>
                 </form >
             </RecipeBox>
 
