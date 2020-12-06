@@ -35,10 +35,6 @@ exports.recipesValidations = (recipe) => {
         return 'fill description'
     }
 
-    if (validator.isEmpty(recipe.steps, { ignore_whitespace: false })) {
-        return 'fill steps'
-    }
-    
     return false;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button } from 'react-bootstrap';
 import Input from '../../common/input/input';
 import Ingredients from './ingredients';
@@ -10,8 +10,14 @@ import Difficulty from './difficulty/index';
 import Description from './description/index';
 import ImageInput from './imageInput/index';
 import createRecipeFunc from '../../../controllers/recipes/POST/createRecipe/index';
+import Context from '../../../context/userContext';
+
+
 
 const CreateRecipeInputs = () => {
+    const context = useContext(Context)
+    const userId = context.user._id;
+
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
     const [directions, setDirections] = useState([]);
@@ -37,8 +43,9 @@ const CreateRecipeInputs = () => {
             difficulty,
             category,
             description,
-            file
-        )
+            file,
+            userId
+        ).then(console.log)
 
     }
     /*

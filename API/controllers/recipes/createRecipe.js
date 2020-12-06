@@ -6,11 +6,9 @@ const { recipesValidations } = require('../../validations/recipes');
 const { updateUserRecipes } = require('../user/updateUser');
 
 module.exports.createRecipe = (req, res, next) => {
-console.log(req.headers)
-    const creatorId = jwt.decodeToken(req.headers['auth'])._id;
-    console.log(creatorId)
+    const creatorId = req.headers["creator_id"];
     upload.single('image')(req, res, (err) => {
-        
+        console.log(req.body)
         const isValid = recipesValidations(req.body);
 
         if (isValid) {
@@ -60,9 +58,9 @@ console.log(req.headers)
 
                     if (dbResponse) { // if error return error query ... just to test the API for now
                         updateUserRecipes(creatorId, 'userRecipes', dbResponse._id);// updates ObjectId array! (user's recipes)
-                        res.redirect('/api/recipes/create-recipe?created');
+                        return res.send(dbResponse);
                     } else {
-                        res.redirect('/api/recipes/create-recipe?error');
+                        return res.send('Something went wrong !');
                     }
                 });
 
