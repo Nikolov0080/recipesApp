@@ -52,6 +52,7 @@ const CreateRecipeInputs = () => {
     return (
         <div>
             <RecipeBox>
+                <h1>Create new recipe</h1>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} />

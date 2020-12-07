@@ -2,10 +2,7 @@ import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import Recipe from './recipe'
 
-const UserRecipes = ({ recipes }) => {
-
-    console.log(recipes)
-
+const UserRecipes = ({ func, recipes }) => {
 
     return (
         <div>
@@ -16,7 +13,7 @@ const UserRecipes = ({ recipes }) => {
             <Container>
                 <Row>
                     {recipes.map((recipe, index) => {
-                        return <Col key={index}><Recipe data={recipe} /></Col>
+                        return <Col key={index}><Recipe func={func} data={recipe} /></Col>
                     })}
                 </Row>
 

@@ -30,7 +30,6 @@ export default (recipeName,
         }
       }
 
-// TODO === SET HEADERS FOR USER-ID ON THE BACK END !
     return axios.default.post("http://localhost:5000/api/recipes/create-recipe",
         formData,
         config

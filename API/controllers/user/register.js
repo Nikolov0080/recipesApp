@@ -104,7 +104,7 @@ module.exports.registerPost = (req, res) => {
                             return await userSchema.create({ username, email, password, skillLevel, profilePictureURL }).catch((err) => {
                                 console.log(err.code);
                                 console.log("something went wrong with registration...");
-                                // TODO  continue with the err catching <3
+                              
                             })
                         }
 

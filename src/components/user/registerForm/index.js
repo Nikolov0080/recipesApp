@@ -21,8 +21,6 @@ const RegisterForm = () => {
     const [file, setFile] = useState(false);
 
     const handleFile = (image) => {
-        // TODO image preview functionality in new file to be reused in other pages ! 
-        // done
         setFile(image)
         setProfilePicture(image)
     }
