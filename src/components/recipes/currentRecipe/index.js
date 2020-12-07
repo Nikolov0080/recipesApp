@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Col, ListGroup, Row, ListGroupItem } from 'react-bootstrap';
 import style from './index.module.css';
+import IngredientsList from './ingredientsList/index';
+import DirectionsList from './directionsList/index';
 import RecipeData from './recipeData';
 
 const CurrentRecipe = ({ func, data }) => {
@@ -21,11 +23,13 @@ const CurrentRecipe = ({ func, data }) => {
                         description={data.description}
                         prepTime={data.prepTime}
                         cookTime={data.cookTime}
+                        difficulty={data.difficulty}
                     />
                 </Col>
             </Row>
 
-
+            <IngredientsList data={ingredients} />
+            <DirectionsList data={directions} />
             <Button onClick={func}>Back</Button>
 
         </div>
