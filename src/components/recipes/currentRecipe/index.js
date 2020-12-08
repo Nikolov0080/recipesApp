@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, Col, ListGroup, Row, ListGroupItem } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Button, Col, Row } from 'react-bootstrap';
 import style from './index.module.css';
 import IngredientsList from './ingredientsList/index';
 import DirectionsList from './directionsList/index';
@@ -7,15 +7,28 @@ import RecipeData from './recipeData';
 
 const CurrentRecipe = ({ func, data }) => {
 
+    const [showIng, setShowIng] = useState(false);
+    const [showDir, setShowDir] = useState(false);
+
+    const handleShowHide = (menuName) => {
+        if (menuName === 'ingredients') {
+            setShowIng(!showIng);
+        } else if (menuName === 'directions') {
+            setShowDir(!showDir);
+        }
+    }
+    console.log(showIng)
+    console.log(showDir)
+
     const ingredients = JSON.parse(data.ingredients)
     const directions = JSON.parse(data.directions)
-    console.log(data)
     return (
         <div>
+                <Button className="ml-5 mb-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
 
             <Row >
                 <Col lg={5}>
-                    <img className={style.current_image} src={data.image} />
+                    <img className={style.current_image} src={data.image} alt="ciganin" />
                 </Col>
                 <Col >
                     <RecipeData
@@ -28,10 +41,8 @@ const CurrentRecipe = ({ func, data }) => {
                 </Col>
             </Row>
 
-            <IngredientsList data={ingredients} />
-            <DirectionsList data={directions} />
-            <Button onClick={func}>Back</Button>
-
+            <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
+            <DirectionsList data={directions} func={handleShowHide} show={showDir} />
         </div>
     )
 }

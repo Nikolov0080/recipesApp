@@ -1,14 +1,25 @@
 import React from 'react'
-import style from './index.module.css'
 import { Table } from 'react-bootstrap';
+import style from './index.module.css'
 
 
-const DirectionsList = ({ data }) => {
+const DirectionsList = ({ data, func, show }) => {
 
-    console.log(data);
+    if (!show) {
+        return (
+            <div>
+                <div className={style.directions_head} onClick={() => func('directions')}>
+                <h2>Directions <span>&#8595;</span></h2>
+            </div>
+            </div>
+        )
+    }
+
     return (
         <div>
-            <h2>Directions</h2>
+            <div className={style.directions_head} onClick={() => func('directions')}>
+                <h2>Directions <span>&#8595;</span></h2>
+            </div>
             <Table className="text-center" bordered hover>
                 <thead>
                     <tr>
@@ -18,12 +29,12 @@ const DirectionsList = ({ data }) => {
                 </thead>
                 <tbody>
                     {data.map(({ stepData }, index) => {
-                        return(
+                        return (
 
-                        <tr key={index}>
-                            <td>{index+1}</td>
-                            <td>{stepData}</td>
-                        </tr>
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{stepData}</td>
+                            </tr>
                         )
                     })}
                 </tbody>

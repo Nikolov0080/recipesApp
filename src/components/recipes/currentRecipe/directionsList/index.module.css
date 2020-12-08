@@ -1,0 +1,9 @@
+.directions_head {
+    background-color: lightcoral;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 10px;
+
+}
