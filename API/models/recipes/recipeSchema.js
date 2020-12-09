@@ -41,13 +41,12 @@ const recipeSchema = new Schema({
 
     },
 
-    likes: 0,
+    likes: [],
     comments: [],
-    favorites: 0,
+    favorites: [],
 
     creatorId: { type: "ObjectId", ref: "User" }
 
 });
-
 
 module.exports = new Model('Recipes', recipeSchema);

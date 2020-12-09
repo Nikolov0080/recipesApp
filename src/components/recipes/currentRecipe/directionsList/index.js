@@ -9,7 +9,7 @@ const DirectionsList = ({ data, func, show }) => {
         return (
             <div>
                 <div className={style.directions_head} onClick={() => func('directions')}>
-                <h2>Directions <span>&#8595;</span></h2>
+                <h2>Directions <span>&#8595;</span> show</h2>
             </div>
             </div>
         )
@@ -18,7 +18,7 @@ const DirectionsList = ({ data, func, show }) => {
     return (
         <div>
             <div className={style.directions_head} onClick={() => func('directions')}>
-                <h2>Directions <span>&#8595;</span></h2>
+                <h2>Directions <span>&#8593;</span> hide</h2>
             </div>
             <Table className="text-center" bordered hover>
                 <thead>

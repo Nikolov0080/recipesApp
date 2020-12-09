@@ -1,0 +1,9 @@
+.liked{
+    font-size: 50px;
+    color: lightsalmon;
+}
+
+.not_liked{
+    font-size: 50px;
+    color: rgb(48, 47, 46);
+}

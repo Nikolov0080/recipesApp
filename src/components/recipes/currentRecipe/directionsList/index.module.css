@@ -7,3 +7,8 @@
     margin-bottom: 10px;
 
 }
+
+.directions_head:active {
+    opacity: 0.4;
+    color: black;
+}

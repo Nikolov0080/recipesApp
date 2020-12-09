@@ -4,6 +4,7 @@ import style from './index.module.css';
 import IngredientsList from './ingredientsList/index';
 import DirectionsList from './directionsList/index';
 import RecipeData from './recipeData';
+import UserActs from './userActs/index';
 
 const CurrentRecipe = ({ func, data }) => {
 
@@ -17,15 +18,14 @@ const CurrentRecipe = ({ func, data }) => {
             setShowDir(!showDir);
         }
     }
-    console.log(showIng)
-    console.log(showDir)
 
-    const ingredients = JSON.parse(data.ingredients)
-    const directions = JSON.parse(data.directions)
+    const ingredients = JSON.parse(data.ingredients);
+    const directions = JSON.parse(data.directions);
+
     return (
         <div>
-                <Button className="ml-5 mb-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
-
+            <Button className="ml-5 mb-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
+            <UserActs />
             <Row >
                 <Col lg={5}>
                     <img className={style.current_image} src={data.image} alt="ciganin" />
