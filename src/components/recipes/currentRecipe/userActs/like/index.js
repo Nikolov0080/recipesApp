@@ -10,7 +10,10 @@ const Like = ({ isLiked }) => {
 
     return (
         <div>
+            <div className={style.box}>
+
             <span className={style[liked]}>&#9825;</span>
+            </div>
         </div>
     )
 }

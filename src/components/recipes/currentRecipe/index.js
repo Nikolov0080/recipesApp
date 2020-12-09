@@ -25,7 +25,6 @@ const CurrentRecipe = ({ func, data }) => {
     return (
         <div>
             <Button className="ml-5 mb-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
-            <UserActs />
             <Row >
                 <Col lg={5}>
                     <img className={style.current_image} src={data.image} alt="ciganin" />
@@ -43,6 +42,7 @@ const CurrentRecipe = ({ func, data }) => {
 
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
+            <UserActs />
         </div>
     )
 }
