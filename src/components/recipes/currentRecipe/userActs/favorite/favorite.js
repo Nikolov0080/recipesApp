@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import style from './index.module.css';
 
-const Favorite = ({ isFav }) => {
+const Favorite = ({ current, func }) => {
 
     const [fav, setFav] = useState('fav');
     useState(() => {
-        isFav !== true ? setFav('not_fav') : setFav('fav')
+        current !== true ? setFav('not_fav') : setFav('fav')
     }, [])
 
     return (
