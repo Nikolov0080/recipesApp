@@ -15,4 +15,6 @@ router.get('/all-recipes', authFooLogged, getAllRecipesGet)
 router.get('/recipe-details', authFooLogged, getRecipeDetails)
     .post('/recipe-details', postRecipeDetails);
 
+// TODO REQUESTS FOR LIKE AND FAVORITE !!!
+
 module.exports = router;

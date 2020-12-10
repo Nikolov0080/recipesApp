@@ -3,15 +3,23 @@ import style from './index.module.css';
 
 const Favorite = ({ current, func }) => {
 
-    const [fav, setFav] = useState('fav');
-    useState(() => {
-        current !== true ? setFav('not_fav') : setFav('fav')
-    }, [])
-
+   
+// TODO - HANDLE DB CALL AND RETURN
+const handleClick = () => {
+    func(!current)
+}
     return (
         <div>
-            <div className={style.box}>
-                <span className={style[fav]}> &#9734;</span>
+            <div onClick={handleClick} className={style.box}>
+
+
+            {current === true ?
+                    <span className={style.fav}>&#9734;</span>
+                    :
+                    <span className={style.not_fav}>&#9734;</span>}
+
+
+   
             </div>
         </div>
     )

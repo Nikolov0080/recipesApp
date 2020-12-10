@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import style from './index.module.css';
 
 const Like = ({ current, func }) => {
-
-    const [liked, setLiked] = useState('liked');
-
-    useState(() => {
-        current !== true ? setLiked('not_liked') : setLiked('liked')
-    }, [current,setLiked,liked])
+// TODO - HANDLE DB CALL AND RETURN
+    const handleClick = () => {
+        func(!current)
+    }
 
     return (
         <div>
-            <div className={style.box} onClick={() => func(!current)}>
+            <div className={style.box} onClick={handleClick}>
+                {current === true ?
+                    <span className={style.liked}>&#9825;</span>
+                    :
+                    <span className={style.not_liked}>&#9825;</span>}
 
-                <span className={style[liked]}>&#9825;</span>
             </div>
         </div>
     )

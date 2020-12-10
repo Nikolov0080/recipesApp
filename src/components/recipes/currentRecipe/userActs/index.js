@@ -5,15 +5,17 @@ import Favorite from './favorite/favorite';
 
 const UserActs = () => {
 
-const [liked,setLiked] = useState(false);
-const [fav,setFav] = useState(false); 
-console.log(liked)
+    const [liked, setLiked] = useState(false);
+    const [fav, setFav] = useState(false);
+
+    console.log(liked)
+    console.log(fav)
     return (
         <div>
             <div className={style.act_box}>
 
-                <Like func={setLiked} current={liked}/>
-                <Favorite func={setFav} current={fav}/>
+                <Like func={setLiked} current={liked} />
+                <Favorite func={setFav} current={fav} />
 
             </div>
 
