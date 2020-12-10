@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './index.module.css';
+import likeRecipe from "../../../../../controllers/recipes/POST/likeRecipe/index";
 
-const Like = ({ current, func }) => {
-// TODO - HANDLE DB CALL AND RETURN
+const Like = ({ current, func, recipeId ,userId}) => {
+    // TODO - HANDLE DB CALL AND RETURN
+
     const handleClick = () => {
+
+        likeRecipe(recipeId,userId).then()
         func(!current)
     }
 
@@ -20,4 +24,4 @@ const Like = ({ current, func }) => {
     )
 }
 
-export default Like
+export default Like;

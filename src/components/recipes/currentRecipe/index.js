@@ -42,7 +42,7 @@ const CurrentRecipe = ({ func, data }) => {
 
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
-            <UserActs />
+            <UserActs recipeId={data._id} />
         </div>
     )
 }

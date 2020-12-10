@@ -45,7 +45,6 @@ class UserProfile extends Component {
         if (!this.state.userRecipes) {
             return (
                 <Loading />
-                // IMPLEMENT NICE LOADING SCREEN TODO !!!
             )
         }
 
