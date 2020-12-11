@@ -1,10 +1,13 @@
 const recipeSchema = require('../../../models/recipes/recipeSchema');
 const userSchema = require('../../../models/user/userSchema');
+const { checkForLikes } = require('./checkForLikes');
 
 module.exports.like = (req, res) => {
 
     console.log()
     const userId = req.body.user_id
+    const recipeId = req.body.recipe_id
+
 
     /*
      TODO
@@ -13,17 +16,30 @@ module.exports.like = (req, res) => {
             3. do the same for favorites !
     */
 
-    recipeSchema.findOneAndUpdate({
-        _id: req.body.recipe_id
-    },
-        { $push: { likes: userId } },
-        (err, success) => {
-            if (err) {
-                console.log(err)
-            }
-            console.log(success)
-        }
-    )
+      checkForLikes(recipeId)
+
+    // recipeSchema.findOneAndUpdate({
+    //     _id: req.body.recipe_id
+    // },
+    //     { $push: { likes: userId } },
+    //     (err, success) => {
+    //         if (err) {
+    //             console.log(err)
+    //         }
+    //         console.log(success)
+    //     }
+    // )
+
+    // userSchema.findOneAndUpdate({
+    //     _id: req.body.user_id
+    // },
+    //     { $push: { likedRecipes: recipeId } },
+    //     (err, success) => {
+    //         if (err) {
+    //             console.log(err)
+    //         }
+    //         console.log(success)
+    //     })
 
 
 
