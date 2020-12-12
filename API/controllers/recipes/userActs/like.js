@@ -4,61 +4,75 @@ const { checkForLikes } = require('./checkForLikes');
 
 module.exports.like = (req, res) => {
 
-    console.log()
-    const userId = req.body.user_id
-    const recipeId = req.body.recipe_id
+  const userId = req.body.user_id
+  const recipeId = req.body.recipe_id
 
+  /*
+   TODO
+        done  1. create check do the user already like the current recipe and return data
+        done  2. remove like on click
+        3. create function that sends data for the recipe status
+        (can be reusable to be used for favorites too !)
+         4. do the same for favorites !
+  */
 
-    /*
-     TODO
-            1. create check do the user already like the current recipe and return data
-            2. remove like on click
-            3. do the same for favorites !
-    */
+  checkForLikes(recipeId).then(resp => {
 
-    checkForLikes(recipeId).then(resp => {
-        console.log(resp)
+    if (!resp.liked) { // save like in Recipe and User objects
+      Promise.all([addToRecipe(), addToUser()])
+        .then(result => { console.log("Recipe liked!"); })
+        .catch(err => { console.log(err); })
 
-        if (!resp.liked) { // save like in Recipe and User objects
-            addToRecipe();
-            addToUser();
-        }else{ // unlike
+    } else { // unlike TODO
+      Promise.all([unlikeUser(), unlikeRecipe()])
+        .then(result => { console.log("Recipe unliked!"); })
+        .catch(err => { console.log(err); })
+    }
 
+  }).catch(err => { res.send("something went wrong...") })
+
+  function unlikeUser() {
+    userSchema.updateOne({ _id: userId },
+      { $pull: { likedRecipes: recipeId } }, (err, success) => {
+        if (err) {
+          console.log(err)
         }
-    }).catch(err => {
-        res.send("something went wrong...")
-    })
+      })
+  }
 
-    function addToRecipe() {
-        //   recipeSchema.findOneAndUpdate({
-        //       _id: req.body.recipe_id
-        //   },
-        //       { $push: { likes: userId } },
-        //       (err, success) => {
-        //           if (err) {
-        //               console.log(err)
-        //           }
-        //           console.log(success)
-        //       }
-        //   )
-    }
+  function unlikeRecipe() {
+    recipeSchema.updateOne({ _id: recipeId },
+      { $pull: { likes: userId } }, (err, success) => {
+        if (err) {
+          console.log(err)
+        }
+      })
+  }
 
-    function addToUser() {
+  async function addToRecipe() {
+    return await recipeSchema.findOneAndUpdate({
+      _id: req.body.recipe_id
+    },
+      { $push: { likes: userId } },
+      (err, success) => {
+        if (err) {
+          console.log(err)
+        }
+      }
+    )
+  }
 
-        //   userSchema.findOneAndUpdate({
-        //       _id: req.body.user_id
-        //   },
-        //       { $push: { likedRecipes: recipeId } },
-        //       (err, success) => {
-        //           if (err) {
-        //               console.log(err)
-        //           }
-        //           console.log(success)
-        //       })
-    }
+  async function addToUser() {
+    return await userSchema.findOneAndUpdate({
+      _id: req.body.user_id
+    },
+      { $push: { likedRecipes: recipeId } },
+      (err, success) => {
+        if (err) {
+          console.log(err)
+        }
+      })
+  }
 
-
-
-
-    res.send();
+  res.send();
 }
