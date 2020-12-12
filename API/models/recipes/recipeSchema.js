@@ -41,7 +41,10 @@ const recipeSchema = new Schema({
 
     },
 
-    likes: [],
+    likes: [{
+        type: "ObjectId",
+        ref: "User"
+    }],
     comments: [],
     favorites: [],
 
