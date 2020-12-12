@@ -11,5 +11,7 @@ export default () => {
         }
     ).then(userData => {
         return userData.data;
+    }).catch(err => {
+        console.log(err)
     })
 }

@@ -16,19 +16,15 @@ module.exports.like = (req, res) => {
             3. do the same for favorites !
     */
 
-
-
     checkForLikes(recipeId).then(resp => {
         console.log(resp)
 
-        if (resp.liked) { // save like in Recipe and User objects
+        if (!resp.liked) { // save like in Recipe and User objects
             addToRecipe();
             addToUser();
         }else{ // unlike
 
         }
-
-
     }).catch(err => {
         res.send("something went wrong...")
     })

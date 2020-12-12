@@ -6,7 +6,7 @@ exports.checkForLikes = (recipeId) => {
 
         if (result.length >= 1) {
             return {
-                liked: true,
+                liked: true
             }
         }
 
