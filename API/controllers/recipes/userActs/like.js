@@ -20,12 +20,16 @@ module.exports.like = (req, res) => {
 
     if (!resp.liked) { // save like in Recipe and User objects
       Promise.all([addToRecipe(), addToUser()])
-        .then(result => { console.log("Recipe liked!"); })
+        .then(result => { console.log("Recipe liked!");
+        return res.send('liked');
+      })
         .catch(err => { console.log(err); })
 
     } else { // unlike TODO
       Promise.all([unlikeUser(), unlikeRecipe()])
-        .then(result => { console.log("Recipe unliked!"); })
+        .then(result => { console.log("Recipe unliked!"); 
+        return res.send('unliked');
+      })
         .catch(err => { console.log(err); })
     }
 
@@ -74,5 +78,5 @@ module.exports.like = (req, res) => {
       })
   }
 
-  res.send();
+  // res.send();
 }
