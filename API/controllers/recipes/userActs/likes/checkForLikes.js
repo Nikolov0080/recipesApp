@@ -8,10 +8,12 @@ exports.checkForLikes = (recipeId) => {
             return {
                 liked: true
             }
+        }else{
+
+            return {
+                liked: false
+            }
         }
 
-        return {
-            liked: false
-        }
     })
 }

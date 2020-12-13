@@ -5,7 +5,7 @@ module.exports.getAllRecipesGet = (req, res) => {
     const allRecipes = recipeSchema.find({}, (err, data) => {
         return data;
     });
-
+  
     allRecipes.then((result) => {
         const data = result;
         if (data.length === 0) {

@@ -7,7 +7,6 @@ module.exports.like = (req, res) => {
   const userId = req.body.user_id
   const recipeId = req.body.recipe_id
 
-
   checkForLikes(recipeId).then(resp => {
 
     if (!resp.liked) { // save like in Recipe and User objects

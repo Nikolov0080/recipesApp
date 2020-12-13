@@ -24,21 +24,18 @@ const userSchema = new Schema({
     },
     profilePictureURL: {
         type: String,
-        required: true
+        required: true,
     },
 
-    favorites: [{ // type: mongoose.Schema.Types.ObjectId
-        type: "ObjectId",
-        ref: "Recipes"
-    }],
     likedRecipes: [{
         type: "ObjectId",
         ref: "Recipes"
     }],
+  
     userRecipes: [{
         type: "ObjectId",
         ref: "Recipes"
-    }]
+    }],
 
 });
 

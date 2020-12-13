@@ -1,11 +1,9 @@
 import setCookie from '../../utils/setCookie';
 import axios from 'axios';
 
-
 export default (username, password, rePassword, email, skillLevel, profilePicture) => {
     // using FormData() to append file and form data to the request
  
-
     var formData = new FormData();
     formData.append("profilePicture", profilePicture)
     formData.append("username", username)

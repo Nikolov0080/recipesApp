@@ -62,11 +62,13 @@ module.exports.createRecipe = (req, res, next) => {
                     } else {
                         return res.send('Something went wrong !');
                     }
-                });
+                }).catch(e => {
+                    console.log(e)
+                })
 
             }).catch((e) => {
                 console.log(e);
-            });
+            })
         }
     });
 }

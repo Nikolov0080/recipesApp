@@ -7,8 +7,7 @@ async function getUser(id) {
     return await UserSchema
         .findById({ _id: id })
         .populate("userRecipes")
-        .populate("favorites")
-        .populate("likedRecipes")
+         .populate("likedRecipes")
 }
 
 module.exports.profileGet = (req, res) => {
