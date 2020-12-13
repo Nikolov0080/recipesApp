@@ -41,15 +41,9 @@ const recipeSchema = new Schema({
 
     },
 
-    likes: [{
-        type: "ObjectId",
-        ref: "User"
-    }],
+    likes: [{ type: "ObjectId", ref: "User" }],
     comments: [],
-    favorites: [],
-
     creatorId: { type: "ObjectId", ref: "User" }
-
 });
 
 module.exports = new Model('Recipes', recipeSchema);

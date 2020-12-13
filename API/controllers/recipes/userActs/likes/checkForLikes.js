@@ -1,4 +1,4 @@
-const userSchema = require('../../../models/user/userSchema');
+const userSchema = require('../../../../models/user/userSchema');
 
 exports.checkForLikes = (recipeId) => {
     // TODO LATER
@@ -13,6 +13,5 @@ exports.checkForLikes = (recipeId) => {
         return {
             liked: false
         }
-
     })
 }
