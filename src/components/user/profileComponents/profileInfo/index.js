@@ -45,7 +45,6 @@ const ProfileInfo = ({ userData }) => {
                         <br />
 
                         <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
-                        <Alert variant="danger">Favorites [{userData.favorites.length}]</Alert>
                         <Alert variant="danger">Liked [{userData.likedRecipes.length}]</Alert>
 
                     </Container>

@@ -9,6 +9,7 @@
 
 .info_container {
     text-align: center;
+    margin-top: 2rem;
 }
 
 .cont {
@@ -19,7 +20,7 @@
     .profile_pic {
         float: none;
         width: 150px;
-        margin-top: 1.7rem;
+        margin-top: 1rem;
     }
     .cont {
         width: 96%;
