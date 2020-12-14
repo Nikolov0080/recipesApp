@@ -25,7 +25,7 @@ const RegisterForm = () => {
     const [error, setError] = useState('');
     const [file, setFile] = useState(false);
 
-    const authUser = () => {// this yes this use it in register too ;()
+    const authUser = () => {
         const userData = readCookie(document.cookie);
         context.signIn(userData);
     }

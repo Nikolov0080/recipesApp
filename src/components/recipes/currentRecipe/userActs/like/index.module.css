@@ -1,18 +1,20 @@
 .liked {
-    font-size: 70px;
+    font-size: 100px;
     color: rgb(255, 62, 62);
 }
 
 .not_liked {
-    font-size: 70px;
+    font-size: 100px;
     color: rgb(0, 0, 0);
 }
 
 .box {
-    transition: background-color 1s;
+    background-color: rgb(236, 230, 228);
+    transition: background-color 1s ,border-radius 1s;
 }
 
 .box:hover {
-    background-color: rgb(240, 219, 211);
-    transition: 1s;
+    background-color: rgb(243, 200, 183);
+    border-radius: 60px;
+    /* transition: 1s; */
 }

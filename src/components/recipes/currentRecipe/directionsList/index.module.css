@@ -5,10 +5,15 @@
     text-align: center;
     padding: 8px;
     margin-bottom: 10px;
+    transition:border-radius 1s;
 
 }
 
 .directions_head:active {
     opacity: 0.4;
     color: black;
+}
+
+.directions_head:hover{
+    border-radius: 40px;
 }

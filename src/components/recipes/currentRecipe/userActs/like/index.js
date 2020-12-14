@@ -8,7 +8,7 @@ const Like = ({ current, func, recipeId, userId }) => {
 
     const handleClick = () => {
 
-        likeRecipe(recipeId, userId).then(response=>{
+        likeRecipe(recipeId, userId).then(response => {
             response.data === "liked" ? func(true) : func(false);
         })
     }
@@ -18,17 +18,21 @@ const Like = ({ current, func, recipeId, userId }) => {
             console.log(response.data)
             response.data === true ? func(true) : func(false)
         })
-    }, [recipeId,func]);
+    }, [recipeId, func]);
 
 
     return (
         <div>
             <div className={style.box} onClick={handleClick}>
                 {current === true ?
-                    <span className={style.liked}>&#9825;</span>
+                    <span className={style.liked}>
+                        <h4>You like this recipe!</h4>
+                     &#9825;
+                    </span>
                     :
-                    <span className={style.not_liked}>&#9825;</span>}
-
+                    <span className={style.not_liked}>
+                        <h4>Click here to like!</h4>
+                        &#9825;</span>}
             </div>
         </div>
     )

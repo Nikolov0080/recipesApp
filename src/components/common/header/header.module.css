@@ -19,6 +19,7 @@
     width: 100%;
     margin: 0 auto;
     margin-top:5px ;
+    margin-left: 100px;
     border-radius: 20px;
 }
 
@@ -46,16 +47,6 @@
 }
 
 /* nav links style */
-
-/* dropdown style */
-
-.drop {
-    font-size: medium;
-    float: left;
-    margin-right: 30px;
-}
-
-/* dropdown style */
 
 @media only screen and (max-width: 800px) {
     .home {
