@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const Model = mongoose.model;
 
-const uniqueObjectId =()=>{
-
-    return mongoose.Types.ObjectId();
-} 
-
-
 const recipeSchema = new Schema({
 
     recipeName: {
@@ -51,10 +45,5 @@ const recipeSchema = new Schema({
     creatorId: { type: "ObjectId", ref: "User" },
     comments: []
 });
-
-recipeSchema.pre('save',function(next){
-    this.likes = [uniqueObjectId()];
-    next();
-})
 
 module.exports = new Model('Recipes', recipeSchema);

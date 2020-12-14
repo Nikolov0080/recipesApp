@@ -5,8 +5,15 @@
     margin-bottom: 2em;
     cursor: pointer;
 }
+
 .image_box{
     height: 15rem;
+}
+
+.likes{
+    float: right;
+    font-size: larger;
+    color: rgb(247, 70, 70);
 }
 
 @media only screen and (max-width: 600px) {

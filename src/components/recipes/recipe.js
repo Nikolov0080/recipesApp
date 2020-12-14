@@ -12,6 +12,7 @@ const Recipe = ({ func, data }) => {
                     <Card.Text>
                         {data.description.substr(0, 70) + "..."}
                         <br />
+                        <span className={style.likes}>&#9829; {(data.likes.length /2)}</span>
                     </Card.Text>
                 </Card.Body>
             </Card>

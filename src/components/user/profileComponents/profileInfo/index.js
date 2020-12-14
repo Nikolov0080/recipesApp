@@ -45,7 +45,7 @@ const ProfileInfo = ({ userData }) => {
                         <br />
 
                         <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
-                        <Alert variant="danger">Liked [{userData.likedRecipes.length}]</Alert>
+                        <Alert variant="danger">Liked [{userData.likedRecipes.length /2}]</Alert>
 
                     </Container>
                 </Col>
