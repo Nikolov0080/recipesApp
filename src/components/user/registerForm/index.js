@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import Input from '../../common/input/input';
 import { Button } from 'react-bootstrap';
 import registerFunc from '../../../controllers/user/POST/register';
@@ -6,8 +6,13 @@ import InputFile from '../../common/input/inputFile';
 import registerValidator from '../../../validations/user/register';
 import ImagePreview from '../../common/imagePreview';
 import { useHistory } from 'react-router-dom';
+import readCookie from '../../../utils/readCookie';
+
+import UserContext from '../../../context/userContext';
 
 const RegisterForm = () => {
+
+    const context = useContext(UserContext);
     
     const history = useHistory();
     const [username, setUsername] = useState('');
@@ -19,6 +24,11 @@ const RegisterForm = () => {
     const [displayErr, setDisplayErr] = useState(false);
     const [error, setError] = useState('');
     const [file, setFile] = useState(false);
+
+    const authUser = () => {// this yes this use it in register too ;()
+        const userData = readCookie(document.cookie);
+        context.signIn(userData);
+    }
 
     const handleFile = (image) => {
         setFile(image)
@@ -36,6 +46,7 @@ const RegisterForm = () => {
                     setError(resp.data.data)
                 } else {
                     setDisplayErr(false);
+                    authUser();
                     history.push('/profile');
                 }
             })
