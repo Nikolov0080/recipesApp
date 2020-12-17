@@ -51,7 +51,7 @@ const LoginForm = () => {
                     console.log(resp.data)
                     authUser();
                     setError(false);
-                    history.push('/');
+                    history.push('/profile');
                     // TODO on successful login stuff...
                 }
             })

@@ -37,15 +37,17 @@ const SessionContext = (props) => {
         }).then((resp) => {
             setUser('guest');
             deleteCookie('auth');
+            return true;
         }).catch((err) => {
             console.log(err)
+            return false
         })
     }
-if(user === "guest1"){
-    return(
-        <h1>Loading...</h1>
-    )
-}
+    if (user === "guest1") {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
     return (
         <UserContext.Provider
             value={{

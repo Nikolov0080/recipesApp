@@ -124,7 +124,7 @@ module.exports.registerPost = (req, res) => {
                         }).catch(e => {
 
                             console.log(e)
-                            return res.send(e._message)
+                            return res.send(e._message);
                         })
                     })
                 }

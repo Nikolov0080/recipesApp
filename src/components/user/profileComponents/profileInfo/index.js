@@ -1,19 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import { Row, Col, ProgressBar, Container, Alert } from 'react-bootstrap';
+import React, { useEffect, useState, useContext } from 'react'
+import { Row, Col, ProgressBar, Container, Alert, Button } from 'react-bootstrap';
 import Loading from '../../../loading/index';
 import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
+import UserContext from '../../../../context/userContext';
+import { useHistory } from 'react-router-dom';
 
 const ProfileInfo = ({ userData }) => {
+    const signOut = useContext(UserContext).signOut
+    const history = useHistory();
+
+    const handleClick = () => {
+        signOut().then(resp => {
+            if (resp === true) {
+                history.push('/');
+            }
+        })
+    }
+
 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (userData) { 
-            
-            setLoading(false) ;
-        
-            if(userData.profilePictureURL === 'no image'){
+        if (userData) {
+
+            setLoading(false);
+
+            if (userData.profilePictureURL === 'no image') {
                 userData.profilePictureURL = defaultImage;
             }
         }
@@ -45,8 +58,8 @@ const ProfileInfo = ({ userData }) => {
                         <br />
 
                         <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
-                        <Alert variant="danger">Liked [{userData.likedRecipes.length /2}]</Alert>
-
+                        <Alert variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                        <Button size="lg" onClick={handleClick}>Sign out</Button>
                     </Container>
                 </Col>
             </Row>

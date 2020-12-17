@@ -4,10 +4,11 @@ export default [
     'salad',
     'dinner',
     'breads',
-    'deserts',
     'drinks',
     'soup',
     'pasta',
+    'sandwiches',
     'american',
-    'sweets'
+    'sweets',
+    'low calories'
 ]
