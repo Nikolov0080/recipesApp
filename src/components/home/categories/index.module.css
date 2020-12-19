@@ -5,7 +5,8 @@
 
 .cat_img {
     height: 300px;
-    max-width: 400px;
+   width: 100%;
+    /* max-width: 450px; */
 }
 
 .cat_name {
@@ -13,7 +14,7 @@
     border-radius: 30px;
     color: black;
     height: 35px;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .current {

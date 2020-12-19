@@ -1,16 +1,18 @@
-.card{
-    margin-left:-7.5px;
+.card {
+    margin-left: -7.5px;
     float: none;
-    width:100%;
+    width: 100%;
     margin-top: 10%;
     height: 200px;
 }
 
+.fact_text {
+font-size: medium;
+}
+
 @media screen and (max-width: 600px) {
-    .card{
-        width:92%;
+    .card {
+        width: 92%;
         float: right;
     }
-    
-  
 }

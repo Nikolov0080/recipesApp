@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './index.module.css';
-import { Carousel, Container } from 'react-bootstrap';
+import { Carousel} from 'react-bootstrap';
 
 import categories from './categoriesData';
 
