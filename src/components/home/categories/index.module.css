@@ -1,10 +1,11 @@
 .main_box {
-    width: 40%;
+    width: 100%;
     margin: auto;
 }
 
 .cat_img {
     height: 300px;
+    max-width: 400px;
 }
 
 .cat_name {
@@ -19,10 +20,19 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    float: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
     .main_box {
         width: 100%;
+        margin-left:4%;
     }
+
+.cat_img{
+    height: 200px;
+    width: 100%;
+}
+
+
 }

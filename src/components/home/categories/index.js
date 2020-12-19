@@ -8,14 +8,14 @@ import categories from './categoriesData';
 const Categories = () => {
     return (
         <div>
-            <Carousel className={style.main_box}>
+                 <Carousel className={style.main_box}>
                 {categories.map(({ name, imageUrl }, index) => {
                     return <Carousel.Item className={style.current} key={index}>
 
                         <img
                             className={style.cat_img}
                             src={imageUrl}
-                            alt="First slide"
+                            alt="view"
                             />
                             
                         <Carousel.Caption>
