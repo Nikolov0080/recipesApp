@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import GuestLinks from './guestLinks';
 import UserLinks from './userLinks';
 import { Nav, Navbar } from 'react-bootstrap';
-import Search from './search';
+import Search from './searchRecipe/search';
 import style from './header.module.css';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from './logo.ico';

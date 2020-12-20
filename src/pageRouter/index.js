@@ -8,6 +8,7 @@ import LoginPage from '../pages/user/login';
 import RegisterPage from '../pages/user/register';
 import UserProfile from '../pages/user/profile';
 import CreateRecipe from '../pages/recipes/createRecipe/index';
+import SearchResults from '../pages/recipes/searchResults';
 
 const PageRouter = () => {
     return (
@@ -22,6 +23,7 @@ const PageRouter = () => {
                             <Route exact path="/register" component={RegisterPage} />
                             <Route exact path="/profile" component={UserProfile} />
                             <Route exact path="/create-recipe" component={CreateRecipe} />
+                            <Route exact path="/search-results" component={SearchResults} />
 
                         </Switch>
                     </Layout>
