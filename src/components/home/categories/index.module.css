@@ -5,7 +5,8 @@
 
 .cat_img {
     height: 300px;
-   width: 100%;
+    width: 100%;
+    cursor: pointer;
     /* max-width: 450px; */
 }
 
@@ -20,20 +21,16 @@
 .current {
     display: flex;
     justify-content: center;
-    cursor: pointer;
     float: none;
 }
 
 @media screen and (max-width:600px) {
     .main_box {
         width: 100%;
-        margin-left:4%;
+        margin-left: 4%;
     }
-
-.cat_img{
-    height: 200px;
-    width: 100%;
-}
-
-
+    .cat_img {
+        height: 200px;
+        width: 100%;
+    }
 }
