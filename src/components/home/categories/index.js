@@ -5,11 +5,23 @@ import getCategory from '../../../controllers/recipes/POST/getCategory/index';
 import categories from './categoriesData';
 
 
-const Categories = () => {
+const Categories = ({ func }) => {
 
     const handleClick = (category) => {
-        getCategory(category).then((resp)=>{
-            console.log(resp)
+        getCategory(category).then((resp) => {
+
+            if (resp.data.length > 0) {
+                func({
+                    category: category,
+                    recipesArray: resp.data
+                })
+            } else {
+                func({
+                    category: category,
+                    recipesArray: "No recipes in this category"
+                })
+            }
+
         })
     }
 

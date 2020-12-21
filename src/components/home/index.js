@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import Categories from './categories/index';
+import CurrentCategory from './currentCategory/index';
 import Facts from './facts';
 import style from './index.module.css';
 
 const Home = () => {
+
+    const [currentCategory, setCurrentCategory] = useState(undefined);
+
     return (
         <div>
             <div className={style.big_box}>
@@ -14,15 +18,15 @@ const Home = () => {
                 </Col>
                     <Col sm={true}>
                         {/* Center categories */}
-                        <Categories />
+                        <Categories func={setCurrentCategory} />
                     </Col>
                     <Col className={style.right_col} >
-
                         <Facts />
                     </Col>
                 </Row>
-
             </div>
+
+            <CurrentCategory categorySelected={currentCategory} />
 
         </div>
     )

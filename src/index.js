@@ -4,8 +4,8 @@ import PageRouter from "./pageRouter/index";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/journal/bootstrap.min.css";
 ReactDOM.render(
-  // <React.StrictMode>
+  //  <React.StrictMode>
     <PageRouter />,
-  // {/* </React.StrictMode>, */}
+  //  {/* </React.StrictMode>, */}
   document.getElementById('root')
 );
