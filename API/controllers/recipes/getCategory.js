@@ -6,12 +6,12 @@ module.exports.getCategory = (req, res) => {
     recipeSchema.find({ category: { $regex: category } })
         .then((response) => {
             if (response.length === 0) {
-                res.status(204).send('no recipes in this category');
+                return res.status(204).send('no recipes in this category');
             }
-            res.send(response)
+            return res.send(response);
         })
         .catch(err => {
-            res.status(500).send('something went wrong')
+            return res.status(500).send('something went wrong');
             console.log(err)
         })
 }

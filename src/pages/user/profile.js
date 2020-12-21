@@ -14,12 +14,18 @@ class UserProfile extends Component {
         super(props)
 
         this.state = {
-            show: false
+            show: false,
+            loading: true
         }
     }
 
     componentDidMount() {
         profile().then(profileData => {
+            if (profileData === "Network Error") {
+                this.setState({
+                    profileData
+                })
+            }
             this.setState({
                 ...profileData
             })
@@ -28,7 +34,11 @@ class UserProfile extends Component {
         })
     }
 
-
+    componentDidUpdate() {
+        if (this.state.userRecipes && (this.state.loading === true)) {
+            this.setState({ loading: false })
+        }
+    }
     showHide = (data) => {
         this.setState(
             { show: !this.state.show }
@@ -39,14 +49,32 @@ class UserProfile extends Component {
                 current: data
             })
         }
+
+
     }
 
+
+
+
+
+
     render() {
-        if (!this.state.userRecipes) {
+
+
+        if (this.state.profileData === "Network Error") {
+            return (
+                <div>
+                    <h1 style={{ height: "900px" }}>Server Error 503 Service unavailable</h1>
+                </div>
+            )
+        }
+
+        if (this.state.loading) {
             return (
                 <Loading />
             )
         }
+
 
         return (
 

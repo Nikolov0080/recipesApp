@@ -20,10 +20,13 @@ module.exports.profileGet = (req, res) => {
     // getting the user ID
     const userId = decodeToken(user.replace('auth=', ""))._id
 
-    getUser(userId).then(a => {
+    getUser(userId)
+    .then(a => {
         a.password = undefined;
-        // console.log(a) 
-        res.send(a)
+            res.send(a)
+    })
+    .catch((err)=>{
+        res.status(503).send('server down');
     })
 
 }

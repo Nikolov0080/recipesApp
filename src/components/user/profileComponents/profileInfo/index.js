@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Row, Col, ProgressBar, Container, Alert, Button } from 'react-bootstrap';
-import Loading from '../../../loading/index';
 import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
@@ -18,27 +17,13 @@ const ProfileInfo = ({ userData }) => {
         })
     }
 
-
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         if (userData) {
-
-            setLoading(false);
-
             if (userData.profilePictureURL === 'no image') {
                 userData.profilePictureURL = defaultImage;
             }
         }
-    }, [loading, userData])
-
-    if (loading) {
-        return (
-            <div>
-                <Loading />
-            </div>
-        )
-    }
+    }, [userData])
 
     return (
         <div className={style.cont}>
