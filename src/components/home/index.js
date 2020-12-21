@@ -25,8 +25,12 @@ const Home = () => {
                     </Col>
                 </Row>
             </div>
-
-            <CurrentCategory categorySelected={currentCategory} />
+            {currentCategory !== undefined
+                ?
+                <CurrentCategory categorySelected={currentCategory} />
+                :
+                ""
+            }
 
         </div>
     )

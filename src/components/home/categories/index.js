@@ -18,7 +18,7 @@ const Categories = ({ func }) => {
             } else {
                 func({
                     category: category,
-                    recipesArray: "No recipes in this category"
+                    recipesArray: false
                 })
             }
 

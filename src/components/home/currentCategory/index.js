@@ -1,16 +1,17 @@
 import React from 'react'
 
-const CurrentCategory = ({categorySelected}) => {
+const CurrentCategory = ({ categorySelected }) => {
 
-// const {category,recipesArray} = categorySelected;
-
-if(categorySelected === undefined){
-    return (
-        <div>
-
-        </div>
-    )
-}
+    const { category, recipesArray } = categorySelected;
+// todo set more variables for recipes // no recipes
+    if (!recipesArray) {
+        return (
+            <div>
+                <h1>{categorySelected.category}</h1>
+                <h1>No recipes...</h1>
+            </div>
+        )
+    }
 
     return (
         <div>
