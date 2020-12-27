@@ -14,5 +14,6 @@ font-size: medium;
     .card {
         width: 92%;
         float: right;
+        height: 180px;
     }
 }

@@ -1,0 +1,26 @@
+.container {
+    margin-top: 20px;
+    border-top: 2px lightgray solid;
+}
+
+.cat {
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px lightgray solid;
+    box-shadow: 2px 2px 3px 1px lightgray;
+    padding-bottom: 4px;
+    border-radius: 30px;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Pacifico', cursive;
+}
+
+@media screen and (max-width:600px){
+    .cat{
+
+        width: 60%;
+    }
+}

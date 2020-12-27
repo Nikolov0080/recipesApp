@@ -8,6 +8,7 @@ import style from './index.module.css';
 const Home = () => {
 
     const [currentCategory, setCurrentCategory] = useState(undefined);
+    const [show, setShow] = useState(false);
 
     return (
         <div>
@@ -18,7 +19,7 @@ const Home = () => {
                 </Col>
                     <Col sm={true}>
                         {/* Center categories */}
-                        <Categories func={setCurrentCategory} />
+                        <Categories showFunc={setShow} func={setCurrentCategory} />
                     </Col>
                     <Col className={style.right_col} >
                         <Facts />
@@ -27,11 +28,10 @@ const Home = () => {
             </div>
             {currentCategory !== undefined
                 ?
-                <CurrentCategory categorySelected={currentCategory} />
+                <CurrentCategory show={show} showFunc={setShow} categorySelected={currentCategory} />
                 :
                 ""
             }
-
         </div>
     )
 }

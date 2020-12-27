@@ -6,7 +6,6 @@ const RecipeData = ({ name, description, prepTime, cookTime,difficulty }) => {
     return (
         <div>
             <ListGroup>
-                <ListGroupItem className="text-center" as="h2">{name}</ListGroupItem>
                 <ListGroupItem>{description}</ListGroupItem>
                 <ListGroupItem className="text-center">Prep time
                             <h3>{prepTime} min</h3> </ListGroupItem>

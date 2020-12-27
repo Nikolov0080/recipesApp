@@ -24,14 +24,18 @@ const CurrentRecipe = ({ func, data }) => {
 
     return (
         <div>
-            <Button className="ml-5 mb-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
+            <div className="row justify-content-center">
+                <Button className=" m-3" size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
+            </div>
             <Row >
+             
+                <h2 className={style.name}>{data.recipeName}</h2>
+             
                 <Col lg={5}>
                     <img className={style.current_image} src={data.image} alt="ciganin" />
                 </Col>
                 <Col >
                     <RecipeData
-                        name={data.recipeName}
                         description={data.description}
                         prepTime={data.prepTime}
                         cookTime={data.cookTime}

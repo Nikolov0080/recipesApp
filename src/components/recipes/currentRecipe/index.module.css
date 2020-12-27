@@ -3,3 +3,9 @@
     max-height: fit-content;
     
 }
+
+.name{
+    margin: auto;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

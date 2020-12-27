@@ -49,17 +49,9 @@ class UserProfile extends Component {
                 current: data
             })
         }
-
-
     }
 
-
-
-
-
-
     render() {
-
 
         if (this.state.profileData === "Network Error") {
             return (
