@@ -21,7 +21,7 @@ const Search = () => {
                 <div className={style.search_container}>
                     <input placeholder="Search recipe..."
                         className={style.input_search}
-                        onChange={handleChange} type="search"
+                        onChange={handleChange} type="text"
                     />
                     <button className={style.search_btn}>
                         <img className={style.search_icon_style} src={search_icon} alt="search" />

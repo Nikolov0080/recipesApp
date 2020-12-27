@@ -1,34 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './index.module.css'
-import { CircularProgressbar, buildStyles, prog } from 'react-circular-progressbar';
-
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import AnimatedProgressProvider from '../animationProvider';
+import { easeQuadInOut } from "d3-ease";
 const SpinningAnimation = ({ difficulty }) => {
+
+    const percentage = difficulty * 10;
+    const [values, setValues] = useState([]);
+
+    useEffect(() => {
+
+        const result = [];
+
+        for (let i = 0; i < percentage; i++) {
+            result.push(i)
+        }
+
+        setValues(result);
+    }, [percentage])
+
+    console.log(percentage)
+
+
     return (
         <span>
-
-
             <span className={style.dif}>
-                <CircularProgressbar
+                <AnimatedProgressProvider
+                    valueStart={0}
+                    valueEnd={percentage}
+                    duration={2}
+                    easingFunction={easeQuadInOut}
+                    // repeat
+                >
+                    {(value) => {
 
-                    text={`Skill(${difficulty})`}
-                    value={difficulty * 10}
+                        return <CircularProgressbar
 
-                    styles={buildStyles({
-                        rotation: (1 - difficulty * 10 / 100) / 2,
-                        strokeLinecap: "butt",
-                        pathColor: '#f87',
-                        textColor: '#000000',
-                        trailColor: 'lightgray',
-                        backgroundColor: '#f000000',
-                    })}
+                            text={`Skill(${Math.floor(Math.round(value)/10)})`}
+                            value={value}
+
+                            styles={buildStyles({
+                                rotation:  (1 - percentage / 100) / 2,
+                                strokeLinecap: "butt",
+                                pathColor: '#f87',
+                                textColor: '#000000',
+                                trailColor: 'lightgray',
+                                backgroundColor: '#f000000',
+                            })}
+                        />
+
+                    }
+
+                    }
+                </AnimatedProgressProvider>
 
 
-                />
+
             </span>
         </span>
-
-
     )
 }
 
-export default SpinningAnimation
+export default SpinningAnimation;
