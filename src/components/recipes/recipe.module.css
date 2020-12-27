@@ -7,12 +7,14 @@
 }
 
 .image_box{
-    height: 15rem;
+    height: 10rem;
 }
 
 .likes{
+    margin-top: 2rem;
+    font-size: 30px;
     float: right;
-    font-size: larger;
+    margin-right: 60px;
     color: rgb(247, 70, 70);
 }
 

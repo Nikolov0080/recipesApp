@@ -1,11 +1,12 @@
 .current_image {
     width: 100%;
     max-height: fit-content;
-    
 }
 
-.name{
-    margin: auto;
+.name {
+    width: 100%;
+    margin: 0 auto;
     margin-bottom: 10px;
+    text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

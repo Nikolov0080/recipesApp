@@ -24,7 +24,12 @@ const CurrentCategory = ({ show, showFunc, categorySelected }) => {
 
     if (show) {
         return (
-            <CurrentRecipe func={hideCurrentRecipe} data={show} />
+            <div>
+
+                <h1 className={style.cat}>{category}</h1>
+                <CurrentRecipe func={hideCurrentRecipe} data={show} />
+            </div>
+
         )
     }
 
