@@ -7,7 +7,7 @@ export default () => {
             headers: {
                 "cookie_client": document.cookie
             }
-            // TODO  finish authentication with headers
+            // TODO  finish authentication with headers - done
         }
     ).then(userData => {
         return userData.data;

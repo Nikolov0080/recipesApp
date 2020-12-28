@@ -2,11 +2,15 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import style from './recipe.module.css';
 import SpinningAnimation from '../animations/spinning/index';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Recipe = ({ func, data }) => {
+
     return (
         <div >
-            <Card onClick={() => func(data)} className={style.recipe_box} >
+            <LinkContainer to={'/recipe-details/recipe_id=' +data._id}>
+            
+            <Card className={style.recipe_box} >
                 <Card.Img className={style.image_box} variant="top" src={data.image} />
                 <Card.Body>
                     <Card.Title>{data.recipeName}</Card.Title>
@@ -20,6 +24,7 @@ const Recipe = ({ func, data }) => {
                     </Card.Text>
                 </Card.Body>
             </Card>
+            </LinkContainer>
         </div>
     )
 }

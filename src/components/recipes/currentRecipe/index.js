@@ -7,14 +7,15 @@ import RecipeData from './recipeData';
 import UserActs from './userActs/index';
 import deleteRecipe from '../../../controllers/recipes/DELETE/deleteRecipe';
 import Context from '../../../context/userContext';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const CurrentRecipe = ({ func, data }) => {
+const CurrentRecipe = ({ data }) => {
 
     const context = useContext(Context);
 
     const currentUsedId = context.user._id;
     const recipeCreator = data.creatorId;
-    
+    const isCreator = !!(currentUsedId === recipeCreator)
     const [showIng, setShowIng] = useState(false);
     const [showDir, setShowDir] = useState(false);
 
@@ -36,8 +37,15 @@ const CurrentRecipe = ({ func, data }) => {
     return (
         <div>
             <div className="row justify-content-center">
-                <Button size="lg" variant="danger" onClick={func}> <span>&#8249;</span> Back</Button>
-                <Button size="lg" variant="danger" onClick={handleDelete}> <span>&#8249;</span> Delete</Button>
+                <LinkContainer to="/profile">
+            
+                <Button size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
+                </LinkContainer>
+                {isCreator === true
+                    ?
+                    <Button size="lg" variant="danger" onClick={handleDelete}> <span>&#8249;</span> Delete</Button>
+                    : ''
+                }
             </div>
             <Row >
 
