@@ -8,6 +8,7 @@ const { like } = require('../controllers/recipes/userActs/likes/like');
 const { checkResponse } = require('../controllers/recipes/userActs/likes/checkResponse');
 const { searchRecipe } = require('../controllers/recipes/searchRecipe');
 const { getCategory } = require('../controllers/recipes/getCategory');
+const { deleteRecipe } = require('../controllers/recipes/deleteRecipe');
 
 router.get('/create-recipe', authFooLogged, (req, res) => {
     res.render('createRecipe')
@@ -18,6 +19,8 @@ router.get('/all-recipes', authFooLogged, getAllRecipesGet)
 
 router.get('/recipe-details', authFooLogged, getRecipeDetails)
     .post('/recipe-details', postRecipeDetails);
+
+router.delete('/delete-recipe/:id', deleteRecipe);
 
 router.post('/get-category', getCategory);
 

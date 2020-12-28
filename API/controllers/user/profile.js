@@ -5,9 +5,10 @@ async function getUser(id) {
     // finding the user in database
     // and populates all other Object Id's
     return await UserSchema
-        .findById({ _id: id })
+        .findById({ _id: id },)
         .populate("userRecipes")
          .populate("likedRecipes")
+         
 }
 
 module.exports.profileGet = (req, res) => {

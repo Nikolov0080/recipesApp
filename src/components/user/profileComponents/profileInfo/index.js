@@ -6,6 +6,7 @@ import UserContext from '../../../../context/userContext';
 import { useHistory } from 'react-router-dom';
 
 const ProfileInfo = ({ userData }) => {
+    
     const signOut = useContext(UserContext).signOut
     const history = useHistory();
 
