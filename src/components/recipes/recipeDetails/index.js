@@ -12,7 +12,7 @@ const RecipeDetails = (props) => {
     const getRecipe = (id) => {
         recipeDetails(id).then((resp => {
             setRecipeData(resp.data)
-            setLoading(false);
+            setLoading(false)
         }))
     }
 
@@ -21,9 +21,9 @@ const RecipeDetails = (props) => {
     }, [recipeId])
 
 
-    if(loading){
-        return(
-            <Loading/>
+    if (loading) {
+        return (
+            <Loading />
         )
     }
 

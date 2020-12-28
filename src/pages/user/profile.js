@@ -20,6 +20,11 @@ class UserProfile extends Component {
     }
 
     componentDidMount() {
+        window.scroll({
+            top: 100,
+            behavior: 'smooth'
+          });
+
         profile().then(profileData => {
             if (profileData === "Network Error") {
                 this.setState({

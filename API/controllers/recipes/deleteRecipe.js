@@ -6,9 +6,12 @@ module.exports.deleteRecipe = (req, res) => {
     recipeSchema.deleteOne({ _id: id }, (err) => {
         if (err) {
             console.log(err);
-          return  res.send('err');
+            return res.send('err');
         }
-    }).then((result)=>{
+    }).then((result) => {
         return res.send(result)
-    })
+    });
+
+
+    
 }

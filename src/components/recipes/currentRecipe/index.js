@@ -8,11 +8,12 @@ import UserActs from './userActs/index';
 import deleteRecipe from '../../../controllers/recipes/DELETE/deleteRecipe';
 import Context from '../../../context/userContext';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useHistory } from 'react-router-dom'
 
 const CurrentRecipe = ({ data }) => {
 
     const context = useContext(Context);
-
+    const history = useHistory()
     const currentUsedId = context.user._id;
     const recipeCreator = data.creatorId;
     const isCreator = !!(currentUsedId === recipeCreator)
@@ -20,7 +21,11 @@ const CurrentRecipe = ({ data }) => {
     const [showDir, setShowDir] = useState(false);
 
     const handleDelete = () => {
-        deleteRecipe(data._id)
+        deleteRecipe(data._id).then(resp => {
+            if (resp.statusText === "OK") {
+                history.goBack();
+            }
+        })
     }
 
     const handleShowHide = (menuName) => {
@@ -38,8 +43,8 @@ const CurrentRecipe = ({ data }) => {
         <div>
             <div className="row justify-content-center">
                 <LinkContainer to="/profile">
-            
-                <Button size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
+
+                    <Button size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
                 </LinkContainer>
                 {isCreator === true
                     ?
