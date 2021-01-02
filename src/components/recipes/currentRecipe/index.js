@@ -21,9 +21,12 @@ const CurrentRecipe = ({ data }) => {
     const [showDir, setShowDir] = useState(false);
 
     const handleDelete = () => {
-        deleteRecipe(data._id).then(resp => {
+        deleteRecipe(recipeCreator,data._id).then(resp => {
             if (resp.statusText === "OK") {
+                console.log(resp)
                 history.goBack();
+            }else{
+                // handle err page!
             }
         })
     }
