@@ -5,10 +5,7 @@ module.exports.deleteRecipe = (req, res) => {
     const userId = req.params.id.split('&&')[0]
     const recipeId = req.params.id.split('&&')[1]
 
-    console.log(recipeId)
-    console.log(userId)
-
-    Promise.all(
+     Promise.all(
         [deleteFromRecipes(),
         deleteRecipeFromUserRecipes(),
         deleteRecipeFromUserLikes()
@@ -47,6 +44,4 @@ module.exports.deleteRecipe = (req, res) => {
                 }
             })
     }
-
-
 }

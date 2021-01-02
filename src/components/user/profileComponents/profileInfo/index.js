@@ -30,7 +30,7 @@ const ProfileInfo = ({ userData }) => {
         <div className={style.cont}>
 
             <Row xs={2} md={2} >
-                <Col md={4} className={style.pic_container}>
+                <Col md={5} className={style.pic_container}>
                     <Container>
                         <br />
                         <br />

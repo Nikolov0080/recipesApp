@@ -9,21 +9,19 @@ const Search = () => {
     const [found, setFound] = useState([]);
 
     async function search() {
-        // TODO fix this asynchronous bullshit!
-        return await searchRecipe(query).then((resp) => {
-            console.log(resp);
-            setFound(resp);
-        })
+        return await searchRecipe(query);
     }
 
     const handleSubmit = (e) => {
-        if (found.length === 0) {
-            console.log('Nothing found')
-        } else {
-            console.log(found)
-        }
-
         e.preventDefault();
+
+        search().then((resp) => {
+
+            console.log(resp)
+            setFound(resp);
+        }).then(() => {
+
+        })
     }
 
     const handleChange = (e) => {
@@ -36,7 +34,7 @@ const Search = () => {
 
         }
     }
-    // TODO  find by name in db create functionality in API
+    
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
