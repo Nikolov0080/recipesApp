@@ -11,26 +11,24 @@ import Description from './description/index';
 import ImageInput from './imageInput/index';
 import createRecipeFunc from '../../../controllers/recipes/POST/createRecipe/index';
 import Context from '../../../context/userContext';
-
-
+import { useHistory } from 'react-router-dom';
 
 const CreateRecipeInputs = () => {
     const context = useContext(Context)
     const userId = context.user._id;
 
+    const history = useHistory();
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
     const [directions, setDirections] = useState([]);
     const [prepTime, setPrepTime] = useState(0);
     const [cookTime, setCookTime] = useState(0);
     const [category, setCategory] = useState('special');
-
     const [difficulty, setDifficulty] = useState(1);
-
     const [description, setDescription] = useState('');
-
     const [file, setFile] = useState('');
 
+    const [err, setErr] = useState(false);
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -45,7 +43,14 @@ const CreateRecipeInputs = () => {
             description,
             file,
             userId
-        ).then(console.log)
+        ).then((resp) => {
+            console.log(resp);
+            if (resp.status === 203) {
+                setErr(resp.data);
+            } else {
+                history.goBack();
+            }
+        })
 
     }
 
@@ -53,6 +58,7 @@ const CreateRecipeInputs = () => {
         <div>
             <RecipeBox>
                 <h1>Create new recipe</h1>
+                {err !== false ? err : ''}
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} />

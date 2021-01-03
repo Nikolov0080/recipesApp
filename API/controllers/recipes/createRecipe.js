@@ -12,7 +12,7 @@ module.exports.createRecipe = (req, res, next) => {
         const isValid = recipesValidations(req.body);
 
         if (isValid) {
-            return res.send(isValid);
+            return res.status(203).send(isValid);
         }
 
         if (!req.file) {

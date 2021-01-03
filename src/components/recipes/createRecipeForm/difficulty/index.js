@@ -1,24 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ButtonGroup, Button } from 'react-bootstrap';
 import style from './index.module.css';
 
 const Difficulty = ({ func }) => {
 
-    const [level, setLevel] = useState(1);
-    console.log(level)
-    const handleChange = (event) => {
-        const value = Math.round(event.target.value / 10);
-        value <= 1 ? setLevel(1) : setLevel(value);
-        func(level);
+    const [variants, setVariants] = useState(
+        ["outline-secondary", "outline-secondary",
+            "outline-secondary", "outline-secondary",
+            "outline-secondary", "outline-secondary",
+            "outline-secondary", "outline-secondary",
+            "outline-secondary", "outline-secondary"]
+    );
+
+    const handleClick = (buttonIndex) => {
+        // long algorithm for something simple , I just like algorithms :)
+        const newVariants = variants.reduce((acc, cVal, index) => {
+
+            if (buttonIndex === index) {
+                acc.push('primary')
+            } else {
+                acc.push('outline-secondary')
+            }
+
+            return acc;
+        }, []);
+
+        setVariants([...newVariants]);
+        func(buttonIndex + 1)
     }
 
     return (
         <div>
             <h3>Select difficulty</h3>
-            <input
-                defaultValue="10"
-                className={style.range_input}
-                onChange={(e) => handleChange(e)} type="range" />
-            <h3>{level}</h3>
+
+            <ButtonGroup as="div"  className={style.buttons}>
+                {variants.map((curr, index) => {
+                    return <Button size="sm"  onClick={() => handleClick(index)} variant={curr}>{index + 1}</Button>
+                })}
+            </ButtonGroup>
+
             <hr />
         </div>
     )
