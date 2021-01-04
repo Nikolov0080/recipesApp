@@ -7,8 +7,7 @@ import RecipeData from './recipeData';
 import UserActs from './userActs/index';
 import deleteRecipe from '../../../controllers/recipes/DELETE/deleteRecipe';
 import Context from '../../../context/userContext';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const CurrentRecipe = ({ data }) => {
 
@@ -45,10 +44,9 @@ const CurrentRecipe = ({ data }) => {
     return (
         <div>
             <div className="row justify-content-center">
-                <LinkContainer to="/profile">
-
-                    <Button size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
-                </LinkContainer>
+               
+                    <Button onClick={()=>history.goBack()} size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
+               
                 {isCreator === true
                     ?
                     <Button size="lg" variant="danger" onClick={handleDelete}> <span>&#8249;</span> Delete</Button>

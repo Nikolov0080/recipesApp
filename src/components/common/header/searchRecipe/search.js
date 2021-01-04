@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import style from '../header.module.css';
 import search_icon from '../search_icon.png';
-import searchRecipe from '../../../../controllers/recipes/POST/searchRecipe/index';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Search = () => {
     const [query, setQuery] = useState('');
-
-
 
     const handleChange = (e) => {
         setQuery(e.target.value)
@@ -15,24 +12,26 @@ const Search = () => {
 
     return (
         <div>
-            <div className={style.search_container}>
-                <input placeholder="Search recipe..."
-                    className={style.input_search}
-                    onChange={handleChange} type="text"
-                />
+            <form>
+                <div className={style.search_container}>
+                    <input placeholder="Search recipe..."
+                        className={style.input_search}
+                        onChange={handleChange} type="text"
+                    />
 
-                {query !== ''
-                    ?
-                    <LinkContainer to={"/search-results/query=?" + query}>
-                        <button className={style.search_btn}>
-                            <img className={style.search_icon_style} src={search_icon} alt="search" />
-                        </button>
-                    </LinkContainer>
-                    :
+                    {query !== ''
+                        ?
+                        <LinkContainer as="button" to={"/search-results/query=?" + query}>
+                            <button className={style.search_btn}>
+                                <img className={style.search_icon_style} src={search_icon} alt="search" />
+                            </button>
+                        </LinkContainer>
+                        :
                         <img className={style.search_icon_style} src={search_icon} alt="search" />
-                }
+                    }
 
-            </div>
+                </div>
+            </form>
         </div>
     )
 }

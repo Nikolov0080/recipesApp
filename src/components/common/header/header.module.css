@@ -12,6 +12,7 @@
 
 .search_icon_style {
     width: 21px;
+    outline: none;
 }
 
 .search_container {
@@ -33,9 +34,13 @@
 
 .search_btn {
     background-color: white;
-    border: none;
     float: right;
     margin-right: 20px;
+    border: none;
+}
+
+.search_btn:focus{
+    outline: none;
 }
 
 /* nav links style */
