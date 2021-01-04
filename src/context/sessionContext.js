@@ -8,8 +8,6 @@ import readCookie from '../utils/readCookie';
 const SessionContext = (props) => {
 
     const [user, setUser] = useState('guest1');
-    const [currentSearch, setCurrentSearch] = useState(null);
-    //  TODO  use current search to save query and then clear it
 
     const authUser = () => {
         if (Cookies.getItem('auth')) { //checking for cookie existence
@@ -56,7 +54,6 @@ const SessionContext = (props) => {
                 user,
                 signIn,
                 signOut,
-                currentSearch
             }}
         >
             <div>

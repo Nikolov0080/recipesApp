@@ -16,7 +16,7 @@ module.exports.like = (req, res) => {
       })
         .catch(err => { console.log(err); })
 
-    } else { // unlike TODO
+    } else { // unlike 
       Promise.all([unlikeUser(), unlikeRecipe()])
         .then(result => { console.log("Recipe unliked!"); 
         return res.send('unliked');

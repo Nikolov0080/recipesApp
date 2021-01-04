@@ -4,8 +4,7 @@ import React from 'react';
 const UserContext = React.createContext({
     user: null,
     signIn: () => { },
-    signOut: () => { },
-    currentSearch: null
+    signOut: () => { }   
 });
 
 export default UserContext;

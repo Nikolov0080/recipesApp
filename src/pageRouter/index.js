@@ -24,7 +24,7 @@ const PageRouter = () => {
                             <Route exact path="/register" component={RegisterPage} />
                             <Route exact path="/profile" component={UserProfile} />
                             <Route exact path="/create-recipe" component={CreateRecipe} />
-                            <Route exact path="/search-results" component={SearchResults} />
+                            <Route exact path="/search-results/:query" component={SearchResults} />
                             <Route exact path="/recipe-details/:id" component={RecipeDetails} />
 
                         </Switch>

@@ -4,8 +4,6 @@ module.exports.checkResponse = (req, res) => {
 
     const recipeId = req.url.replace("/check-likes?", '')
 
-    // TODO ADD AND FAVORITES FUNCTIONALITY
-
     return userSchema.find({ likedRecipes: { $in: recipeId } }).then(result => {
 
         if (result.length >= 1) {

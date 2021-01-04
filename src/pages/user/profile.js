@@ -72,7 +72,6 @@ class UserProfile extends Component {
             )
         }
 
-
         return (
 
             <div>
@@ -82,10 +81,11 @@ class UserProfile extends Component {
 
                     {this.state.show === false ?
                         <div>
-                            <UserRecipes func={this.showHide} recipes={this.state.userRecipes} />
+                            <hr/>
                             <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
                                 <Button size="lg">Create Recipe !</Button>
                             </LinkContainer >
+                            <UserRecipes func={this.showHide} recipes={this.state.userRecipes} />
                         </div>
                         : <CurrentRecipe func={this.showHide} data={this.state.current} />
                     }

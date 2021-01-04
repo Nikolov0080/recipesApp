@@ -4,7 +4,6 @@ import search_icon from '../search_icon.png';
 import searchRecipe from '../../../../controllers/recipes/POST/searchRecipe/index';
 
 const Search = () => {
-
     const [query, setQuery] = useState('');
     const [found, setFound] = useState([]);
 
@@ -30,7 +29,6 @@ const Search = () => {
 
     const handleClick = (e) => {
         if (query !== '') {
-
 
         }
     }
