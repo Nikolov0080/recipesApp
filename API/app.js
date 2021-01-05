@@ -43,8 +43,8 @@ app.use(express.json());
 app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/recipes', recipesRouter)
 app.use('/', indexRouter);
+app.use('/api/recipes', recipesRouter);
 app.use('/api/users', usersRouter);
 ///
 app.use(fileUpload({
