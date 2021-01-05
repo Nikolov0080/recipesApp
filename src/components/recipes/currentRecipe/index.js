@@ -7,6 +7,8 @@ import RecipeData from './recipeData';
 import UserActs from './userActs/index';
 import deleteRecipe from '../../../controllers/recipes/DELETE/deleteRecipe';
 import Context from '../../../context/userContext';
+import Comments from './comments/index';
+import AddComment from './addComment/index';
 import { useHistory } from 'react-router-dom';
 
 const CurrentRecipe = ({ data }) => {
@@ -20,11 +22,11 @@ const CurrentRecipe = ({ data }) => {
     const [showDir, setShowDir] = useState(false);
 
     const handleDelete = () => {
-        deleteRecipe(recipeCreator,data._id).then(resp => {
+        deleteRecipe(recipeCreator, data._id).then(resp => {
             if (resp.statusText === "OK") {
                 console.log(resp)
                 history.goBack();
-            }else{
+            } else {
                 // TODO handle err page!
             }
         })
@@ -44,9 +46,9 @@ const CurrentRecipe = ({ data }) => {
     return (
         <div>
             <div className="row justify-content-center">
-               
-                    <Button onClick={()=>history.goBack()} size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
-               
+
+                <Button onClick={() => history.goBack()} size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
+
                 {isCreator === true
                     ?
                     <Button size="lg" variant="danger" onClick={handleDelete}> <span>&#8249;</span> Delete</Button>
@@ -72,6 +74,8 @@ const CurrentRecipe = ({ data }) => {
 
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
+            <Comments />
+            <AddComment />
             <UserActs recipeId={data._id} />
         </div>
     )

@@ -35,7 +35,7 @@ const Difficulty = ({ func }) => {
 
             <ButtonGroup as="div"  className={style.buttons}>
                 {variants.map((curr, index) => {
-                    return <Button size="sm"  onClick={() => handleClick(index)} variant={curr}>{index + 1}</Button>
+                    return <Button size="sm" key={index} onClick={() => handleClick(index)} variant={curr}>{index + 1}</Button>
                 })}
             </ButtonGroup>
 
