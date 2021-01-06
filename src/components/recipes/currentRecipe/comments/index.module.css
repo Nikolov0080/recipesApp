@@ -1,0 +1,43 @@
+
+.title {
+    text-align: center;
+}
+
+.comment_image {
+    width: 4rem;
+}
+
+.single_comment {
+    margin-top: 1rem;
+}
+
+.creator_name {
+    float: left;
+    font-weight: bolder;
+}
+
+.name_time_box {
+    display: block;
+}
+
+.time_stamp {
+    margin-left: 10%;
+    opacity: 0.5;
+}
+.comment_data{
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .comment_data , .comment_box, .creator_name{
+        margin-left: 3rem;
+    }
+
+    .comment_data{
+        width: 70%;
+      
+    }
+    .time_stamp {
+        margin-left: 40%;
+    }
+}

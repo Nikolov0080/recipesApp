@@ -1,10 +1,69 @@
 import React from 'react'
-import { style } from './index.module.css';
+import { Col, Row, Container } from 'react-bootstrap';
+import style from './index.module.css';
+
+
+const testComments = [
+    {
+        creator: 'daniel',
+        profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
+        commentatorId: 'someId',
+        recipeCreatorId: 'anotherId',
+        timeStamp: '06.01.2021',
+        commentData: 'so good man wanna dip my dick in it !'
+    },
+    {
+        creator: 'daniel',
+        profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
+        commentatorId: 'someId',
+        recipeCreatorId: 'anotherId',
+        timeStamp: '06.01.2021',
+        commentData: 'so good man wanna dip my dick in it !'
+    },
+    {
+        creator: 'daniel',
+        profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
+        commentatorId: 'someId',
+        recipeCreatorId: 'anotherId',
+        timeStamp: '06.01.2021',
+        commentData: 'so good man wanna dip my dick in it !'
+    },
+    {
+        creator: 'daniel',
+        profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
+        commentatorId: 'someId',
+        recipeCreatorId: 'anotherId',
+        timeStamp: '06.01.2021',
+        commentData: 'so good man wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd ipdi pdipdi pdipdipdipdip my dick in it !'
+    }
+]
 
 const Comments = () => {
     return (
         <div>
-            Comments
+            <h2 className={style.title}>Comments</h2>
+            {testComments.map(({ profilePicUrl, creator, timeStamp, commentData }, index) => {
+                return <div key={index} className={style.single_comment}>
+                    <Container>
+
+                        <Row>
+                            <Col xs={1} >
+                                <img className={style.comment_image} alt="user profile pic" src={profilePicUrl}></img>
+                            </Col>
+                            <Col>
+                                <div className={style.name_time_box}>
+                                    <p className={style.creator_name}> {creator}</p>
+                                    <p className={style.time_stamp}>{timeStamp}</p>
+                                </div>
+                                <div className={style.comment_data}>
+
+                                <p >{commentData}</p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            })}
         </div>
     )
 }
