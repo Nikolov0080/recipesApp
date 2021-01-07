@@ -75,7 +75,7 @@ const CurrentRecipe = ({ data }) => {
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
             <Comments />
-            <AddComment />
+            <AddComment recipeCreatorId={data.creatorId} />
             <UserActs recipeId={data._id} />
         </div>
     )

@@ -3,11 +3,20 @@ import CommentBox from './commentBox/index';
 import { Button } from 'react-bootstrap';
 import style from './index.module.css';
 
-const AddComments = () => {
+const AddComments = ({ recipeCreatorId }) => {
 
     const [input, setInput] = useState('');
     const [counter, setCounter] = useState(300);
     const [minCounter, setMinCounter] = useState(10);
+
+    const completeComment = {
+        recipeCreatorId
+    }
+
+    const handleSubmit = () => {
+
+        console.log(completeComment)
+    }
 
     return (
         <div>
@@ -26,7 +35,7 @@ const AddComments = () => {
             </div>
             {/* Buttons show-hide  */}
             <div className={style.btn_container}>
-                <Button type="submit">Submit</Button>
+                <Button onClick={handleSubmit}>Submit</Button>
             </div>
         </div>
     )
