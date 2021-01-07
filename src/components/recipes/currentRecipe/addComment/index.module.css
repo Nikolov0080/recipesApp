@@ -1,0 +1,16 @@
+.btn_container {
+    text-align: center;
+    margin: 10px;
+}
+
+.char_counter {
+    text-align: center;
+}
+
+.min_char{
+    color: rgb(238, 79, 74);
+}
+
+.max_char{
+    color: rgb(42, 172, 42);
+}

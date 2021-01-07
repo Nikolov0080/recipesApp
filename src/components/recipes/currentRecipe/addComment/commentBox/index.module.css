@@ -1,0 +1,21 @@
+.comment_box {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 15px 10px 15px ;
+    border: 2px rgb(150, 148, 148) solid;
+    border-radius: 20px;
+    overflow: hidden;
+    resize: none;
+}
+
+.comment_box:focus{
+    outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .comment_box {
+        width: 90%;
+    }
+}

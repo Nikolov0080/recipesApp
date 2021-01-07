@@ -2,7 +2,6 @@ import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap';
 import style from './index.module.css';
 
-
 const testComments = [
     {
         creator: 'daniel',
@@ -44,7 +43,7 @@ const Comments = () => {
             <h2 className={style.title}>Comments</h2>
             {testComments.map(({ profilePicUrl, creator, timeStamp, commentData }, index) => {
                 return <div key={index} className={style.single_comment}>
-                    <Container>
+                    <Container className='border rounded p-2'>
 
                         <Row>
                             <Col xs={1} >
