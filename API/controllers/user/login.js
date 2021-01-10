@@ -35,10 +35,12 @@ module.exports.loginPost = (req, res) => {
         }
 
         matchPassword(password, user.password).then((resp) => {
+           
             const userData = {
                 _id: user._id,
                 email: user.email,
-                profilePictureURL: user.profilePictureURL
+                profilePictureURL: user.profilePictureURL,
+                username:user.username
             }
 
             if (resp) {

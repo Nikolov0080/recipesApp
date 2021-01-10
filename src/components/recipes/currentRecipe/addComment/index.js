@@ -2,20 +2,32 @@ import React, { useState } from 'react';
 import CommentBox from './commentBox/index';
 import { Button } from 'react-bootstrap';
 import style from './index.module.css';
+import commentRecipe from '../../../../controllers/recipes/POST/commentRecipe/index';
 
-const AddComments = ({ recipeCreatorId }) => {
+const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL }) => {
 
     const [input, setInput] = useState('');
     const [counter, setCounter] = useState(300);
     const [minCounter, setMinCounter] = useState(10);
 
     const completeComment = {
-        recipeCreatorId
+        recipeCreatorId,
+        commentatorId,
+        username,
+        profilePicURL,
+        commentData: input,
+    }
+
+    const buttons = () => {
+        if (minCounter <= 0) {
+            return (<Button onClick={handleSubmit}>Submit</Button>);
+        } else {
+            return (<Button variant="outline-disabled">{minCounter}more</Button>);
+        }
     }
 
     const handleSubmit = () => {
-
-        console.log(completeComment)
+        commentRecipe(completeComment)
     }
 
     return (
@@ -35,7 +47,7 @@ const AddComments = ({ recipeCreatorId }) => {
             </div>
             {/* Buttons show-hide  */}
             <div className={style.btn_container}>
-                <Button onClick={handleSubmit}>Submit</Button>
+                {buttons()}
             </div>
         </div>
     )

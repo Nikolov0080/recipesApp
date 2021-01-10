@@ -37,7 +37,7 @@ const testComments = [
     }
 ]
 
-const Comments = () => {
+const Comments = ({ recipeCreatorId }) => {
     return (
         <div>
             <h2 className={style.title}>Comments</h2>
@@ -56,7 +56,7 @@ const Comments = () => {
                                 </div>
                                 <div className={style.comment_data}>
 
-                                <p >{commentData}</p>
+                                    <p >{commentData}</p>
                                 </div>
                             </Col>
                         </Row>

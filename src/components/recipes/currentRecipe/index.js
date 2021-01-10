@@ -74,8 +74,15 @@ const CurrentRecipe = ({ data }) => {
 
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
-            <Comments />
-            <AddComment recipeCreatorId={data.creatorId} />
+            {/* implement show hide comments */}
+            <Comments recipeCreatorId={data.creatorId} />
+            {/* add comment data to Comments component */}
+            <AddComment
+                recipeCreatorId={data.creatorId}
+                commentatorId={currentUsedId}
+                username={context.user.username} 
+                profilePicURL={context.user.profilePictureURL}
+                />
             <UserActs recipeId={data._id} />
         </div>
     )
