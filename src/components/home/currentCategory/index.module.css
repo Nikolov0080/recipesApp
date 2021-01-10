@@ -2,7 +2,11 @@
     margin-top: 20px;
     border-top: 2px lightgray solid;
 }
-
+.hide_btn{
+    float: right;
+    margin-top:27px ;
+    margin-right: 5%;
+}
 .cat {
     text-align: center;
     width: 30%;

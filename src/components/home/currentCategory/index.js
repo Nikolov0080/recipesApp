@@ -1,17 +1,11 @@
 import React from 'react';
 import style from './index.module.css';
 import Recipe from '../../recipes/recipe';
-import CurrentRecipe from '../../recipes/currentRecipe/index';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Button } from 'react-bootstrap';
 
 const CurrentCategory = ({ show, showFunc, categorySelected }) => {
 
     const { category, recipesArray } = categorySelected;
-    // todo set more variables for recipes // no recipes
-
-    const hideCurrentRecipe = () => {
-        showFunc(false);
-    }
 
     if (!recipesArray) {
         return (
@@ -22,31 +16,25 @@ const CurrentCategory = ({ show, showFunc, categorySelected }) => {
         )
     }
 
-    if (show) {
-        return (
-            <div>
-                <h1 className={style.cat}>{category}</h1>
-                <CurrentRecipe func={hideCurrentRecipe} data={show} />
-            </div>
-
-        )
-    }
-
     return (
-        <div className={style.container}>
-            <h1 className={style.cat}>{category}</h1>
-
-            <Row>
-                {recipesArray.map((data, index) => {
-                    return (
-                        <Col key={index}>
-                            <Recipe func={showFunc} data={data} />
-                        </Col>
-                    )
-                })}
-            </Row>
-            <h1>{recipesArray.length}</h1>
+        <div>
+            <div className={style.container}>
+                <Button onClick={()=>show(undefined)} className={style.hide_btn}>X</Button>
+                {/* Clears current category */}
+                <h1 className={style.cat}>{category}</h1>
+                <Row>
+                    {recipesArray.map((data, index) => {
+                        return (
+                            <Col key={index}>
+                                <Recipe func={showFunc} data={data} />
+                            </Col>
+                        )
+                    })}
+                </Row>
+                <h1>{recipesArray.length}</h1>
+            </div>
         </div>
+
     )
 }
 

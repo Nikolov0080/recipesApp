@@ -30,7 +30,7 @@ const Home = () => {
             </div>
             {currentCategory !== undefined
                 ? 
-                <CurrentCategory show={show} showFunc={setShow} categorySelected={currentCategory} />
+                <CurrentCategory show={setCurrentCategory} showFunc={setShow} categorySelected={currentCategory} />
                 :
                <Landing/>
             }
