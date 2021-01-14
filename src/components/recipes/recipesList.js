@@ -6,9 +6,6 @@ const UserRecipes = ({ func, recipes }) => {
 
     return (
         <div>
-            <hr />
-            <h1 className="text-center">My recipes</h1>
-            <hr />
             <Container>
                 <Row>
                     {recipes.map((recipe, index) => {

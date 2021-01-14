@@ -4,13 +4,14 @@ import { Button } from 'react-bootstrap';
 import style from './index.module.css';
 import commentRecipe from '../../../../controllers/recipes/POST/commentRecipe/index';
 
-const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL }) => {
+const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL,recipeId }) => {
 
     const [input, setInput] = useState('');
     const [counter, setCounter] = useState(300);
     const [minCounter, setMinCounter] = useState(10);
 
     const completeComment = {
+        recipeId,
         recipeCreatorId,
         commentatorId,
         username,

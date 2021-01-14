@@ -78,11 +78,12 @@ const CurrentRecipe = ({ data }) => {
             <Comments recipeCreatorId={data.creatorId} />
             {/* add comment data to Comments component */}
             <AddComment
+                recipeId={data._id}
                 recipeCreatorId={data.creatorId}
                 commentatorId={currentUsedId}
-                username={context.user.username} 
+                username={context.user.username}
                 profilePicURL={context.user.profilePictureURL}
-                />
+            />
             <UserActs recipeId={data._id} />
         </div>
     )

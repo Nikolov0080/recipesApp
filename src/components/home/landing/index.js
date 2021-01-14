@@ -4,6 +4,7 @@ import getAllRecipes from '../../../controllers/recipes/GET/getAllRecipes/index'
 import Loading from '../../loading/index';
 import UserRecipes from '../../recipes/recipesList';
 import sortingAlgorithms from './sortingAlgorithms';
+import style from './index.module.css';
 
 const {
     byLikes,
@@ -13,9 +14,12 @@ const {
 
 const Landing = () => {
 
+    const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(false);
+
+    const [label, setLabel] = useState('All recipes')
     const [filtered, setFiltered] = useState([]);
     const [recipes, setRecipes] = useState([])
-    const [loading, setLoading] = useState(true);
     const [empty, setEmpty] = useState(false);
 
     const getRecipes = () => {
@@ -34,24 +38,30 @@ const Landing = () => {
     }, []);
 
     const handleClick = (buttonIndex) => {
+        setLoading2(true);
+
         switch (buttonIndex) {
             case 0:
-
-                setFiltered(byLikes(recipes))
+                setFiltered(byLikes(recipes));
+                setLabel('Most Liked')
                 break;
             case 1:
+                setFiltered(byDifficulty(recipes));
+                setLabel('Most Difficult')
 
-                setFiltered(byDifficulty(recipes))
                 break;
             case 2:
+                setFiltered(mostEasy(recipes));
+                setLabel('Easiest recipes')
 
-                setFiltered(mostEasy(recipes))
                 break;
         }
+
+        setTimeout(() => {
+            setLoading2(false);
+        }, 1000)
     }
 
-
-    console.log(filtered)
     if (empty) {
         return (
             <h1 className="text-center">No recipes</h1>
@@ -73,14 +83,22 @@ const Landing = () => {
                     <Button onClick={() => handleClick(2)} className="mr-2 ml-2" variant="outline-primary">Easiest recipes</Button>
                 </ButtonGroup>
             </Container>
+            <hr />
 
-            {filtered.length !== 0
-                ?
-                <UserRecipes recipes={filtered.slice(0, 6)} />
-                :
-                <UserRecipes recipes={recipes.slice(0, 6)} />
-            }
-        </div>
+            <h1 className={style.label}>{label}</h1>
+            <hr />
+            {
+        loading2 === true
+        ?
+        <Loading />
+        :
+        filtered.length !== 0
+            ?
+            <UserRecipes recipes={filtered.slice(0, 6)} />
+            :
+            <UserRecipes recipes={recipes.slice(0, 6)} />
+    }
+        </div >
     )
 }
 
