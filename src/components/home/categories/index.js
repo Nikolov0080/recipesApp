@@ -4,10 +4,9 @@ import { Carousel } from 'react-bootstrap';
 import getCategory from '../../../controllers/recipes/POST/getCategory/index';
 import categories from './categoriesData';
 
-const Categories = ({ showFunc,func }) => {
+const Categories = ({  func }) => {
 
     const handleClick = (category) => {
-        showFunc(false)
         getCategory(category).then((resp) => {
 
             if (resp.data.length > 0) {

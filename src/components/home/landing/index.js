@@ -26,15 +26,17 @@ const Landing = () => {
         getAllRecipes().then(({ data }) => {
             if (!Array.isArray(data)) {
                 setEmpty(true);
+                console.log(data)
             }
             setRecipes(data);
             setLoading(false);
+        }).catch(e=>{
+            setRecipes(false);
         })
     }
 
     useEffect(() => {
         getRecipes();
-
     }, []);
 
     const handleClick = (buttonIndex) => {
@@ -53,7 +55,6 @@ const Landing = () => {
             case 2:
                 setFiltered(mostEasy(recipes));
                 setLabel('Easiest recipes')
-
                 break;
         }
 
@@ -62,9 +63,18 @@ const Landing = () => {
         }, 1000)
     }
 
+    if(!recipes){
+        return(
+            <h1 className="text-center">No connection to the server try again later</h1>
+        )
+    }
+
     if (empty) {
         return (
-            <h1 className="text-center">No recipes</h1>
+            <div>
+                <hr />
+                <h1 className="text-center">No recipes</h1>
+            </div>
         )
     }
 

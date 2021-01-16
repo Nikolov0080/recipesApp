@@ -3,7 +3,7 @@ import style from './index.module.css';
 import Recipe from '../../recipes/recipe';
 import { Col, Row, Button } from 'react-bootstrap';
 
-const CurrentCategory = ({ show, showFunc, categorySelected }) => {
+const CurrentCategory = ({ show,  categorySelected }) => {
 
     const { category, recipesArray } = categorySelected;
 
@@ -26,7 +26,7 @@ const CurrentCategory = ({ show, showFunc, categorySelected }) => {
                     {recipesArray.map((data, index) => {
                         return (
                             <Col key={index}>
-                                <Recipe func={showFunc} data={data} />
+                                <Recipe  data={data} />
                             </Col>
                         )
                     })}

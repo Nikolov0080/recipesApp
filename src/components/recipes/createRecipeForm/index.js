@@ -27,7 +27,6 @@ const CreateRecipeInputs = () => {
     const [difficulty, setDifficulty] = useState(1);
     const [description, setDescription] = useState('');
     const [file, setFile] = useState('');
-
     const [err, setErr] = useState(false);
     const handleSubmit = (e) => {
         e.preventDefault();

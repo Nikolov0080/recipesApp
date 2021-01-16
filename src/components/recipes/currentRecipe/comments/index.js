@@ -8,7 +8,7 @@ const testComments = [
         profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
         commentatorId: 'someId',
         recipeCreatorId: 'anotherId',
-        timeStamp: '06.01.2021',
+        timeStamp: ' Jan 16, 2021 6:25 PM',
         commentData: 'so good man wanna dip my dick in it !'
     },
     {
@@ -16,7 +16,7 @@ const testComments = [
         profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
         commentatorId: 'someId',
         recipeCreatorId: 'anotherId',
-        timeStamp: '06.01.2021',
+        timeStamp: ' Jan 16, 2021 6:25 PM',
         commentData: 'so good man wanna dip my dick in it !'
     },
     {
@@ -24,7 +24,7 @@ const testComments = [
         profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
         commentatorId: 'someId',
         recipeCreatorId: 'anotherId',
-        timeStamp: '06.01.2021',
+        timeStamp: ' Jan 16, 2021 6:25 PM',
         commentData: 'so good man wanna dip my dick in it !'
     },
     {
@@ -32,7 +32,7 @@ const testComments = [
         profilePicUrl: "https://res.cloudinary.com/recepsbg/image/upload/v1605991528/profilePictures/profilePicture-1605991525712.jpg.jpg",
         commentatorId: 'someId',
         recipeCreatorId: 'anotherId',
-        timeStamp: '06.01.2021',
+        timeStamp: ' Jan 16, 2021 6:25 PM',
         commentData: 'so good man wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd wanna dipdi pdip dipd ipdi pdipd ipdi pdipdi pdipdipdipdip my dick in it !'
     }
 ]

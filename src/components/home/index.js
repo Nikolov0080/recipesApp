@@ -9,7 +9,6 @@ import Landing from './landing';
 const Home = () => {
 
     const [currentCategory, setCurrentCategory] = useState(undefined);
-    const [show, setShow] = useState(false);
 
     return (
         <div>
@@ -17,11 +16,11 @@ const Home = () => {
                
                 <Row className={style.container}>
                     <Col className={style.left_col} >
-                        TEXT
+                       Click on the image to view the recipes in the category
                 </Col>
                     <Col sm={true}>
                         {/* Center categories */}
-                        <Categories showFunc={setShow} func={setCurrentCategory} />
+                        <Categories  func={setCurrentCategory} />
                     </Col>
                     <Col className={style.right_col} >
                         <Facts />
@@ -30,7 +29,7 @@ const Home = () => {
             </div>
             {currentCategory !== undefined
                 ? 
-                <CurrentCategory show={setCurrentCategory} showFunc={setShow} categorySelected={currentCategory} />
+                <CurrentCategory show={setCurrentCategory}  categorySelected={currentCategory} />
                 :
                <Landing/>
             }
