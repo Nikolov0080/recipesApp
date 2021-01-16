@@ -2,11 +2,16 @@ const userSchema = require('../../../../models/user/userSchema');
 
 module.exports.checkResponse = (req, res) => {
 
-    const recipeId = req.url.replace("/check-likes?", '')
+    const {
+        recipe_id,
+        user_id
+    } = req.body;
 
-    return userSchema.find({ likedRecipes: { $in: recipeId } }).then(result => {
+    return userSchema.findOne({ _id: user_id }).then(({ likedRecipes }) => {
 
-        if (result.length >= 1) {
+        const isLiked = likedRecipes.includes(recipe_id);
+
+        if (isLiked) {
             return res.send('true');
         }
 
@@ -17,4 +22,5 @@ module.exports.checkResponse = (req, res) => {
 
         return res.send(err);
     })
+
 }

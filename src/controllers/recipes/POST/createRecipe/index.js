@@ -23,7 +23,7 @@ export default (recipeName,
     formData.append('category', category);
     formData.append('description', description);
     formData.append('image', file);
-console.log(file)
+
     let config = {
         headers: {
           creator_id: userId,

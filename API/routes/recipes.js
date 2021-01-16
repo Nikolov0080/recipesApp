@@ -31,6 +31,6 @@ router.post('/search-recipe', searchRecipe);
 
 router.post('/like', like);
 
-router.get('/check-likes', checkResponse);
+router.post('/check-likes', checkResponse);
 
 module.exports = router;

@@ -1,19 +1,20 @@
 const userSchema = require('../../../../models/user/userSchema');
+const { decodeToken } = require('../../../../utils/jwt');
 
-exports.checkForLikes = (recipeId) => {
-    
-    return userSchema.find({ likedRecipes: { $in: recipeId } }).then(result => {
+exports.checkForLikes = (recipeId, userId) => {
+   
+    return userSchema.findOne({ _id: userId }).then(({likedRecipes}) => {
 
-        if (result.length >= 1) {
+        const isLiked = likedRecipes.includes(recipeId);
+        console.log(isLiked)
+        if (isLiked) {
             return {
                 liked: true
             }
-        }else{
-
+        } else {
             return {
                 liked: false
             }
         }
-
     })
 }

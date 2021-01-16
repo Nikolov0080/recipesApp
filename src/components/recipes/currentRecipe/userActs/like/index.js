@@ -4,17 +4,15 @@ import likeRecipe from "../../../../../controllers/recipes/POST/likeRecipe/index
 import checkForLikes from '../../../../../controllers/recipes/GET/checkForLikes/index';
 
 const Like = ({ current, func, recipeId, userId }) => {
-    // TODO - HANDLE DB CALL AND RETURN
 
     const handleClick = () => {
-
         likeRecipe(recipeId, userId).then(response => {
             response.data === "liked" ? func(true) : func(false);
         })
     }
 
     useEffect(() => {
-        checkForLikes(recipeId).then(response => {
+        checkForLikes(recipeId,userId).then(response => {
             console.log(response.data)
             response.data === true ? func(true) : func(false)
         })

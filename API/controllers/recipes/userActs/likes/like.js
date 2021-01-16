@@ -7,7 +7,7 @@ module.exports.like = (req, res) => {
   const userId = req.body.user_id
   const recipeId = req.body.recipe_id
 
-  checkForLikes(recipeId).then(resp => {
+  checkForLikes(recipeId,userId).then(resp => {
 
     if (!resp.liked) { // save like in Recipe and User objects
       Promise.all([addToRecipe(), addToUser()])
@@ -18,7 +18,7 @@ module.exports.like = (req, res) => {
 
     } else { // unlike 
       Promise.all([unlikeUser(), unlikeRecipe()])
-        .then(result => { console.log("Recipe unliked!"); 
+        .then(result => { console.log("Recipe unliked!");
         return res.send('unliked');
       })
         .catch(err => { console.log(err); })
