@@ -39,7 +39,7 @@ const CurrentRecipe = ({ data }) => {
             setShowDir(!showDir);
         }
     }
-
+    
     const ingredients = JSON.parse(data.ingredients);
     const directions = JSON.parse(data.directions);
 
@@ -75,7 +75,10 @@ const CurrentRecipe = ({ data }) => {
             <IngredientsList data={ingredients} func={handleShowHide} show={showIng} />
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
             {/* implement show hide comments */}
-            <Comments recipeCreatorId={data.creatorId} />
+            <Comments
+             recipeCreatorId={data.creatorId}
+             data={data.comments}
+             />
             {/* add comment data to Comments component */}
             <AddComment
                 recipeId={data._id}

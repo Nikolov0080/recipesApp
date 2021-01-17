@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap';
+import DelBtn from './delBtn';
 import style from './index.module.css';
 
 const testComments = [
@@ -37,7 +38,11 @@ const testComments = [
     }
 ]
 
-const Comments = ({ recipeCreatorId }) => {
+const Comments = ({ recipeCreatorId, data }) => {
+    console.log(data);
+
+    const canDelete = true;
+    
     return (
         <div>
             <h2 className={style.title}>Comments</h2>
@@ -58,6 +63,7 @@ const Comments = ({ recipeCreatorId }) => {
 
                                     <p >{commentData}</p>
                                 </div>
+                                <DelBtn id={"test id hahahah"} />
                             </Col>
                         </Row>
                     </Container>
