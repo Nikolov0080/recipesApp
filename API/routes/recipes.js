@@ -10,7 +10,7 @@ const { searchRecipe } = require('../controllers/recipes/searchRecipe');
 const { getCategory } = require('../controllers/recipes/getCategory');
 const { deleteRecipe } = require('../controllers/recipes/deleteRecipe');
 const { addComment } = require('../controllers/recipes/userActs/comments/addComment');
-
+const { deleteComment } = require('../controllers/recipes/userActs/comments/deleteComment');
 router.get('/create-recipe', authFooLogged, (req, res) => {
     res.render('createRecipe')
 }).post('/create-recipe', createRecipe);
@@ -22,6 +22,8 @@ router.get('/recipe-details/:id', authFooLogged, getRecipeDetails)
     .post('/recipe-details', postRecipeDetails);
 
 router.delete('/delete-recipe/:id', deleteRecipe);
+
+router.delete('/delete-comment/:id', deleteComment);
 
 router.post('/add-comment', addComment);
 
