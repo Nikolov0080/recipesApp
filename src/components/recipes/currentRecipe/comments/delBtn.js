@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import deleteRecipe from '../../../../controllers/recipes/DELETE/deleteComment';
-const DelBtn = ({ id }) => {
 
-    const handleClick = (id) => {
-        deleteRecipe('a','d')
+const DelBtn = ({ commentId, recipeId }) => {
+
+    const handleClick = () => {
+        deleteRecipe(recipeId,commentId);
     }
 
     return (
         <div>
-            <Button onClick={() => handleClick(id)} variant="danger">Delete</Button>
+            <Button onClick={() => handleClick()} variant="danger">Delete</Button>
         </div>
     )
 }

@@ -78,6 +78,7 @@ const CurrentRecipe = ({ data }) => {
             <Comments
              recipeCreatorId={data.creatorId}
              data={data.comments}
+             recipeId={data._id}
              />
             {/* add comment data to Comments component */}
             <AddComment
