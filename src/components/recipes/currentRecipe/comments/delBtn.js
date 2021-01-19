@@ -5,7 +5,7 @@ import deleteRecipe from '../../../../controllers/recipes/DELETE/deleteComment';
 const DelBtn = ({ commentId, recipeId }) => {
 
     const handleClick = () => {
-        deleteRecipe(recipeId,commentId);
+        deleteRecipe(recipeId,commentId)
     }
 
     return (

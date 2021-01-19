@@ -90,8 +90,8 @@ class UserProfile extends Component {
                         : <CurrentRecipe func={this.showHide} data={this.state.current} />
                     }
 
-                    {this.state.userRecipes.length === 0 ?
-                        <h1 className="text-center">No recipes yet,go add one</h1> : ''}
+                    {this.state.userRecipes.length >= 0 ?
+                        <h1 className="text-center">You have not added any recipes</h1> : ''}
 
                 </ErrorBoundary>
             </div>
