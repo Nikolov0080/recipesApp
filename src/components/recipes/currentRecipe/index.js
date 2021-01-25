@@ -11,7 +11,7 @@ import Comments from './comments/index';
 import AddComment from './addComment/index';
 import { useHistory } from 'react-router-dom';
 
-const CurrentRecipe = ({ data }) => {
+const CurrentRecipe = ({ data, changed }) => {
 
     const context = useContext(Context);
     const history = useHistory()
@@ -24,7 +24,7 @@ const CurrentRecipe = ({ data }) => {
     const handleDelete = () => {
         deleteRecipe(recipeCreator, data._id).then(resp => {
             if (resp.statusText === "OK") {
-                console.log(resp)
+                console.log('deleted')
                 history.goBack();
             } else {
                 // TODO handle err page!
@@ -39,7 +39,7 @@ const CurrentRecipe = ({ data }) => {
             setShowDir(!showDir);
         }
     }
-    
+
     const ingredients = JSON.parse(data.ingredients);
     const directions = JSON.parse(data.directions);
 
@@ -76,12 +76,14 @@ const CurrentRecipe = ({ data }) => {
             <DirectionsList data={directions} func={handleShowHide} show={showDir} />
             {/* implement show hide comments */}
             <Comments
-             recipeCreatorId={data.creatorId}
-             data={data.comments}
-             recipeId={data._id}
-             />
+                changed={changed}
+                recipeCreatorId={data.creatorId}
+                data={data.comments}
+                recipeId={data._id}
+            />
             {/* add comment data to Comments component */}
             <AddComment
+                changed={changed}
                 recipeId={data._id}
                 recipeCreatorId={data.creatorId}
                 commentatorId={currentUsedId}

@@ -9,7 +9,6 @@ const Recipe = ({ data }) => {
     return (
         <div >
             <LinkContainer to={'/recipe-details/recipe_id=' + data._id}>
-
                 <Card className={style.recipe_box} >
                     <Card.Img className={style.image_box} variant="top" src={data.image} />
                     <Card.Body>

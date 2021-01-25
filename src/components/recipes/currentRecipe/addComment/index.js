@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import style from './index.module.css';
 import commentRecipe from '../../../../controllers/recipes/POST/commentRecipe/index';
 
-const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL,recipeId }) => {
+const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, recipeId,changed }) => {
 
     const [input, setInput] = useState('');
     const [counter, setCounter] = useState(300);
@@ -23,12 +23,13 @@ const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL,r
         if (minCounter <= 0) {
             return (<Button onClick={handleSubmit}>Submit</Button>);
         } else {
-            return (<Button variant="outline-disabled">{minCounter}more</Button>);
+            return (<Button variant="disabled">{minCounter}more</Button>);
         }
     }
 
     const handleSubmit = () => {
-        commentRecipe(completeComment)
+        commentRecipe(completeComment);
+        changed(true);
     }
 
     return (

@@ -32,9 +32,5 @@ module.exports.deleteComment = (req, res) => {
         }
 
     )
-
-
-
-
     res.send('da')
 }

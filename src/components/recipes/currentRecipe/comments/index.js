@@ -3,9 +3,10 @@ import { Col, Row, Container } from 'react-bootstrap';
 import DelBtn from './delBtn';
 import style from './index.module.css';
 
-const Comments = ({ recipeCreatorId, data,recipeId }) => {
+const Comments = ({ recipeCreatorId, data,recipeId,changed }) => {
 
     const canDelete = true;
+    // const [modified, setModified] = useState(false);
 
     return (
         <div>
@@ -13,7 +14,6 @@ const Comments = ({ recipeCreatorId, data,recipeId }) => {
             {data.map(({ profilePicURL, username, timeCreated, commentData,_id }, index) => {
                 return <div key={index} className={style.single_comment}>
                     <Container className='border rounded p-2'>
-
                         <Row>
                             <Col xs={1} >
                                 <img className={style.comment_image} alt="user profile pic" src={profilePicURL}></img>
@@ -27,7 +27,7 @@ const Comments = ({ recipeCreatorId, data,recipeId }) => {
 
                                     <p >{commentData}</p>
                                 </div>
-                                <DelBtn recipeId={recipeId} commentId={_id} />
+                                <DelBtn recipeId={recipeId} commentId={_id} changed={changed}/>
                             </Col>
                         </Row>
                     </Container>
