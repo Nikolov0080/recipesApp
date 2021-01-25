@@ -29,7 +29,9 @@ const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, 
 
     const handleSubmit = () => {
         commentRecipe(completeComment);
-        changed(true);
+        setTimeout(()=>{
+            changed(true);
+        },400)
     }
 
     return (

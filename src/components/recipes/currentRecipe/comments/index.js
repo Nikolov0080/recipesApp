@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Col, Row, Container } from 'react-bootstrap';
 import DelBtn from './delBtn';
 import style from './index.module.css';
+import UserContext from '../../../../context/userContext';
 
-const Comments = ({ recipeCreatorId, data,recipeId,changed }) => {
+const Comments = ({ creatorId, data, recipeId, changed }) => {
 
-    const canDelete = true;
-    // const [modified, setModified] = useState(false);
-
+    const currentUserId = useContext(UserContext).user._id;
+console.log(data)
     return (
         <div>
             <h2 className={style.title}>Comments</h2>
-            {data.map(({ profilePicURL, username, timeCreated, commentData,_id }, index) => {
+            {data.map(({ profilePicURL, username, timeCreated, commentData, _id, recipeCreatorId, commentatorId }, index) => {
+
+                const canDelete = (element) => element === true;
+
+                var showDel = [(commentatorId === currentUserId), (recipeCreatorId === currentUserId)].some(canDelete)
+console.log((recipeCreatorId ));
                 return <div key={index} className={style.single_comment}>
                     <Container className='border rounded p-2'>
                         <Row>
@@ -27,7 +32,11 @@ const Comments = ({ recipeCreatorId, data,recipeId,changed }) => {
 
                                     <p >{commentData}</p>
                                 </div>
-                                <DelBtn recipeId={recipeId} commentId={_id} changed={changed}/>
+                                {showDel === true
+                                    ?
+                                    <DelBtn recipeId={recipeId} commentId={_id} changed={changed} />
+                                    : ""
+                                }
                             </Col>
                         </Row>
                     </Container>

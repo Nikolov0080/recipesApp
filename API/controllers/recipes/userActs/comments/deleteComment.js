@@ -26,11 +26,8 @@ module.exports.deleteComment = (req, res) => {
                 (err,data)=>{
                     console.log(data)
                 }
-
             )
-
         }
-
     )
-    res.send('da')
+    res.send('da');
 }

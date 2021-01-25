@@ -13,10 +13,9 @@ const Like = ({ current, func, recipeId, userId }) => {
 
     useEffect(() => {
         checkForLikes(recipeId,userId).then(response => {
-            console.log(response.data)
             response.data === true ? func(true) : func(false)
         })
-    }, [recipeId, func]);
+    }, [recipeId, func,userId]);
 
 
     return (

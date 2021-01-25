@@ -11,7 +11,9 @@ const CurrentCategory = ({ show,  categorySelected }) => {
         return (
             <div className={style.container}>
                 <h1 className="text-center">{categorySelected.category}</h1>
-                <h1>No recipes...</h1>
+                <Button onClick={()=>show(undefined)} className={style.hide_btn}>X</Button>
+                <h1 className={style.cat}>No recipes...</h1>
+
             </div>
         )
     }

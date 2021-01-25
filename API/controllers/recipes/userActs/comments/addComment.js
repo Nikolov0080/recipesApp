@@ -12,6 +12,7 @@ module.exports.addComment = (req, res) => {
         _id,
         timeCreated,
         ...req.body.commentData
+        
     }
 
     console.log(comment);

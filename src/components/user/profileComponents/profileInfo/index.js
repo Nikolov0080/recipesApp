@@ -34,6 +34,7 @@ const ProfileInfo = ({ userData }) => {
                     <Container>
                         <br />
                         <br />
+                        <h4 className="text-center">{userData.username}</h4>
                         <img className={style.profile_pic} src={userData.profilePictureURL || 'd'} alt="userPhoto" />
                     </Container>
                 </Col>

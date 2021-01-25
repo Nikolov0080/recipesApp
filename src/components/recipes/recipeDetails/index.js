@@ -10,8 +10,6 @@ const RecipeDetails = (props) => {
     const [recipeData, setRecipeData] = useState(undefined);
     const [changed, setChanged] = useState(false);
 
-console.log(changed)
-
     const getRecipe = (id) => {
         recipeDetails(id).then((resp => {
             setRecipeData(resp.data)

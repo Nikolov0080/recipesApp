@@ -7,7 +7,6 @@ const DelBtn = ({ commentId, recipeId,changed }) => {
     const handleClick = () => {
         deleteRecipe(recipeId,commentId).then(()=>{
             setTimeout(()=>{
-
                 changed(true);
             },400)
         })
