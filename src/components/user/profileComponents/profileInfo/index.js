@@ -10,7 +10,6 @@ const ProfileInfo = ({ userData }) => {
     const signOut = useContext(UserContext).signOut
     const history = useHistory();
 
-
     const LinksCreated = (count) => {
 
         if (count >= 1) {
