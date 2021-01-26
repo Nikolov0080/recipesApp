@@ -3,6 +3,19 @@
     text-align: center;
 }
 
+.alert2_disabled {
+ background-color: lightgray;
+}
+
+.alert1 {
+    cursor: pointer;
+}
+
+.alert1:hover {
+    color: rgb(245, 239, 239);
+    background-color: rgb(231, 125, 63);
+}
+
 .pic_container {
     text-align: center;
 }
