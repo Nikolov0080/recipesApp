@@ -4,9 +4,9 @@ import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
 import { useHistory } from 'react-router-dom';
-
+import { LinkContainer } from 'react-router-bootstrap';
 const ProfileInfo = ({ userData }) => {
-    
+
     const signOut = useContext(UserContext).signOut
     const history = useHistory();
 
@@ -44,8 +44,14 @@ const ProfileInfo = ({ userData }) => {
                         <ProgressBar animated="true" label="Skill level" variant="danger" now={(userData.skillLevel + 0) * 2} />
                         <br />
 
-                        <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
-                        <Alert variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                        <LinkContainer to={`/created-recipes/${userData._id}`}>
+                            <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
+                        </LinkContainer>
+
+                        <LinkContainer to={`liked-recipes/${userData._id}`}>
+                            <Alert variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                        </LinkContainer>
+
                         <Button size="lg" onClick={handleClick}>Sign out</Button>
                     </Container>
                 </Col>

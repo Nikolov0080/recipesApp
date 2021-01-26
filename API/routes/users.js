@@ -6,6 +6,8 @@ const { profileGet, profilePost } = require('../controllers/user/profile');
 const { registerGet, registerPost } = require('../controllers/user/register');
 const { logout } = require('../controllers/user/logout');
 const { authFooLogged, authFooGuest } = require('../utils/authFoo');
+const { likedRecipes } = require('../controllers/user/likedRecipes');
+const { createdRecipes } = require('../controllers/user/createdRecipes');
 
 router.get('/login', authFooGuest, loginGet)
   .post('/login',  loginPost);
@@ -15,6 +17,10 @@ router.get('/register', authFooGuest, registerGet)
 
 router.get('/profile', authFooLogged, profileGet)
   .post('/profile', profilePost);
+
+  router.get('/liked-recipes/:userId',likedRecipes)
+
+  router.get('/created-recipes/:userId',createdRecipes)
 
 router.get('/logout', logout);
 

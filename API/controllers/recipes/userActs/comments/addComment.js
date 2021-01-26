@@ -12,13 +12,8 @@ module.exports.addComment = (req, res) => {
         _id,
         timeCreated,
         ...req.body.commentData
-        
+
     }
-
-    console.log(comment);
-
-    // todo finish it
-    // add object id to the comment so it could be found
 
     recipeSchema.findOneAndUpdate({
         _id: recipe_id
@@ -27,10 +22,11 @@ module.exports.addComment = (req, res) => {
         (err) => {
             if (err) {
                 console.log(err)
+                return res.status(500).send('error');
             }
         }
     )
 
-    res.send('asd')
+    res.status(201).send('asd');
 
 }

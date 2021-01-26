@@ -10,6 +10,8 @@ import UserProfile from '../pages/user/profile';
 import CreateRecipe from '../pages/recipes/createRecipe/index';
 import SearchResults from '../pages/recipes/searchResults';
 import RecipeDetails from '../components/recipes/recipeDetails';
+import LikedRecipes from '../pages/user/likedRecipes/index';
+import CreatedRecipes from '../pages/user/createdRecipes/index';
 
 const PageRouter = () => {
     return (
@@ -26,7 +28,9 @@ const PageRouter = () => {
                             <Route exact path="/create-recipe" component={CreateRecipe} />
                             <Route exact path="/recipe-details/:id" component={RecipeDetails} />
                             <Route exact path="/search-results/:query" component={SearchResults} />
-
+                            <Route exact path="/liked-recipes/:id" component={LikedRecipes} />
+                            <Route exact path="/created-recipes/:id" component={CreatedRecipes} />
+                      
                         </Switch>
                     </Layout>
                 </SessionContext>
