@@ -12,14 +12,10 @@ module.exports.addComment = (req, res) => {
         _id,
         timeCreated,
         ...req.body.commentData
-
-<<<<<<< HEAD
-     recipeSchema.findOneAndUpdate({
-=======
     }
 
     recipeSchema.findOneAndUpdate({
->>>>>>> 2ed718924fbbd3475b04ec48908f2c0da5f42fb1
+
         _id: recipe_id
     },
         { $push: { comments: comment } },
@@ -32,5 +28,4 @@ module.exports.addComment = (req, res) => {
     )
 
     res.status(201).send('asd');
-
 }

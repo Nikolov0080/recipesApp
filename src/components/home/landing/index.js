@@ -30,7 +30,7 @@ const Landing = () => {
             }
             setRecipes(data);
             setLoading(false);
-        }).catch(e=>{
+        }).catch(e => {
             setRecipes(false);
         })
     }
@@ -41,7 +41,7 @@ const Landing = () => {
 
     const handleClick = (buttonIndex) => {
         setLoading2(true);
-
+        /*eslint-disable */
         switch (buttonIndex) {
             case 0:
                 setFiltered(byLikes(recipes));
@@ -57,14 +57,14 @@ const Landing = () => {
                 setLabel('Easiest recipes')
                 break;
         }
-
+        /*eslint-enable */
         setTimeout(() => {
             setLoading2(false);
         }, 1000)
     }
 
-    if(!recipes){
-        return(
+    if (!recipes) {
+        return (
             <h1 className="text-center">No connection to the server try again later</h1>
         )
     }
@@ -98,16 +98,16 @@ const Landing = () => {
             <h1 className={style.label}>{label}</h1>
             <hr />
             {
-        loading2 === true
-        ?
-        <Loading />
-        :
-        filtered.length !== 0
-            ?
-            <UserRecipes recipes={filtered.slice(0, 6)} />
-            :
-            <UserRecipes recipes={recipes.slice(0, 6)} />
-    }
+                loading2 === true
+                    ?
+                    <Loading />
+                    :
+                    filtered.length !== 0
+                        ?
+                        <UserRecipes recipes={filtered.slice(0, 6)} />
+                        :
+                        <UserRecipes recipes={recipes.slice(0, 6)} />
+            }
         </div >
     )
 }

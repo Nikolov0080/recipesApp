@@ -24,7 +24,7 @@ module.exports.deleteComment = (req, res) => {
                 { _id: recipeId },
                 { comments: newComments },
                 (err,data)=>{
-                    console.log(data)
+                    console.log('updated')
                 }
             )
         }

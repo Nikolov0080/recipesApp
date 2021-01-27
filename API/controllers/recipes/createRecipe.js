@@ -8,7 +8,7 @@ const { updateUserRecipes } = require('../user/updateUser');
 module.exports.createRecipe = (req, res, next) => {
     const creatorId = req.headers["creator_id"];
     upload.single('image')(req, res, (err) => {
-        console.log(req.file)
+    
         const isValid = recipesValidations(req.body);
 
         if (isValid) {

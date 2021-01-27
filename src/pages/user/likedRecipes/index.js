@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import likedRecipes from '../../../controllers/user/GET/likedRecipes';
 import Recipes from '../../../components/recipes/recipesList';
@@ -17,8 +18,9 @@ const LikedRecipes = (props) => {
                     if (current._id !== cVal._id) {
                         acc.push(cVal);
                     }
+                    return acc
                 })
-            }else{
+            } else {
                 acc.push(cVal)
             }
 

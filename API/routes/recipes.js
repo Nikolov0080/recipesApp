@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { createRecipe } = require('../controllers/recipes/createRecipe');
-const { authFooLogged } = require('../utils/authFoo');
+const { authFooLogged, authFooGuest } = require('../utils/authFoo');
 const { getAllRecipesGet, getAllRecipesPost } = require('../controllers/recipes/getAllRecipes');
 const { getRecipeDetails, postRecipeDetails } = require('../controllers/recipes/getRecipeDetails');
 const { like } = require('../controllers/recipes/userActs/likes/like');
@@ -19,7 +19,7 @@ router.get('/create-recipe', authFooLogged, (req, res) => {
 router.get('/all-recipes', authFooLogged, getAllRecipesGet)
     .post('/all-recipes', getAllRecipesPost);
 
-router.get('/recipe-details/:id', authFooLogged, getRecipeDetails)
+router.get('/recipe-details/:id', authFooGuest, getRecipeDetails)
     .post('/recipe-details', postRecipeDetails);
 
 router.delete('/delete-recipe/:id', deleteRecipe);

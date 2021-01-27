@@ -6,7 +6,7 @@ exports.checkForLikes = (recipeId, userId) => {
     return userSchema.findOne({ _id: userId }).then(({likedRecipes}) => {
 
         const isLiked = likedRecipes.includes(recipeId);
-        console.log(isLiked)
+    
         if (isLiked) {
             return {
                 liked: true

@@ -6,6 +6,7 @@ import Loading from '../../loading/index';
 const RecipeDetails = (props) => {
 
     const recipeId = props.location.pathname.slice(-24)
+  
     const [loading, setLoading] = useState(true);
     const [recipeData, setRecipeData] = useState(undefined);
     const [changed, setChanged] = useState(false);
@@ -26,6 +27,7 @@ const RecipeDetails = (props) => {
         getRecipe(recipeId)
     }, [recipeId])
 
+    console.log(recipeData)
 
     if (loading) {
         return (

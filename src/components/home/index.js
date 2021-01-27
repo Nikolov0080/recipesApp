@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Row,Button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import Categories from './categories/index';
 import CurrentCategory from './currentCategory/index';
 import Facts from './facts';
@@ -13,14 +13,14 @@ const Home = () => {
     return (
         <div>
             <div className={style.big_box}>
-               
+
                 <Row className={style.container}>
                     <Col className={style.left_col} >
-                       Click on the image to view the recipes in the category
+                        Click on the image to view the recipes in the category
                 </Col>
                     <Col sm={true}>
                         {/* Center categories */}
-                        <Categories  func={setCurrentCategory} />
+                        <Categories func={setCurrentCategory} />
                     </Col>
                     <Col className={style.right_col} >
                         <Facts />
@@ -28,10 +28,10 @@ const Home = () => {
                 </Row>
             </div>
             {currentCategory !== undefined
-                ? 
-                <CurrentCategory show={setCurrentCategory}  categorySelected={currentCategory} />
+                ?
+                <CurrentCategory show={setCurrentCategory} categorySelected={currentCategory} />
                 :
-               <Landing/>
+                <Landing />
             }
         </div>
     )

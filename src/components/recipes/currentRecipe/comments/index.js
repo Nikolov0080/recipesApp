@@ -7,7 +7,7 @@ import UserContext from '../../../../context/userContext';
 const Comments = ({ creatorId, data, recipeId, changed }) => {
 
     const currentUserId = useContext(UserContext).user._id;
-console.log(data)
+
     return (
         <div>
             <h2 className={style.title}>Comments</h2>
@@ -16,7 +16,7 @@ console.log(data)
                 const canDelete = (element) => element === true;
 
                 var showDel = [(commentatorId === currentUserId), (recipeCreatorId === currentUserId)].some(canDelete)
-console.log((recipeCreatorId ));
+
                 return <div key={index} className={style.single_comment}>
                     <Container className='border rounded p-2'>
                         <Row>
