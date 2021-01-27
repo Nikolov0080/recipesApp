@@ -6,6 +6,7 @@ const InputFile = (props) => {
         <div>
             <label>
                 <input className={style.input_file}
+                accept="image/*"
                     onChange={props.func}
                     name={props.name}
                     type="file" />
