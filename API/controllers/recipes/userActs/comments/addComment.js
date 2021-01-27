@@ -17,10 +17,7 @@ module.exports.addComment = (req, res) => {
 
     console.log(comment);
 
-    // todo finish it
-    // add object id to the comment so it could be found
-
-    recipeSchema.findOneAndUpdate({
+     recipeSchema.findOneAndUpdate({
         _id: recipe_id
     },
         { $push: { comments: comment } },

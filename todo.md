@@ -1,2 +1,2 @@
 
-create from profile liked recipes page,
+create -> profile liked recipes page,
