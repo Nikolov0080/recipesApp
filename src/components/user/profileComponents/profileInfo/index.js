@@ -4,11 +4,51 @@ import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
 import { useHistory } from 'react-router-dom';
-
+import { LinkContainer } from 'react-router-bootstrap';
 const ProfileInfo = ({ userData }) => {
-    
+
     const signOut = useContext(UserContext).signOut
     const history = useHistory();
+
+    const LinksCreated = (count) => {
+
+        if (count >= 1) {
+            return (
+                <div>
+                    <LinkContainer to={`/created-recipes/${userData._id}`}>
+                        <Alert className={style.alert1} variant="danger">Posted recipes [{userData.userRecipes.length}]</Alert>
+                    </LinkContainer>
+                </div>
+            )
+        }
+
+        return (
+            <div className={style.alert2_disabled} >
+                <Alert >Posted recipes  [{userData.userRecipes.length}]</Alert>
+            </div>
+        )
+
+    }
+
+    const LinksLikes = (count) => {
+
+        if (count >= 1) {
+            return (
+                <div>
+                    <LinkContainer to={`liked-recipes/${userData._id}`}>
+                        <Alert className={style.alert1} variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                    </LinkContainer>
+                </div>
+            )
+        }
+
+        return (
+            <div className={style.alert2_disabled} >
+                <Alert >Liked [{userData.likedRecipes.length / 2}]</Alert>
+            </div>
+        )
+
+    }
 
     const handleClick = () => {
         signOut().then(resp => {
@@ -44,8 +84,9 @@ const ProfileInfo = ({ userData }) => {
                         <ProgressBar animated="true" label="Skill level" variant="danger" now={(userData.skillLevel + 0) * 2} />
                         <br />
 
-                        <Alert variant="danger">Recipes [{userData.userRecipes.length}]</Alert>
-                        <Alert variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                        {LinksCreated(userData.userRecipes.length)}
+                        {LinksLikes(userData.likedRecipes.length)}
+
                         <Button size="lg" onClick={handleClick}>Sign out</Button>
                     </Container>
                 </Col>
