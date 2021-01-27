@@ -6,7 +6,7 @@ const UserRecipes = ({ func, recipes }) => {
 
     return (
         <div>
-            <Container>
+            <Container fluid="md">
                 <Row>
                     {recipes.map((recipe, index) => {
                         return <Col key={index}><Recipe func={func} data={recipe} /></Col>

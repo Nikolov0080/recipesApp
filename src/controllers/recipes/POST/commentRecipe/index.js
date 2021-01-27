@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default (commentData) => {
-    axios.default.post("http://localhost:5000/api/recipes/add-comment", {
+    axios.default.post("https://recipes-api-4334.herokuapp.com/api/recipes/add-comment", {
         commentData
     })
 }

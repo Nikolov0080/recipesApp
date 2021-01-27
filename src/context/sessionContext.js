@@ -32,7 +32,7 @@ const SessionContext = (props) => {
 
     const signOut = () => {
 
-        return axios('http://localhost:5000/api/users/logout', {
+        return axios('https://recipes-api-4334.herokuapp.com/api/users/logout', {
             method: 'GET',
         }).then((resp) => {
             setUser('guest');

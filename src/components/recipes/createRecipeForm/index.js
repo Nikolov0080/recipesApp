@@ -32,7 +32,7 @@ const CreateRecipeInputs = () => {
         e.preventDefault();
 
         createRecipeFunc(
-            recipeName,
+            recipeName.toLowerCase(),
             ingredients,
             prepTime,
             cookTime,

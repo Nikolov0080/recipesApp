@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default () => {
-    return axios.get("http://localhost:5000/api/recipes/all-recipes", {
+    return axios.get("https://recipes-api-4334.herokuapp.com/api/recipes/all-recipes", {
         headers: {
             "cookie_client": document.cookie
         }

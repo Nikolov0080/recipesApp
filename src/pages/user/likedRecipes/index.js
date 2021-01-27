@@ -12,10 +12,10 @@ const LikedRecipes = (props) => {
     useEffect(() => {
 
         const reducer = (acc, cVal) => {
-
-            if (acc.length >= 1) {
+            // todo fix the bug with all the recipes here
+            if (acc.length > 0) {
                 acc.map((current) => {
-                    if (current._id !== cVal._id) {
+                    if (!JSON.stringify(acc).includes(cVal._id)) {
                         acc.push(cVal);
                     }
                     return acc

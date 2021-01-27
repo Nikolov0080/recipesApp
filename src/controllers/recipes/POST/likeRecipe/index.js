@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default  (recipe_id, user_id) => {
 
-    return axios.default.post('http://localhost:5000/api/recipes/like',
+    return axios.default.post('https://recipes-api-4334.herokuapp.com/api/recipes/like',
         {
             recipe_id,
             user_id
