@@ -18,7 +18,7 @@ const Home = () => {
                     <Col className={style.left_col} >
                         Click on the image to view the recipes in the category
                 </Col>
-                    <Col sm={true}>
+                    <Col sm={true} lg={6}>
                         {/* Center categories */}
                         <Categories func={setCurrentCategory} />
                     </Col>
