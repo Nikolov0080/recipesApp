@@ -7,10 +7,12 @@ import loginValidator from '../../../validations/user/login';
 import UserContext from '../../../context/userContext';
 import readCookie from '../../../utils/readCookie';
 import { LinkContainer } from 'react-router-bootstrap';
+import LoadingBtn from '../../common/loadingBtn/index';
 
 const LoginForm = () => {
 
-    const context = useContext(UserContext)
+    const [loading, setLoading] = useState(false);
+    const context = useContext(UserContext);
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,6 +23,15 @@ const LoginForm = () => {
     const authUser = () => {
         const userData = readCookie(document.cookie);
         context.signIn(userData);
+    }
+
+    const buttons = () => {
+
+        if (loading) {
+            return (<LoadingBtn />)
+        }
+
+        return (<Button type="submit" size="lg">Login</Button>)
     }
 
     useEffect(() => {
@@ -38,6 +49,7 @@ const LoginForm = () => {
     const loginUser = (e) => {
         e.preventDefault();
         if (isValid) {// if valid to login
+            setLoading(true);
             loginFunc(username, password).then((resp) => {
                 console.log(resp)
                 setError(resp.data)
@@ -46,6 +58,7 @@ const LoginForm = () => {
                     setDisplayError(true)
                     // TODO handle the error with notification or something...
                     setError(resp.data)
+                    setLoading(false);
                 } else {
                     console.log(resp.status)
                     console.log(resp.data)
@@ -71,13 +84,14 @@ const LoginForm = () => {
                 <Input func={setUsername} name="username" label="Username" type="text" />
                 <Input func={setPassword} name="password" label="Password" type="password" />
                 <br />
-                <Button type="submit" size="lg">Login</Button>
+
+                {buttons()}
             </form>
             <hr />
             <h3>
                 Or click     <LinkContainer to="/register">
-                <Button>Here</Button>
-            </LinkContainer> create an account!
+                    <Button>Here</Button>
+                </LinkContainer> create an account!
             </h3>
             <hr />
         </div>

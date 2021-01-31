@@ -12,11 +12,13 @@ import ImageInput from './imageInput/index';
 import createRecipeFunc from '../../../controllers/recipes/POST/createRecipe/index';
 import Context from '../../../context/userContext';
 import { useHistory } from 'react-router-dom';
+import LoadingBtn from '../../common/loadingBtn/index';
 
 const CreateRecipeInputs = () => {
+
     const context = useContext(Context)
     const userId = context.user._id;
-
+    const [loading, setLoading] = useState(false);
     const history = useHistory();
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState([]);
@@ -28,9 +30,19 @@ const CreateRecipeInputs = () => {
     const [description, setDescription] = useState('');
     const [file, setFile] = useState('');
     const [err, setErr] = useState(false);
+
+    const buttons = () => {
+
+        if (loading) {
+            return (<LoadingBtn />)
+        }
+
+        return (<Button size="lg" type="submit">Create !</Button>)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        setLoading(true);
         createRecipeFunc(
             recipeName.toLowerCase(),
             ingredients,
@@ -47,6 +59,7 @@ const CreateRecipeInputs = () => {
             if (resp.status === 203) {
                 setErr(resp.data);
             } else {
+                setLoading(false);
                 history.goBack();
             }
         })
@@ -72,7 +85,7 @@ const CreateRecipeInputs = () => {
 
                     <ImageInput file={file} func={setFile} />
                     <br />
-                    <Button size="lg" type="submit">Create !</Button>
+                    {buttons()}
                 </form >
             </RecipeBox>
 

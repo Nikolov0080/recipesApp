@@ -1,4 +1,4 @@
-import React, { useState ,useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import Input from '../../common/input/input';
 import { Button } from 'react-bootstrap';
 import registerFunc from '../../../controllers/user/POST/register';
@@ -7,13 +7,13 @@ import registerValidator from '../../../validations/user/register';
 import ImagePreview from '../../common/imagePreview';
 import { useHistory } from 'react-router-dom';
 import readCookie from '../../../utils/readCookie';
-
 import UserContext from '../../../context/userContext';
+import LoadingBtn from '../../common/loadingBtn/index';
 
 const RegisterForm = () => {
 
     const context = useContext(UserContext);
-    
+    const [loading, setLoading] = useState(false);
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -35,15 +35,22 @@ const RegisterForm = () => {
         setProfilePicture(image)
     }
 
+    const buttons = () => {
+        if (loading) { return (<LoadingBtn />) }
+        return (<Button type="submit" >Register</Button>)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = registerValidator(username, password, rePassword, email, skillLevel)
         if (!isValid) {
+            setLoading(true);
             registerFunc(username, password, rePassword, email, skillLevel, profilePicture).then((resp) => {
                 console.log(resp)
                 if (resp.status === 200) {
                     setDisplayErr(true);
-                    setError(resp.data.data)
+                    setError(resp.data.data);
+                    setLoading(false);
                 } else {
                     setDisplayErr(false);
                     authUser();
@@ -75,7 +82,7 @@ const RegisterForm = () => {
                 {/* {new Error()} test */}
 
                 <br />
-                <Button type="submit" >Register</Button>
+                {buttons()}
             </form>
 
         </div>
