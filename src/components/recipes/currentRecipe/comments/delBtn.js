@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import deleteRecipe from '../../../../controllers/recipes/DELETE/deleteComment';
+import LoadingBtn from '../../../common/loadingBtn/index';
 
-const DelBtn = ({ commentId, recipeId,changed }) => {
+const DelBtn = ({ commentId, recipeId, changed }) => {
+
+    const [loading, setLoading] = useState(false);
 
     const handleClick = () => {
-        deleteRecipe(recipeId,commentId).then(()=>{
-            setTimeout(()=>{
+        setLoading(true);
+        deleteRecipe(recipeId, commentId).then(() => {
                 changed(true);
-            },400)
+                setLoading(false);
         })
+    }
+
+    if (loading) {
+        return (
+            <LoadingBtn />
+        )
     }
 
     return (

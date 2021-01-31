@@ -3,12 +3,14 @@ import CommentBox from './commentBox/index';
 import { Button } from 'react-bootstrap';
 import style from './index.module.css';
 import commentRecipe from '../../../../controllers/recipes/POST/commentRecipe/index';
+import LoadingBtn from '../../../common/loadingBtn';
 
-const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, recipeId,changed }) => {
+const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, recipeId, changed }) => {
 
     const [input, setInput] = useState('');
     const [counter, setCounter] = useState(300);
     const [minCounter, setMinCounter] = useState(10);
+    const [loadingBtn, setLoadingBtn] = useState(false);
 
     const completeComment = {
         recipeId,
@@ -20,18 +22,28 @@ const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, 
     }
 
     const buttons = () => {
+        if (loadingBtn) {
+            return (
+                <LoadingBtn />
+            )
+        }
         if (minCounter <= 0) {
             return (<Button onClick={handleSubmit}>Submit</Button>);
-        } else {
-            return (<Button variant="disabled">{minCounter}more</Button>);
+        }
+        else {
+            return (<Button variant="secondary">{minCounter}more
+
+            </Button>);
         }
     }
 
     const handleSubmit = () => {
-        commentRecipe(completeComment);
-        setTimeout(()=>{
+        setLoadingBtn(true)
+        changed(true);
+        commentRecipe(completeComment).then(() => {
             changed(true);
-        },400)
+            setLoadingBtn(false)
+        })
     }
 
     return (
