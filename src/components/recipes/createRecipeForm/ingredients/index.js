@@ -16,10 +16,9 @@ const Ingredients = ({ func }) => {
 
     const handleChangeInput = (index, event) => {
         // make it beautiful !!!
-        console.log(event.target.value)
+        // console.log(event.target.value)
         var values = [...currentIngredients];
         values[index][event.target.name] = event.target.value
-        console.log(index)
         func(values)
     }
 
@@ -30,7 +29,6 @@ const Ingredients = ({ func }) => {
 
     const removeIngredient = (index, e) => {
         e.preventDefault()
-        console.log(index)
         const values = [...currentIngredients]
         values.splice(index, 1);
         setCurrentIngredients(values);

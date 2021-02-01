@@ -5,7 +5,9 @@ const Description = ({func}) => {
     return (
         <div>
             <h3>Description</h3>
-            <textarea onChange={(e)=>func(e.target.value)} 
+            <textarea
+            maxLength={1024}
+            onChange={(e)=>func(e.target.value)} 
             className={style.description_input} /> 
             <hr />
         </div>

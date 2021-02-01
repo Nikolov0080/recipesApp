@@ -9,6 +9,7 @@ const StepTextBox = ({ func, delFunc, index, val }) => {
                 <h4 className={style.step_index}>Step {index + 1}</h4>
                 <textarea
                     placeholder="Type here"
+                    maxLength='300'
                     name="step"
                     onChange={(e) => func(index, e)}
                     className={style.text_step}

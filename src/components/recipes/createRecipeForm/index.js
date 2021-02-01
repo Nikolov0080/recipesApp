@@ -13,6 +13,7 @@ import createRecipeFunc from '../../../controllers/recipes/POST/createRecipe/ind
 import Context from '../../../context/userContext';
 import { useHistory } from 'react-router-dom';
 import LoadingBtn from '../../common/loadingBtn/index';
+import isValid from '../../../validations/recipes/createRecipe/index';
 
 const CreateRecipeInputs = () => {
 
@@ -26,10 +27,26 @@ const CreateRecipeInputs = () => {
     const [prepTime, setPrepTime] = useState(0);
     const [cookTime, setCookTime] = useState(0);
     const [category, setCategory] = useState('special');
-    const [difficulty, setDifficulty] = useState(1);
+    const [difficulty, setDifficulty] = useState(0);
     const [description, setDescription] = useState('');
     const [file, setFile] = useState('');
     const [err, setErr] = useState(false);
+
+    const toValidate = {
+        recipeName: recipeName.toLowerCase(),
+        ingredients,
+        prepTime,
+        cookTime,
+        directions,
+        difficulty,
+        category,
+        description,
+        file
+    }
+
+    const validate = () => {
+        setErr(isValid(toValidate))
+    }
 
     const buttons = () => {
 
@@ -42,6 +59,7 @@ const CreateRecipeInputs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         setLoading(true);
         createRecipeFunc(
             recipeName.toLowerCase(),
@@ -67,7 +85,7 @@ const CreateRecipeInputs = () => {
     }
 
     return (
-        <div>
+        <div onMouseMove={() => validate()} onKeyPress={() => validate()} onChange={() => validate()}>
             <RecipeBox>
                 <h1>Create new recipe</h1>
                 {err !== false ? err : ''}
