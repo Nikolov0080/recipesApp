@@ -3,7 +3,7 @@ export default (steps) => {
     var res = { state: true };
 
     const check = () => {
-        steps.map(({ stepData }, index) => {
+        steps.forEach(({ stepData }, index) => {
             if (stepData.length < 10) {
                 res = {
                     state: false,
@@ -11,6 +11,7 @@ export default (steps) => {
                 }
             }
         })
+
     }
 
     check();

@@ -14,12 +14,38 @@ import { useHistory } from 'react-router-dom';
 const CurrentRecipe = ({ data, changed }) => {
 
     const context = useContext(Context);
+    const logged = context.user !== 'guest'
     const history = useHistory()
     const currentUsedId = context.user._id;
     const recipeCreator = data.creatorId;
     const isCreator = !!(currentUsedId === recipeCreator)
     const [showIng, setShowIng] = useState(false);
     const [showDir, setShowDir] = useState(false);
+
+    const likeAndComment = () => {
+
+        if (!logged) {
+            return (
+                <div>
+                    <h4 className={style.login_msg}>You must login first to comment and like recipes</h4>
+                </div>
+            )
+        }
+
+        return (
+            <div>
+                <AddComment
+                    changed={changed}
+                    recipeId={data._id}
+                    recipeCreatorId={data.creatorId}
+                    commentatorId={currentUsedId}
+                    username={context.user.username}
+                    profilePicURL={context.user.profilePictureURL}
+                />
+                <UserActs recipeId={data._id} />
+            </div>
+        )
+    }
 
     const handleDelete = () => {
         deleteRecipe(recipeCreator, data._id).then(resp => {
@@ -82,6 +108,9 @@ const CurrentRecipe = ({ data, changed }) => {
                 recipeId={data._id}
             />
             {/* add comment data to Comments component */}
+
+            {likeAndComment()}
+            {/*             
             <AddComment
                 changed={changed}
                 recipeId={data._id}
@@ -90,7 +119,7 @@ const CurrentRecipe = ({ data, changed }) => {
                 username={context.user.username}
                 profilePicURL={context.user.profilePictureURL}
             />
-            <UserActs recipeId={data._id} />
+            <UserActs recipeId={data._id} /> */}
         </div>
     )
 }

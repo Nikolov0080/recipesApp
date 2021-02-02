@@ -33,7 +33,6 @@ const CurrentCategory = ({ show,  categorySelected }) => {
                         )
                     })}
                 </Row>
-                <h1>{recipesArray.length}</h1>
             </div>
         </div>
 
