@@ -29,7 +29,6 @@ const RecipeDetails = (props) => {
         getRecipe(recipeId)
     }, [recipeId])
 
-    console.log(recipeData)
 
     if (loading) {
         return (
