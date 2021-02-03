@@ -5,6 +5,7 @@ import Loading from '../../loading/index';
 import UserRecipes from '../../recipes/recipesList';
 import sortingAlgorithms from './sortingAlgorithms';
 import style from './index.module.css';
+import Pagination from '../../pagination';
 
 const {
     byLikes,
@@ -104,9 +105,11 @@ const Landing = () => {
                     :
                     filtered.length !== 0
                         ?
-                        <UserRecipes recipes={filtered.slice(0, 6)} />
+                        <Pagination allRecipes={filtered} />
+                        // <UserRecipes recipes={filtered.slice(0, 6)} />
                         :
-                        <UserRecipes recipes={recipes.slice(0, 6)} />
+                        <Pagination allRecipes={recipes} />
+                // <UserRecipes recipes={recipes.slice(0, 6)} />
             }
         </div >
     )
