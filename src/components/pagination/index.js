@@ -5,18 +5,18 @@ import Items from './items/index';
 const Pagination = ({ allRecipes }) => {
 
     const perPage = 3;
-    
+
     const buttonsCount = Math.ceil(allRecipes.length / perPage);
-
     const [currentPage, setCurrentPage] = useState(0);
-
-    // recipes shown on each page
+    const start = perPage * currentPage;
+    const end = start + perPage;
+    const currentRecipes = allRecipes.slice(start,end)
 
 
     return (
         <div>
             <Items
-                recipes={allRecipes}
+                recipes={currentRecipes}
             />
             {buttonsCount !== 1
                 ?

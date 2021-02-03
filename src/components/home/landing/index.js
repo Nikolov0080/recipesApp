@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ButtonGroup, Button, Container } from 'react-bootstrap';
 import getAllRecipes from '../../../controllers/recipes/GET/getAllRecipes/index';
 import Loading from '../../loading/index';
-import UserRecipes from '../../recipes/recipesList';
+// import UserRecipes from '../../recipes/recipesList';
 import sortingAlgorithms from './sortingAlgorithms';
 import style from './index.module.css';
 import Pagination from '../../pagination';

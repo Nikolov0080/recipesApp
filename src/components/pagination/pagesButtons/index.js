@@ -14,7 +14,7 @@ const PagesButtons = ({ buttonsCount, setPageRecipes }) => {
         todo --- set function to display 
         the recipes per the current page
           */
-
+        setPageRecipes(index);
     }
 
     for (let i = 0; i < buttonsCount; i++) {
