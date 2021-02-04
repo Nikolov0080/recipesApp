@@ -12,7 +12,6 @@ const Pagination = ({ allRecipes }) => {
     const end = start + perPage;
     const currentRecipes = allRecipes.slice(start,end)
 
-
     return (
         <div>
             <Items

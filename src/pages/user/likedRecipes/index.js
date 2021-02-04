@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import likedRecipes from '../../../controllers/user/GET/likedRecipes';
-import Recipes from '../../../components/recipes/recipesList';
+import Pagination from '../../../components/pagination/index';
 import style from './index.module.css';
 
 const LikedRecipes = (props) => {
@@ -38,7 +38,7 @@ const LikedRecipes = (props) => {
     return (
         <div>
             <h1 className={style.title}>Liked Recipes</h1>
-            <Recipes recipes={recipes} />
+            <Pagination allRecipes={recipes}/>
         </div>
     )
 }

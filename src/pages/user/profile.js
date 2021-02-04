@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import profile from '../../controllers/user/GET/profile';
 import ProfileInfo from '../../components/user/profileComponents/profileInfo';
 import ErrorBoundary from '../../errorBoundaries/errorBoundary';
-import UserRecipes from '../../components/recipes/recipesList';
+import Pagination from '../../components/pagination/index';
 import Loading from '../../components/loading/index';
 import CurrentRecipe from '../../components/recipes/currentRecipe';
 
@@ -23,7 +23,7 @@ class UserProfile extends Component {
         window.scroll({
             top: 100,
             behavior: 'smooth'
-          });
+        });
 
         profile().then(profileData => {
             if (profileData === "Network Error") {
@@ -81,11 +81,11 @@ class UserProfile extends Component {
 
                     {this.state.show === false ?
                         <div>
-                            <hr/>
+                            <hr />
                             <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
                                 <Button size="lg">Create Recipe !</Button>
                             </LinkContainer >
-                            <UserRecipes func={this.showHide} recipes={this.state.userRecipes} />
+                            <Pagination allRecipes={this.state.userRecipes}/>
                         </div>
                         : <CurrentRecipe func={this.showHide} data={this.state.current} />
                     }

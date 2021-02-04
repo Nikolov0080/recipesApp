@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import searchRecipe from '../../../../controllers/recipes/POST/searchRecipe/index';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import Loading from '../../../../components/loading/index';
-import Recipe from '../../../../components/recipes/recipe';
+import Pagination from '../../../../components/pagination';
 const ResultList = () => {
 
     const query = window.location.search.replace('?', '')
@@ -30,11 +30,7 @@ const ResultList = () => {
     return (
         <div>
             <Container>
-                <Row>
-                    {recipes.map((recipe, index) => {
-                        return <Col key={index}><Recipe data={recipe} /></Col>
-                    })}
-                </Row>
+                <Pagination allRecipes={recipes}/>
             </Container>
         </div>
     )

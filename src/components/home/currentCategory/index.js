@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './index.module.css';
-import Recipe from '../../recipes/recipe';
-import { Col, Row, Button } from 'react-bootstrap';
+import Pagination from '../../pagination/index';
+import {  Button } from 'react-bootstrap';
 
 const CurrentCategory = ({ show,  categorySelected }) => {
 
@@ -24,15 +24,9 @@ const CurrentCategory = ({ show,  categorySelected }) => {
                 <Button onClick={()=>show(undefined)} className={style.hide_btn}>X</Button>
                 {/* Clears current category */}
                 <h1 className={style.cat}>{category}</h1>
-                <Row>
-                    {recipesArray.map((data, index) => {
-                        return (
-                            <Col key={index}>
-                                <Recipe  data={data} />
-                            </Col>
-                        )
-                    })}
-                </Row>
+
+                <Pagination allRecipes={recipesArray}/>
+             
             </div>
         </div>
 
