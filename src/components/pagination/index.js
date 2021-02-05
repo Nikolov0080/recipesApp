@@ -3,7 +3,7 @@ import PagesButtons from './pagesButtons/index';
 import Items from './items/index';
 
 const Pagination = ({ allRecipes }) => {
-
+// fix allrecipes to data
     const perPage = 3;
 
     const buttonsCount = Math.ceil(allRecipes.length / perPage);
