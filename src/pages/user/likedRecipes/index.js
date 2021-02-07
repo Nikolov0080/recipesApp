@@ -38,7 +38,7 @@ const LikedRecipes = (props) => {
     return (
         <div>
             <h1 className={style.title}>Liked Recipes</h1>
-            <Pagination allRecipes={recipes}/>
+            <Pagination display="recipes" allRecipes={recipes}/>
         </div>
     )
 }

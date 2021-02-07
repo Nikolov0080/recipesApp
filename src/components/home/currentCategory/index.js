@@ -25,7 +25,7 @@ const CurrentCategory = ({ show,  categorySelected }) => {
                 {/* Clears current category */}
                 <h1 className={style.cat}>{category}</h1>
 
-                <Pagination allRecipes={recipesArray}/>
+                <Pagination display="recipes" allRecipes={recipesArray}/>
              
             </div>
         </div>

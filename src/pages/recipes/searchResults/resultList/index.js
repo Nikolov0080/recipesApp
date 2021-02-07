@@ -30,7 +30,7 @@ const ResultList = () => {
     return (
         <div>
             <Container>
-                <Pagination allRecipes={recipes}/>
+                <Pagination display="recipes" allRecipes={recipes}/>
             </Container>
         </div>
     )

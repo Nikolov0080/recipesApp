@@ -105,10 +105,10 @@ const Landing = () => {
                     :
                     filtered.length !== 0
                         ?
-                        <Pagination allRecipes={filtered} />
+                        <Pagination display="recipes" allRecipes={filtered} />
                         // <UserRecipes recipes={filtered.slice(0, 6)} />
                         :
-                        <Pagination allRecipes={recipes} />
+                        <Pagination display="recipes" allRecipes={recipes} />
                 // <UserRecipes recipes={recipes.slice(0, 6)} />
             }
         </div >

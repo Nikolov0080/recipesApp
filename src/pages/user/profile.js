@@ -85,7 +85,7 @@ class UserProfile extends Component {
                             <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
                                 <Button size="lg">Create Recipe !</Button>
                             </LinkContainer >
-                            <Pagination allRecipes={this.state.userRecipes}/>
+                            <Pagination display="recipes" allRecipes={this.state.userRecipes}/>
                         </div>
                         : <CurrentRecipe func={this.showHide} data={this.state.current} />
                     }
