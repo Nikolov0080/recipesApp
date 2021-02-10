@@ -8,6 +8,7 @@ import UserContext from '../../../context/userContext';
 import readCookie from '../../../utils/readCookie';
 import { LinkContainer } from 'react-router-bootstrap';
 import LoadingBtn from '../../common/loadingBtn/index';
+import ErrorMessage from '../../errorMessage';
 
 const LoginForm = () => {
 
@@ -28,15 +29,15 @@ const LoginForm = () => {
     const buttons = () => {
 
         if (loading) {
-            return (<LoadingBtn />)
+            return (<LoadingBtn />);
         }
 
-        return (<Button type="submit" size="lg">Login</Button>)
+        return (<Button type="submit" size="lg">Login</Button>);
     }
 
     useEffect(() => {
 
-        if (KeyboardEvent || MouseEvent) { // setting validation error ot key ot mouse press
+        if (KeyboardEvent || MouseEvent) { // setting validation error on key or mouse press
             setError(loginValidator(username, password))
 
             loginValidator(username, password) === false
@@ -72,13 +73,13 @@ const LoginForm = () => {
             setDisplayError(false); // hide the error
         } else {
             console.log(error);
-            setDisplayError(true)
+            setDisplayError(true);
         }
     }
 
     return (
         <div className="h-auto ">
-            {displayError !== false ? <p>{error}</p> : ''}
+            {displayError !== false ? <ErrorMessage variant={"auth"} text={error} /> : ''}
             <form onSubmit={(e) => loginUser(e)}>
                 {/* {new ErrorEvent('Error')} TEST */}
                 <Input func={setUsername} name="username" label="Username" type="text" />

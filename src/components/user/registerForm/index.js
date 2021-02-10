@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import readCookie from '../../../utils/readCookie';
 import UserContext from '../../../context/userContext';
 import LoadingBtn from '../../common/loadingBtn/index';
+import ErrorMessage from '../../errorMessage';
 
 const RegisterForm = () => {
 
@@ -66,7 +67,7 @@ const RegisterForm = () => {
     return (
         <div>
             {displayErr ? (
-                <p>{error}</p>
+                <ErrorMessage variant={"auth"} text={error} />
             ) : ''}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <Input name="username" func={setUsername} label="username" type="text" />
@@ -78,8 +79,6 @@ const RegisterForm = () => {
                 <InputFile name="profilePicture" func={(e) => handleFile(e.target.files[0])} type="file" >
                     <ImagePreview image={file} />
                 </InputFile>
-
-                {/* {new Error()} test */}
 
                 <br />
                 {buttons()}

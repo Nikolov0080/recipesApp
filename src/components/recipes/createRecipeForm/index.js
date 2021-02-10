@@ -14,6 +14,7 @@ import Context from '../../../context/userContext';
 import { useHistory } from 'react-router-dom';
 import LoadingBtn from '../../common/loadingBtn/index';
 import isValid from '../../../validations/recipes/createRecipe/index';
+import ErrorMessage from '../../errorMessage/index';
 
 const CreateRecipeInputs = () => {
 
@@ -30,7 +31,7 @@ const CreateRecipeInputs = () => {
     const [difficulty, setDifficulty] = useState(0);
     const [description, setDescription] = useState('');
     const [file, setFile] = useState('');
-    const [err, setErr] = useState(false);
+    const [err, setErr] = useState('Fill the fields first');
 
     const toValidate = {
         recipeName: recipeName.toLowerCase(),
@@ -48,10 +49,21 @@ const CreateRecipeInputs = () => {
         setErr(isValid(toValidate))
     }
 
-    const buttons = () => {
+    const buttons = (err) => {
 
         if (loading) {
             return (<LoadingBtn />)
+        }
+
+        if (err || !recipeName) {
+            return (
+                <div>
+                    <ErrorMessage text={err} variant={"info"} />
+                    <br />
+                    <Button size="lg" style={{ backgroundColor: "lightGray" }}
+                        variant="disabled">Create</Button>
+                </div>
+            )
         }
 
         return (<Button size="lg" type="submit">Create !</Button>)
@@ -85,10 +97,10 @@ const CreateRecipeInputs = () => {
     }
 
     return (
-        <div onMouseMove={() => validate()} onKeyPress={() => validate()} onChange={() => validate()}>
+        <div onClick={() => validate()} onKeyPress={() => validate()} onChange={() => validate()}>
             <RecipeBox>
                 <h1>Create new recipe</h1>
-                {err !== false ? err : ''}
+                {err !== false ? <ErrorMessage variant="info" text={err} /> : ''}
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Input name="recipeName" func={setRecipeName} label="RecipeName" type="text" />
                     <Ingredients func={setIngredients} />
@@ -103,7 +115,7 @@ const CreateRecipeInputs = () => {
 
                     <ImageInput file={file} func={setFile} />
                     <br />
-                    {buttons()}
+                    {buttons(err)}
                 </form >
             </RecipeBox>
 
