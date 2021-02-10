@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react'
-import { Row, Col, ProgressBar, Container, Alert, Button } from 'react-bootstrap';
+import React, { useEffect, useContext, useState } from 'react'
+import { Row, Col, ProgressBar, Container, Alert, Button, Image } from 'react-bootstrap';
 import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
@@ -8,7 +8,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 const ProfileInfo = ({ userData }) => {
 
-    const signOut = useContext(UserContext).signOut
+    const signOut = useContext(UserContext).signOut;
+    const [image, setImage] = useState('df');
     const history = useHistory();
 
     const LinksCreated = () => {
@@ -49,10 +50,15 @@ const ProfileInfo = ({ userData }) => {
     }
 
     useEffect(() => {
+        console.log(userData)
         if (userData) {
-            if (userData.profilePictureURL === 'no image') {
-                userData.profilePictureURL = defaultImage;
+            if (userData.profilePictureURL.includes('no image')) {
+                setImage(defaultImage)
+            }else{
+                setImage(userData.profilePictureURL)
             }
+        }else{
+            setImage(userData.profilePictureURL)
         }
     }, [userData])
 
@@ -65,7 +71,7 @@ const ProfileInfo = ({ userData }) => {
                         <br />
                         <br />
                         <h4 className="text-center">{userData.username}</h4>
-                        <img className={style.profile_pic} src={userData.profilePictureURL || 'd'} alt="userPhoto" />
+                        <Image className={style.profile_pic} src={image} alt="userPhoto" />
                     </Container>
                 </Col>
                 <Col className={style.info_container}>

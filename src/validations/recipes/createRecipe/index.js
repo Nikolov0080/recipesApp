@@ -16,15 +16,13 @@ export default (formData) => {
         file
     } = formData;
 
-
-
-
     if (validator.isEmpty(recipeName)) {
         return 'Fill recipe name';
     }
     if (!validator.isLength(recipeName, { min: 6, max: 20 })) {
         return 'Recipe name must be 6 to 20 characters long';
     }
+
     if (ingredients.length <= 0) {
         return 'add at least 1 ingredient';
     }
@@ -37,7 +35,6 @@ export default (formData) => {
     }
 
     if (directions) {
-
         const valDirections = checkSteps(directions);
         if (!valDirections.state) {
             return `Step  #${valDirections.index} too short [min 10 symbols]`;

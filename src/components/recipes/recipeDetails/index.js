@@ -14,9 +14,7 @@ const RecipeDetails = (props) => {
     const getRecipe = (id) => {
         recipeDetails(id).then((resp => {
             setRecipeData(resp.data)
-
-                setLoading(false);
-          
+              return  setLoading(false);
         }));
     }
 
@@ -26,7 +24,7 @@ const RecipeDetails = (props) => {
     }
 
     useEffect(() => {
-        getRecipe(recipeId)
+        getRecipe(recipeId);
     }, [recipeId])
 
 

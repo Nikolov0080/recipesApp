@@ -3,13 +3,14 @@ import style from './index.module.css';
 import { Alert } from 'react-bootstrap'
 const ErrorMessage = ({ text, variant }) => {
 
-    if(variant === 'ok'){
+
+    if (!text) {
         return (
             <div>
                 <Alert className={style.ok} variant="success">
-              <h3>All good 
-                  <span>&#10003;</span>
-                  </h3>  
+                    <h3>All good    
+                  <span> &#10003;</span>
+                    </h3>
                 </Alert>
             </div>
         )
