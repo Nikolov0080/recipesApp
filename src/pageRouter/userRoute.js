@@ -1,17 +1,24 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useContext } from 'react'
+import UserContext from '../context/userContext';
+import { Redirect, Route } from 'react-router-dom';
 
-class UserRoute extends Component {
+const UserRoute = ({ path, component }) => {
 
-    render() {
+    const context = useContext(UserContext);
 
-        const Component = this.props.component
+    const user = context.user;
 
-        return {
-
-        }
+    if (user !== 'guest') {
+        return (
+            <Route exact path={path} component={component} />
+        )
     }
 
+    return (
+        <div>
+            <Redirect to={path = '/'} />
+        </div>
+    )
 }
 
-export default UserRoute
+export default UserRoute;

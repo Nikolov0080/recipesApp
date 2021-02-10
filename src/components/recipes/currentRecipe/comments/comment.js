@@ -5,8 +5,6 @@ import { Col, Row, Container } from 'react-bootstrap';
 
 const Comment = ({ _id, profilePicURL, username, timeCreated, commentData, showDel, changed, recipeId }) => {
 
-    console.log(profilePicURL)
-
     return (
         <div>
             <div className={style.single_comment}>
