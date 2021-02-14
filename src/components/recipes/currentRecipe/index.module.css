@@ -3,7 +3,7 @@
     max-height: fit-content;
 }
 
-.login_msg{
+.login_msg {
     text-align: center;
     margin: 30px;
     background-color: lightgrey;
@@ -18,4 +18,25 @@
     margin-bottom: 10px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.backBtn {
+    width: 30rem;
+    margin: 20px;
+}
+
+.delBtn {
+    width: 30rem;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .backBtn {
+        margin: auto;
+        width: 100%;
+    }
+    .delBtn {
+        margin: auto;
+        width: 100%;
+    }
 }

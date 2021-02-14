@@ -18,7 +18,8 @@ const CurrentRecipe = ({ data, changed }) => {
     const history = useHistory()
     const currentUsedId = context.user._id;
     const recipeCreator = data.creatorId;
-    const isCreator = !!(currentUsedId === recipeCreator)
+    const isCreator = !!(currentUsedId === recipeCreator);
+
     const [showIng, setShowIng] = useState(false);
     const [showDir, setShowDir] = useState(false);
 
@@ -71,13 +72,15 @@ const CurrentRecipe = ({ data, changed }) => {
 
     return (
         <div>
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mt-3 ">
 
-                <Button onClick={() => history.goBack()} size="lg" variant="danger" > <span>&#8249;</span> Back</Button>
+                <Button className={style.backBtn} onClick={() => history.goBack()}
+                    size="lg" variant="info" > <span>&#8249;</span> Back</Button>
 
                 {isCreator === true
                     ?
-                    <Button size="lg" variant="danger" onClick={handleDelete}> <span>&#8249;</span> Delete</Button>
+                    <Button className={style.delBtn} size="lg" variant="primary" onClick={handleDelete}>
+                        <span>X</span> Delete</Button>
                     : ''
                 }
             </div>
@@ -110,16 +113,7 @@ const CurrentRecipe = ({ data, changed }) => {
             {/* add comment data to Comments component */}
 
             {likeAndComment()}
-            {/*             
-            <AddComment
-                changed={changed}
-                recipeId={data._id}
-                recipeCreatorId={data.creatorId}
-                commentatorId={currentUsedId}
-                username={context.user.username}
-                profilePicURL={context.user.profilePictureURL}
-            />
-            <UserActs recipeId={data._id} /> */}
+
         </div>
     )
 }

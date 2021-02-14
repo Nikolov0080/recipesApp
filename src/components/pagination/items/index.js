@@ -6,10 +6,10 @@ const Items = ({ recipes }) => {
 
     return (
         <div>
-            <Container fluid="md">
-                <Row>
+            <Container  >
+                <Row className="justify-content-md-center">
                     {recipes.map((recipe, index) => {
-                        return <Col key={index}><Recipe data={recipe} /></Col>
+                        return <Col  sm={true} key={index}><Recipe data={recipe} /></Col>
                     })}
                 </Row>
             </Container>

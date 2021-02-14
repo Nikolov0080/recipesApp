@@ -1,7 +1,17 @@
 .dif{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin-top: 1rem;
     margin-right: 2rem;
     float: right;
+}
+
+@media screen and (max-width: 600px) {
+    .dif {
+        width: 80px;
+        height: 80px;
+        text-align: center; 
+        box-shadow: none;
+    }
+  
 }

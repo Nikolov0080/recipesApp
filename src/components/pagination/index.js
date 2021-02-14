@@ -4,7 +4,7 @@ import Items from './items/index';
 
 const Pagination = ({ allRecipes }) => {
 
-    const perPage = 3;
+    const perPage = 6;
 
     const buttonsCount = Math.ceil(allRecipes.length / perPage);
     const [currentPage, setCurrentPage] = useState(0);

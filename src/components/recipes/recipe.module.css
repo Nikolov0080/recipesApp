@@ -1,5 +1,5 @@
 .recipe_box {
-    width: 20rem;
+    width: 15rem;
     border: 2px solid lightgrey;
     margin-top: 2em;
     margin-bottom: 2em;
@@ -8,20 +8,32 @@
 
 .image_box{
    width: 100%;
-   height: 17rem;
+   height: 13rem;
 }
-
 .likes{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: 30px;
     float: right;
-    margin-right: 60px;
+    margin-right: 50px;
     color: rgb(247, 70, 70);
 }
 
 @media only screen and (max-width: 600px) {
     .recipe_box {
+        /* fix here */
         margin: auto;
         margin-bottom: 4em;
     }
+    .recipe_box{
+        width: 20rem;
+    }
+.likes{
+    margin-top: 2rem;
+    margin-right: 80px;
+
+}
+    .image_box{
+        width: 100%;
+        height: 17rem;
+     }
 }
