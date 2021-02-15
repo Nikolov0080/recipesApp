@@ -61,7 +61,7 @@ const Landing = () => {
         /*eslint-enable */
         setTimeout(() => {
             setLoading2(false);
-        }, 1000)
+        }, 500)
     }
 
     if (!recipes) {
