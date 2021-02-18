@@ -1,6 +1,12 @@
 .current_image {
-    width: 100%;
-    max-height: fit-content;
+    display: block;
+    max-width:580px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    border: lightslategray 2px solid;
+    box-shadow: 1px 2px 10px 1px coral ;
 }
 
 .login_msg {
@@ -31,6 +37,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+    .current_image{
+        box-shadow: none;
+        border: none;
+        width: auto;
+        max-height: 300px;
+    }
     .backBtn {
         margin: auto;
         width: 100%;

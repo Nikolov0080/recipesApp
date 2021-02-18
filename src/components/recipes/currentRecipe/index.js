@@ -13,6 +13,7 @@ import { useHistory } from 'react-router-dom';
 
 const CurrentRecipe = ({ data, changed }) => {
 
+    window.scrollTo(0, 0);
     const context = useContext(Context);
     const logged = context.user !== 'guest'
     const history = useHistory()
@@ -22,7 +23,6 @@ const CurrentRecipe = ({ data, changed }) => {
 
     const [showIng, setShowIng] = useState(false);
     const [showDir, setShowDir] = useState(false);
-
     const likeAndComment = () => {
 
         if (!logged) {
