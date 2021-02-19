@@ -1,6 +1,7 @@
 .current_image {
     display: block;
-    max-width:580px;
+    width: auto;
+    max-width: 100%;
     max-height:400px;
     width: auto;
     height: auto;

@@ -1,11 +1,30 @@
-.box{
-    margin:0 auto;
-    width: 100%;
-    max-height: fit-content;
+.footer1 {
+    /* border: darkgray 1px solid; */
+    padding-top: 10px;
+    border-radius: 40px;
+    box-shadow: lightgrey 1px 2px 8px 4px;
+    width: auto;
+    margin: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+.face {
+    float: right;
+    width: 27%;
+}
+
+.link {
+    float: left;
+    width: 27%;
+}
+
+@media only screen and (max-width: 670px) {
     .box {
         width: 100%;
+    }
+    .face {
+        width: 70%;
+    }
+    .link {
+        width: 70%;
     }
 }

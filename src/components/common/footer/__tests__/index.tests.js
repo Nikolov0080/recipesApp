@@ -13,5 +13,5 @@ it("footer renders OK", () => {
 it('renders footer correctly', () => {
     const { getByTestId } = render(<Footer />);
     expect(getByTestId("footer")).toHaveTextContent("footer");
-    expect(getByTestId("footer"))
+    expect(getByTestId("footer"));
 });

@@ -13,7 +13,6 @@ import { useHistory } from 'react-router-dom';
 
 const CurrentRecipe = ({ data, changed }) => {
 
-    window.scrollTo(0, 0);
     const context = useContext(Context);
     const logged = context.user !== 'guest'
     const history = useHistory()
