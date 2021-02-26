@@ -1,7 +1,6 @@
 import setCookie from '../../utils/setCookie';
 import axios from 'axios';
-
-export default (username, password, rePassword, email, skillLevel, profilePicture) => {
+const exit = (username, password, rePassword, email, skillLevel, profilePicture) => {
     // using FormData() to append file and form data to the request
  
     var formData = new FormData();
@@ -30,3 +29,4 @@ export default (username, password, rePassword, email, skillLevel, profilePictur
         }
     });
 }
+export default exit

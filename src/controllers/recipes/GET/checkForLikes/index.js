@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default (recipe_id, user_id) => {
+const exit = (recipe_id, user_id) => {
 
     return axios.default.post(
         `https://interesting-woolen-trampoline.glitch.me/api/recipes/check-likes`,
@@ -13,3 +13,5 @@ export default (recipe_id, user_id) => {
         }
     )
 }
+
+export default exit

@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-export default () => {
+const exit = () => {
 
     return axios.get('https://interesting-woolen-trampoline.glitch.me/api/users/profile',
         {
@@ -16,3 +16,5 @@ export default () => {
         return err.message;
     })
 }
+
+export default exit

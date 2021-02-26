@@ -1,4 +1,4 @@
-export default (data) => {
+const exit = (data) => {
 
     const isLogged = data.headers.hasOwnProperty('auth');
 
@@ -16,3 +16,5 @@ export default (data) => {
     }
 
 }
+
+export default exit

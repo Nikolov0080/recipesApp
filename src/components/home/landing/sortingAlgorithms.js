@@ -19,8 +19,10 @@ const mostEasy = (arr) => {
             return a.difficulty - b.difficulty
         })
 }
-export default {
+
+const exit = {
     byLikes,
     byDifficulty,
     mostEasy
 }
+export default exit

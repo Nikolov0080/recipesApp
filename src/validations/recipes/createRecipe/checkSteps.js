@@ -1,4 +1,5 @@
-export default (steps) => {
+
+const exit =(steps) => {
 
     var res = { state: true };
 
@@ -17,3 +18,5 @@ export default (steps) => {
     check();
     return res;
 }
+
+export default exit

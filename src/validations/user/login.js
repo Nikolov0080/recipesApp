@@ -1,6 +1,6 @@
 import validator from 'validator';
 
-export default (username, password) => {
+const exit = (username, password) => {
 
     if (validator.isEmpty(username)) {
         return 'empty username'
@@ -24,3 +24,5 @@ export default (username, password) => {
 
     return false;
 }
+
+export default exit

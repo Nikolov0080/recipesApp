@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default (recipeName) => {
+const exit = (recipeName) => {
 
     return axios.default.post('https://interesting-woolen-trampoline.glitch.me/api/recipes/search-recipe',
         { recipeName: recipeName.toLowerCase() }
@@ -9,3 +9,5 @@ export default (recipeName) => {
         })
 
 }
+
+export default exit

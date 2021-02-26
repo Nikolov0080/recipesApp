@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-export default (category) => {
+const exit = (category) => {
 
     return axios.default.post("https://interesting-woolen-trampoline.glitch.me/api/recipes/get-category",
         { category: category },
         (err) => { console.log(err) })
 
 }
+
+export default exit

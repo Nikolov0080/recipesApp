@@ -1,6 +1,6 @@
 import validator from 'validator';
 
-export default (username, password, rePassword, email, skillLevel, profilePicture) => {
+const exit = (username, password, rePassword, email, skillLevel, profilePicture) => {
 
     // USERNAME
     if (validator.isEmpty(username)) {
@@ -51,3 +51,5 @@ export default (username, password, rePassword, email, skillLevel, profilePictur
 
     return false;
 }
+
+export default exit

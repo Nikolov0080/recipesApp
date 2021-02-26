@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default (recipeId, commentId) => {
+const exit = (recipeId, commentId) => {
     return axios.default.delete('https://interesting-woolen-trampoline.glitch.me/api/recipes/delete-comment/' + recipeId + '&&' + commentId)
         .then(response => {
             return response;
@@ -8,3 +8,5 @@ export default (recipeId, commentId) => {
             console.log(e)
         })
 }
+
+export default exit

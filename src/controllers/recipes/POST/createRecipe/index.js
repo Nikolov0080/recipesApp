@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default (recipeName,
+const exit = (recipeName,
     ingredients,
     prepTime,
     cookTime,
@@ -35,3 +35,5 @@ export default (recipeName,
         config
     )
 }
+
+export default exit

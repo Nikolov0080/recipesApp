@@ -1,8 +1,7 @@
 import setCookie from '../../utils/setCookie';
-// const axios = require('axios').default;
-// axios.defaults.withCredentials = true
-import axios from 'axios'
-export default (username, password) => {
+import axios from 'axios';
+
+const exit =(username, password) => {
     return axios.post('https://interesting-woolen-trampoline.glitch.me/api/users/login', {
         username: username,
         password: password
@@ -18,3 +17,5 @@ export default (username, password) => {
         }
     });
 }
+
+export default exit

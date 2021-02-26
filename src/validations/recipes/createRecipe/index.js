@@ -2,7 +2,7 @@ import validator from 'validator';
 import checkIngredients from './checkIngredients';
 import checkSteps from './checkSteps';
 
-export default (formData) => {
+const exit =(formData) => {
 
     const {
         recipeName,
@@ -67,3 +67,5 @@ export default (formData) => {
 
     return false;
 }
+
+export default exit

@@ -1,4 +1,4 @@
-export default (ingredients) => {
+const exit = (ingredients) => {
 
     var res = { state: true }
 
@@ -18,3 +18,5 @@ export default (ingredients) => {
 
     return res;
 }
+
+export default exit

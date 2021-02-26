@@ -1,4 +1,4 @@
-export default [
+const exit = [
     'lunch',
     'breakfast',
     'salad',
@@ -12,3 +12,5 @@ export default [
     'sweets',
     'low calories'
 ]
+
+export default exit
