@@ -21,18 +21,13 @@ const DirectionsList = ({ data, func, show }) => {
                 <h2>Directions <span>&#8593;</span> hide</h2>
             </div>
             <Table className="text-center" bordered hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Step</th>
-                    </tr>
-                </thead>
+                
                 <tbody>
                     {data.map(({ stepData }, index) => {
                         return (
 
                             <tr key={index}>
-                                <td>{index + 1}</td>
+                                <td><strong>Step - {index + 1}</strong></td>
                                 <td>{stepData}</td>
                             </tr>
                         )

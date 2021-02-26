@@ -1,8 +1,16 @@
 * {
     font-family: 'Montserrat', sans-serif;
-   
 }
 
-tr{
-    color: aquamarine;
+
+
+tr {
+    border-style: hidden;
+    background-color: rgb(250, 213, 199);
+    text-align: center;
+    
+}
+
+td{
+    border-style: hidden;
 }
