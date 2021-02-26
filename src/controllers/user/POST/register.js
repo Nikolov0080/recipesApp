@@ -12,7 +12,7 @@ export default (username, password, rePassword, email, skillLevel, profilePictur
     formData.append("email", email)
     formData.append("skillLevel", skillLevel)
 
-    return axios.default.post('https://recipes-api-4334.herokuapp.com/api/users/register',
+    return axios.default.post('https://interesting-woolen-trampoline.glitch.me/api/users/register',
 
         formData
 

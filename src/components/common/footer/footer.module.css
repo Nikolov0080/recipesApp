@@ -7,14 +7,22 @@
     margin: 20px;
 }
 
+.connect{
+    font-family:  'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    opacity: 0.8;
+    padding: 6px;
+    border-radius: 40px;
+    box-shadow: lightgrey 1px 2px 8px 4px;
+}
 .face {
-    float: right;
-    width: 27%;
+    width: 20%;
 }
 
 .link {
-    float: left;
-    width: 27%;
+    width: 20%;
 }
 
 @media only screen and (max-width: 670px) {
@@ -22,9 +30,9 @@
         width: 100%;
     }
     .face {
-        width: 70%;
+        width: 50%;
     }
     .link {
-        width: 70%;
+        width: 50%;
     }
 }

@@ -2,7 +2,7 @@ const axios = require('axios').default;
 
 export default () => {
 
-    return axios.get('https://recipes-api-4334.herokuapp.com/api/users/profile',
+    return axios.get('https://interesting-woolen-trampoline.glitch.me/api/users/profile',
         {
             headers: {
                 "cookie_client": document.cookie

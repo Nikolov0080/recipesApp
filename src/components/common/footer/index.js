@@ -10,7 +10,7 @@ const Footer = () => {
             <div data-testid="footer" className="page-footer" >
             <Row className="text-center">
                 <Col >
-                    <h6 className="text-center" >Connect the developer</h6>
+                    <h5 className={style.connect} >Connect the developer</h5>
                     <Row>
                         <Col className="float-left">
                             <ConnectsDev />
@@ -19,10 +19,6 @@ const Footer = () => {
                             <Linkedin />
                         </Col>
                     </Row>
-
-                </Col>
-                <Col>
-                    col 2
                 </Col>
             </Row>
             <br/>
