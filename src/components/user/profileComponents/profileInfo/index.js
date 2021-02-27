@@ -3,7 +3,7 @@ import { Row, Col, ProgressBar, Container, Alert, Button, Image } from 'react-bo
 import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
-import { useHistory } from 'react-router-dom';
+import { BrowserRouter, useHistory } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const ProfileInfo = ({ userData }) => {
@@ -26,9 +26,12 @@ const ProfileInfo = ({ userData }) => {
         if (count >= 1) {
             return (
                 <div>
-                    <LinkContainer to={`liked-recipes/${userData._id}`}>
-                        <Alert className={style.alert1} variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
-                    </LinkContainer>
+                    <BrowserRouter>
+                        <LinkContainer to={`liked-recipes/${userData._id}`}>
+                            <Alert className={style.alert1} variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
+                        </LinkContainer>
+                    </BrowserRouter>
+
                 </div>
             )
         }
@@ -54,10 +57,10 @@ const ProfileInfo = ({ userData }) => {
         if (userData) {
             if (userData.profilePictureURL.includes('no image')) {
                 setImage(defaultImage)
-            }else{
+            } else {
                 setImage(userData.profilePictureURL)
             }
-        }else{
+        } else {
             setImage(userData.profilePictureURL)
         }
     }, [userData])

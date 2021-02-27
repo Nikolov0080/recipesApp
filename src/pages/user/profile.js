@@ -7,6 +7,7 @@ import ErrorBoundary from '../../errorBoundaries/errorBoundary';
 import Pagination from '../../components/pagination/index';
 import Loading from '../../components/loading/index';
 import CurrentRecipe from '../../components/recipes/currentRecipe';
+import { BrowserRouter } from 'react-router-dom';
 
 class UserProfile extends Component {
 
@@ -82,10 +83,13 @@ class UserProfile extends Component {
                     {this.state.show === false ?
                         <div>
                             <hr />
-                            <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
-                                <Button size="lg">Create Recipe !</Button>
-                            </LinkContainer >
-                            <Pagination display="recipes" allRecipes={this.state.userRecipes}/>
+                            <BrowserRouter>
+                                <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
+                                    <Button size="lg">Create Recipe !</Button>
+                                </LinkContainer >
+                            </BrowserRouter>
+
+                            <Pagination display="recipes" allRecipes={this.state.userRecipes} />
                         </div>
                         : <CurrentRecipe func={this.showHide} data={this.state.current} />
                     }

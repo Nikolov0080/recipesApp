@@ -31,7 +31,7 @@ const AddComments = ({ recipeCreatorId, commentatorId, username, profilePicURL, 
             return (<Button onClick={handleSubmit}>Submit</Button>);
         }
         else {
-            return (<Button variant="secondary">{minCounter}more
+            return (<Button variant="outline-disabled">{minCounter} more
 
             </Button>);
         }

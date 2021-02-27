@@ -2,7 +2,6 @@ import React from 'react'
 import { Table } from 'react-bootstrap';
 import style from './index.module.css'
 
-
 const DirectionsList = ({ data, func, show }) => {
 
     if (!show) {

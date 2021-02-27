@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import likedRecipes from '../../../controllers/user/GET/likedRecipes';
 import Pagination from '../../../components/pagination/index';
+import Loading from '../../../components/loading/index';
 import style from './index.module.css';
 
 const LikedRecipes = (props) => {
@@ -8,6 +9,7 @@ const LikedRecipes = (props) => {
     const userId = props.location.pathname.replace("/liked-recipes/", '');
 
     const [recipes, setRecipes] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -29,16 +31,21 @@ const LikedRecipes = (props) => {
 
         likedRecipes(userId).then((resp) => {
             const filtered = resp.data.reduce(reducer, []);
-
-            console.log(filtered)
-            setRecipes(filtered)
+            setRecipes(filtered);
+            setLoading(false)
         })
     }, [userId]);
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <div>
             <h1 className={style.title}>Liked Recipes</h1>
-            <Pagination display="recipes" allRecipes={recipes}/>
+            <Pagination display="recipes" allRecipes={recipes} />
         </div>
     )
 }

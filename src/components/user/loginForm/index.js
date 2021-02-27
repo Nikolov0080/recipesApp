@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Input from '../../common/input/input';
 import loginFunc from '../../../controllers/user/POST/login';
-import { useHistory } from 'react-router-dom';
+import { BrowserRouter, useHistory } from 'react-router-dom';
 import loginValidator from '../../../validations/user/login';
 import UserContext from '../../../context/userContext';
 import readCookie from '../../../utils/readCookie';
@@ -90,9 +90,12 @@ const LoginForm = () => {
             </form>
             <hr />
             <h3>
-                Or click     <LinkContainer to="/register">
-                    <Button>Here</Button>
-                </LinkContainer> create an account!
+                <BrowserRouter>
+                    Or click     <LinkContainer to="/register">
+                        <Button>Here</Button>
+                    </LinkContainer> create an account!
+                </BrowserRouter>
+
             </h3>
             <hr />
         </div>
