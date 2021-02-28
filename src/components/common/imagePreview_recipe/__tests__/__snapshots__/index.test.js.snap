@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot inputImage2 1`] = `
+<div>
+  <div
+    className="image_container"
+  >
+    <p
+      className="message"
+    >
+      Well done looks awesome !
+       
+    </p>
+    <img
+      alt="profilePic"
+      className="current_image"
+      src="false"
+    />
+  </div>
+</div>
+`;

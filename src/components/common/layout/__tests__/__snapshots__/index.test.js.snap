@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="main_container"
+>
+  <div>
+    <div
+      className="text-center"
+      style={
+        Object {
+          "boxShadow": " 1px 4px 9px lightgray",
+        }
+      }
+    >
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-light"
+      >
+        <a
+          className="active nav-link"
+          href="/"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={Object {}}
+        >
+          <img
+            alt="logo"
+            className="logoImage"
+            src="logo.ico"
+          />
+        </a>
+        <button
+          aria-controls="responsive-navbar-nav"
+          aria-label="Toggle navigation"
+          className="navbar-toggler collapsed"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-expanded={null}
+          className="navbar-collapse collapse"
+          id="responsive-navbar-nav"
+        >
+          <div
+            className="mr-auto navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <div>
+              <form>
+                <div
+                  className="search_container"
+                >
+                  <input
+                    className="input_search"
+                    onChange={[Function]}
+                    placeholder="Search recipe..."
+                    type="text"
+                  />
+                  <img
+                    alt="search"
+                    className="search_icon_style"
+                    src="search_icon.png"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div
+            className="navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <div>
+              <div
+                className="navbar-nav"
+                onKeyDown={[Function]}
+              >
+                <a
+                  className="links nav-link"
+                  data-rb-event-key="/profile"
+                  href="/profile"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                >
+                  Profile
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <h1>
+    test children
+  </h1>
+  <div
+    className="footer1"
+  >
+    <div
+      className="page-footer"
+      data-testid="footer"
+    >
+      <div
+        className="text-center row"
+      >
+        <div
+          className="col"
+        >
+          <h5
+            className="connect"
+          >
+            Connect the developer
+          </h5>
+          <div
+            className="row"
+          >
+            <div
+              className="float-left col"
+            >
+              <div>
+                <a
+                  href="https://www.facebook.com/UserUndefine01100100/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img
+                    alt="facebook_icon"
+                    className="face"
+                    src="https://res.cloudinary.com/recepsbg/image/upload/v1613765125/social_icons/facebook-logo-2019-1597680-1350125_fej9mi.png"
+                  />
+                </a>
+              </div>
+            </div>
+            <div
+              className="col"
+            >
+              <div>
+                <a
+                  href="https://www.linkedin.com/in/%D0%B6%D0%B8%D0%B2%D0%BA%D0%BE-%D0%BD%D0%B8%D0%BA%D0%BE%D0%BB%D0%BE%D0%B2-24b5a8191/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img
+                    alt="linkedin_icon"
+                    className="link"
+                    src="https://res.cloudinary.com/recepsbg/image/upload/v1613763276/social_icons/link_yd7d1l.png"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+`;
