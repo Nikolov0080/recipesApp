@@ -18,6 +18,7 @@
     color: rgb(247, 70, 70);
 }
 
+
 @media only screen and (max-width: 600px) {
     .recipe_box {
         /* fix here */

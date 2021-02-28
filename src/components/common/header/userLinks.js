@@ -10,8 +10,8 @@ const GuestLinks = () => {
         <div>
             <Nav >
                 <BrowserRouter>
-                    <a href="/profile">
-                        <Nav.Link className={style.links}>Profile</Nav.Link>
+                    <a  className={style.links} href="/profile">
+                       Profile
                     </a>
                 </BrowserRouter>
 

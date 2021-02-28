@@ -86,6 +86,7 @@ class UserProfile extends Component {
                                 <a className="d-flex justify-content-center" href="/create-recipe">
                                     <Button size="lg">Create Recipe !</Button>
                                 </a >
+                                <hr />
                             </BrowserRouter>
 
                             <Pagination display="recipes" allRecipes={this.state.userRecipes} />

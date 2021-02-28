@@ -5,6 +5,17 @@
   
 }
 
+.info{
+font-size: 2em;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 10px;
+  margin-left: 18%;
+    width: 80%;
+    box-shadow: 2px 1px 6px 6px lightgray;
+    border-radius: 20px;
+}
+
 .left_col {
     text-align: center;
 }
@@ -13,11 +24,19 @@
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .container {
         width: 100%;
         text-align: center; 
         box-shadow: none;
+    }
+
+    .info{
+        font-size: 20px;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 6%;
+        margin-left: 14%;
     }
   
 }

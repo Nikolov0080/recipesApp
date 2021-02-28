@@ -1,10 +1,9 @@
 import React from 'react'
-import style from './index.module.css';
 import { Carousel } from 'react-bootstrap';
 import getCategory from '../../../controllers/recipes/POST/getCategory/index';
 import categories from './categoriesData';
 
-const Categories = ({  func }) => {
+const Categories = ({ func }) => {
 
     const handleClick = (category) => {
         getCategory(category).then((resp) => {
@@ -25,18 +24,19 @@ const Categories = ({  func }) => {
     }
 
     return (
-        <div>
-            <Carousel className={style.main_box}>
+        <div >
+            <Carousel >
                 {categories.map(({ name, imageUrl }, index) => {
-                    return <Carousel.Item className={style.current} key={index}>
+                    return <Carousel.Item key={index}>
                         <img
+                        style={{cursor:"pointer"}}
+                        className="d-block w-100"
                             onClick={() => handleClick(name.toLowerCase())}
-                            className={style.cat_img}
                             src={imageUrl}
                             alt="view"
                         />
                         <Carousel.Caption>
-                            <h3 className={style.cat_name}>{name}</h3>
+                            <h3 >{name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 })}

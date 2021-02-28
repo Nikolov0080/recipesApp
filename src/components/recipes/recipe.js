@@ -9,9 +9,10 @@ const Recipe = ({ data }) => {
     return (
         <div >
             <BrowserRouter>
-                <a href={'/recipe-details/recipe_id=' + data._id}>
                     <Card className={style.recipe_box} >
+                <a href={'/recipe-details/recipe_id=' + data._id}>
                         <Card.Img className={style.image_box} variant="top" src={data.image} />
+                </a>
                         <Card.Body>
                             <Card.Title>{data.recipeName}</Card.Title>
                             <Card.Text>
@@ -24,7 +25,6 @@ const Recipe = ({ data }) => {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                </a>
             </BrowserRouter>
 
         </div>
