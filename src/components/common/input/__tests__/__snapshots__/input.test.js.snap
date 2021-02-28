@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  data-testid="regInput"
+>
+  <br />
+  <input
+    className="input_text"
+    name="test"
+    onChange={[Function]}
+    placeholder="test"
+    type="text"
+  />
+</div>
+`;
+
+exports[`matches snapshot 2`] = `
+<div
+  data-testid="regInput"
+>
+  <br />
+  <input
+    className="input_text"
+    name="test"
+    onChange={[Function]}
+    placeholder="skillLevel"
+    type="text"
+  />
+</div>
+`;

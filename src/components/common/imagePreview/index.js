@@ -4,6 +4,7 @@ import style from './imagePreview.module.css';
 
 const messageAfterUpload = "Make sure the your face is visible!"
 const messageBeforeUpload = "Click here to add photo of you"
+
 const ImagePreview = ({ image }) => {
 
     const [uploadedImage, setUploadedImage] = useState(false);
@@ -19,7 +20,7 @@ const ImagePreview = ({ image }) => {
     ], [image])
 
     return (
-        <div>
+        <div testid="imagePreview">
             <div className={style.image_container}>
                 {uploadCheck === false
                     ? <p className={style.message}>{messageAfterUpload} </p>

@@ -20,9 +20,9 @@ const InputField = ({ label, func, name, type }) => {
     }
 
     return (
-        <div>
+        <div data-testid="regInput">
             <br />
-            <input className={style.input_text}
+            <input  className={style.input_text}
                 onChange={(e) => func(e.target.value)}
                 name={name} type={type}
                 placeholder={label}
