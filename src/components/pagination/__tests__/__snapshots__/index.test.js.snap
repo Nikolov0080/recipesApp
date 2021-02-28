@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      className="container"
+    >
+      <div
+        className="justify-content-md-center row"
+      >
+        <div
+          className="col-sm"
+        >
+          <div>
+            <div
+              className="recipe_box card"
+              href="/recipe-details/recipe_id=60395558ace4ec013995d271"
+              onClick={[Function]}
+            >
+              <img
+                className="card-img-top image_box"
+                src="https://res.cloudinary.com/recepsbg/image/upload/v1614370135/recipes/image-1614370133901.gif.gif"
+              />
+              <div
+                className="card-body"
+              >
+                <div
+                  className="card-title h5"
+                >
+                  234234
+                </div>
+                <p
+                  className="card-text"
+                >
+                  fsdkf ;lskdf ;lskdf ;lskdf ;lskdf;ldskf ;lskdls dk;lf...
+                  <br />
+                  <span>
+                    <span
+                      className="dif"
+                    >
+                      <svg
+                        className="CircularProgressbar "
+                        data-test-id="CircularProgressbar"
+                        style={Object {}}
+                        viewBox="0 0 100 100"
+                      >
+                        <path
+                          className="CircularProgressbar-trail"
+                          d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                          fillOpacity={0}
+                          strokeWidth={8}
+                          style={
+                            Object {
+                              "stroke": "lightgray",
+                              "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                              "strokeDashoffset": "0px",
+                              "strokeLinecap": "butt",
+                              "transform": "rotate(0.2turn)",
+                              "transformOrigin": "center center",
+                            }
+                          }
+                        />
+                        <path
+                          className="CircularProgressbar-path"
+                          d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+                          fillOpacity={0}
+                          strokeWidth={8}
+                          style={
+                            Object {
+                              "stroke": "#f87",
+                              "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                              "strokeDashoffset": "289.02652413026095px",
+                              "strokeLinecap": "butt",
+                              "transform": "rotate(0.2turn)",
+                              "transformOrigin": "center center",
+                            }
+                          }
+                        />
+                        <text
+                          className="CircularProgressbar-text"
+                          style={
+                            Object {
+                              "fill": "#000000",
+                            }
+                          }
+                          x={50}
+                          y={50}
+                        >
+                          Skill(0)
+                        </text>
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    className="likes"
+                  >
+                    ♥ 
+                    0
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+`;

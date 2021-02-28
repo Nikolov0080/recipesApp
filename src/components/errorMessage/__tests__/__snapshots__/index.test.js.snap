@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    className="fade err alert alert-danger show"
+    role="alert"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`matches snapshot 2`] = `
+<div>
+  <div
+    className="fade info alert alert-info show"
+    role="alert"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`matches snapshot 3`] = `
+<div>
+  <div
+    className="fade ok alert alert-success show"
+    role="alert"
+  >
+    <h3>
+      All good
+      <span>
+         ✓
+      </span>
+    </h3>
+  </div>
+</div>
+`;

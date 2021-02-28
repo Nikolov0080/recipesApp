@@ -1,6 +1,8 @@
 import React from 'react'
 import style from './index.module.css';
-import { Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap';
+
+
 const ErrorMessage = ({ text, variant }) => {
 
 
