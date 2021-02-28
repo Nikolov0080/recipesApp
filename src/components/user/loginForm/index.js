@@ -6,7 +6,6 @@ import { BrowserRouter, useHistory } from 'react-router-dom';
 import loginValidator from '../../../validations/user/login';
 import UserContext from '../../../context/userContext';
 import readCookie from '../../../utils/readCookie';
-import { LinkContainer } from 'react-router-bootstrap';
 import LoadingBtn from '../../common/loadingBtn/index';
 import ErrorMessage from '../../errorMessage';
 
@@ -91,9 +90,9 @@ const LoginForm = () => {
             <hr />
             <h3>
                 <BrowserRouter>
-                    Or click     <LinkContainer to="/register">
+                    Or click     <a href="/register">
                         <Button>Here</Button>
-                    </LinkContainer> create an account!
+                    </a> create an account!
                 </BrowserRouter>
 
             </h3>

@@ -4,7 +4,7 @@ import UserLinks from './userLinks';
 import { Nav, Navbar } from 'react-bootstrap';
 import Search from './searchRecipe/search';
 import style from './header.module.css';
-import { LinkContainer } from 'react-router-bootstrap';
+import { a } from 'react-router-bootstrap';
 import logo from './logo.ico';
 import UserContext from '../../../context/userContext';
 import { BrowserRouter} from 'react-router-dom';
@@ -20,12 +20,12 @@ const Navigation = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="light" >
              <BrowserRouter>
-              <LinkContainer to='/'>
-                    <Nav.Link>
+              <a href='/'>
+                    
                         <img alt="logo" className={style.logoImage} src={logo} />
 
-                    </Nav.Link>
-                </LinkContainer>
+                 
+                </a>
              </BrowserRouter>
                
            

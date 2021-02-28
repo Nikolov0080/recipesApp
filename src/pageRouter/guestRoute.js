@@ -15,7 +15,7 @@ const GuestRoute = ({ path, component }) => {
     }
 
     return (
-        <Redirect to={path='/'} />
+        <Redirect href={path='/'} />
     )
 }
 

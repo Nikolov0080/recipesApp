@@ -16,7 +16,7 @@ const UserRoute = ({ path, component }) => {
 
     return (
         <div>
-            <Redirect to={path = '/'} />
+            <Redirect href={path = '/'} />
         </div>
     )
 }

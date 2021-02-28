@@ -1,8 +1,8 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { a } from 'react-router-bootstrap';
 import style from './header.module.css';
-// LinkContainer makes SPA functionality in the Navigation
+// a makes SPA functionality in the Navigation
 import { BrowserRouter } from 'react-router-dom';
 
 const GuestLinks = () => {
@@ -10,9 +10,9 @@ const GuestLinks = () => {
         <div>
             <Nav >
                 <BrowserRouter>
-                    <LinkContainer to="/profile">
+                    <a href="/profile">
                         <Nav.Link className={style.links}>Profile</Nav.Link>
-                    </LinkContainer>
+                    </a>
                 </BrowserRouter>
 
             </Nav>

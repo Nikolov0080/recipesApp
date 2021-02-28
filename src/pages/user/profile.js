@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { LinkContainer } from 'react-router-bootstrap';
 import { Button } from 'react-bootstrap';
 import profile from '../../controllers/user/GET/profile';
 import ProfileInfo from '../../components/user/profileComponents/profileInfo';
@@ -84,9 +83,9 @@ class UserProfile extends Component {
                         <div>
                             <hr />
                             <BrowserRouter>
-                                <LinkContainer className="d-flex justify-content-center" to="/create-recipe">
+                                <a className="d-flex justify-content-center" href="/create-recipe">
                                     <Button size="lg">Create Recipe !</Button>
-                                </LinkContainer >
+                                </a >
                             </BrowserRouter>
 
                             <Pagination display="recipes" allRecipes={this.state.userRecipes} />

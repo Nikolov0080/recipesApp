@@ -2,7 +2,6 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import style from './recipe.module.css';
 import SpinningAnimation from '../animations/spinning/index';
-import { LinkContainer } from 'react-router-bootstrap';
 import { BrowserRouter } from 'react-router-dom';
 
 const Recipe = ({ data }) => {
@@ -10,7 +9,7 @@ const Recipe = ({ data }) => {
     return (
         <div >
             <BrowserRouter>
-                <LinkContainer to={'/recipe-details/recipe_id=' + data._id}>
+                <a href={'/recipe-details/recipe_id=' + data._id}>
                     <Card className={style.recipe_box} >
                         <Card.Img className={style.image_box} variant="top" src={data.image} />
                         <Card.Body>
@@ -25,7 +24,7 @@ const Recipe = ({ data }) => {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                </LinkContainer>
+                </a>
             </BrowserRouter>
 
         </div>

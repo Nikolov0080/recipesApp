@@ -4,7 +4,6 @@ import style from './profileInfo.module.css';
 import defaultImage from '../defaultImage.jpg';
 import UserContext from '../../../../context/userContext';
 import { BrowserRouter, useHistory } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
 
 const ProfileInfo = ({ userData }) => {
 
@@ -27,9 +26,9 @@ const ProfileInfo = ({ userData }) => {
             return (
                 <div>
                     <BrowserRouter>
-                        <LinkContainer to={`liked-recipes/${userData._id}`}>
+                        <a href={`liked-recipes/${userData._id}`}>
                             <Alert className={style.alert1} variant="danger">Liked [{userData.likedRecipes.length / 2}]</Alert>
-                        </LinkContainer>
+                        </a>
                     </BrowserRouter>
 
                 </div>
