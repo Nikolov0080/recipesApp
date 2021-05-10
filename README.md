@@ -32,7 +32,7 @@ Front-end: React
  - libaries used:
  bcrypt  
     body-parser  
-    cloudinary  
+    cloudinary  **(all images are stored here)**
     cookie-parser  
     dotenv  
     express-fileupload  
