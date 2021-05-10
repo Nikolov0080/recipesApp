@@ -83,7 +83,25 @@ Only recipecreators can delete their own recipes
  - comment recipe  
  - add recipe  
  - delete recipe(his own recipes only)   
- 
+
+
+ ### **`Models`**
+
+User model       | Recipe model | 
+-----------------|--------------|
+username         |recipe name   |
+email            |ingredients   |
+password         |directions    |
+skill level      |prep time     |
+profile picture  |cook time     |
+liked recipes    |category      |
+user recipes     |difficulty    |
+|-               |description   |
+|-               |photo         |
+|-               |likes         |
+|-               |comments      |
+
+
  ### **`Pages`**
  
   for guests:
@@ -100,4 +118,11 @@ Only recipecreators can delete their own recipes
  - Liked recipes
  - Recipe details (can like or comment or delete if creator)
  
- ### ``
+ ### **`Routes`**  
+- Home page - "/"  
+- Login page - "/login"
+- Register page - "/register"
+- Profile page - "/profile"
+- Recipe details - "/recipe-details/recipe_id=(current recipe ID)"  
+- Search results - "/search-results/query=?(QUERY)"  
+- Liked recipes - "/liked-recipes/(recipe ID)"  
