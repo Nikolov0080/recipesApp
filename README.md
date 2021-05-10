@@ -70,20 +70,19 @@ users can delete comments
 
 - **Delete recipe**
 Accessible from PDP for authenticated users  
-Only recipecreators can delete their own recipes
+Only recipecreators can delete their own recipes  
 
--- for guests:   
---------------
-
-- see recipes and recipes details   
-
--- for authenticated users  
---------------
- - like recipe   
- - comment recipe  
- - add recipe  
- - delete recipe(his own recipes only)   
-
+**Not authenticated users (guests)**  
+- create account  
+- can view home page  
+- search for recipes  
+- view recipe details  
+ 
+ **Authenticated users**  
+ - create recipe  
+ - like recipes  
+ - comments recipes  
+ - delete recipe (if creator)  
 
  ### **`Models`**
 
